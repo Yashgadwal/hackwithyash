@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Outer Shield Outline -->
+  <path d="M256 32 C340 70, 430 80, 448 96 C460 110, 464 260, 420 380 C370 450, 290 490, 256 500 C222 490, 142 450, 92 380 C48 260, 52 110, 64 96 C82 80, 172 70, 256 32 Z" fill="#000000" stroke="#a855f7" stroke-width="24" stroke-linejoin="round"/>
+  <!-- Keyhole representation inside -->
+  <circle cx="256" cy="200" r="60" fill="#a855f7"/>
+  <path d="M226 200 L286 200 L306 360 L206 360 Z" fill="#a855f7"/>
+  <circle cx="256" cy="200" r="24" fill="#000000"/>
+</svg>
