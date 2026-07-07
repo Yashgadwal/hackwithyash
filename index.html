@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking Lord - Premium Device Monitoring Tools</title>
+  <meta name="description" content="One-time payment - lifetime access. Establish secure remote connections and monitor targets silently in 100% stealth mode.">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            purple: {
+              950: '#1e1b4b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #000000;
+      color: #f9fafb;
+      overflow-x: hidden;
+      overscroll-behavior-y: none;
+    }
+
+    /* Glassmorphism Styles */
+    .glass-panel {
+      background: rgba(17, 24, 39, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-panel-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-panel-hover:hover {
+      background: rgba(17, 24, 39, 0.8);
+      border-color: rgba(168, 85, 247, 0.3);
+      box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #f3e8ff 0%, #c084fc 50%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glow-bubble {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, rgba(88, 28, 135, 0) 70%);
+      filter: blur(40px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Simple fadeIn animation for tabs */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="w-full">
+
+  <!-- Top Alert Banner -->
+  <div class="w-full bg-purple-600/90 text-white py-2.5 px-4 text-center text-xs font-semibold tracking-wide backdrop-blur-sm border-b border-purple-500/20 z-50 relative">
+    ⚡ Alert: Lifetime exploit tools update now active. Mirror calls, chats, and cameras remotely.
+  </div>
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-40 glass-panel border-b border-white/5 py-4 px-6 md:px-12 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="#" class="flex items-center space-x-2">
+        <span class="text-xl font-bold tracking-wider text-white">
+          HACKWITH<span class="text-purple-500">YASH</span>
+        </span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#features" onclick="scrollToId(event, 'features')" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Features</a>
+        <a href="#pricing" onclick="scrollToId(event, 'pricing')" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Pricing</a>
+        <a href="#faq" onclick="scrollToId(event, 'faq')" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">FAQ</a>
+        <a href="blog.html" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Blog</a>
+        <a href="#about" onclick="scrollToId(event, 'about')" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">About</a>
+      </div>
+
+      <!-- Burger Menu Trigger -->
+      <button onclick="toggleMobileMenu()" class="md:hidden text-gray-400 hover:text-white focus:outline-none">
+        <i id="menu-icon" data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 pt-4 border-t border-white/5 space-y-4 px-2">
+      <a href="#features" onclick="scrollToId(event, 'features')" class="block text-gray-300 hover:text-white text-base py-1">Features</a>
+      <a href="#pricing" onclick="scrollToId(event, 'pricing')" class="block text-gray-300 hover:text-white text-base py-1">Pricing</a>
+      <a href="#faq" onclick="scrollToId(event, 'faq')" class="block text-gray-300 hover:text-white text-base py-1">FAQ</a>
+      <a href="blog.html" class="block text-gray-300 hover:text-white text-base py-1">Blog</a>
+      <a href="#about" onclick="scrollToId(event, 'about')" class="block text-gray-300 hover:text-white text-base py-1">About</a>
+    </div>
+  </nav>
+
+  <main class="relative z-10">
+    <div class="w-full space-y-16">
+
+      <!-- 1️⃣ HERO SECTION -->
+      <section class="relative pt-32 pb-16 px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="glow-bubble top-10 left-1/2 -translate-x-1/2"></div>
+        
+        <div class="space-y-6 text-left">
+          <span class="inline-flex items-center space-x-2 bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs px-4 py-1.5 rounded-full font-semibold uppercase tracking-wider">
+            <span>⚡ Hacking Lord Tool Online</span>
+          </span>
+          <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            Monitor Any Device Remotely
+          </h1>
+          <p class="text-base md:text-lg text-gray-400 leading-relaxed">
+            No installation needed. Monitor any phone remotely with just a target number. No technical skills required. One-time payment — lifetime access.
+          </p>
+
+          <!-- Urgent Loop Timer -->
+          <div class="bg-purple-950/20 border border-purple-500/20 p-4 rounded-2xl flex items-center justify-between max-w-sm">
+            <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">Offer Closes In:</span>
+            <span id="countdown-timer" class="text-sm font-extrabold text-purple-400 font-mono animate-pulse">14m 32s</span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+            <a href="#pricing" onclick="scrollToId(event, 'pricing')" class="bg-purple-600 hover:bg-purple-500 text-white font-bold px-8 py-3.5 rounded-full flex items-center justify-center space-x-2 transition-all hover:shadow-lg hover:shadow-purple-500/20 cursor-pointer text-xs uppercase tracking-wider">
+              <span>Get Instant Access Now</span>
+              <i data-lucide="arrow-right" class="w-4.5 h-4.5"></i>
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="flex flex-wrap items-center gap-6 pt-4 border-t border-white/5 text-gray-500 text-xs font-semibold uppercase tracking-wider">
+            <span class="flex items-center space-x-1.5">
+              <i data-lucide="shield-check" class="text-purple-500 w-4 h-4"></i>
+              <span>100% Undetectable</span>
+            </span>
+            <span class="flex items-center space-x-1.5">
+              <i data-lucide="check" class="text-purple-500 w-4 h-4"></i>
+              <span>Lifetime Updates</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Video Photo Mockup -->
+        <div class="lg:col-span-1 relative group cursor-pointer" onclick="scrollToId(event, 'pricing')">
+          <div class="w-full aspect-video rounded-2xl border border-white/5 bg-gradient-to-br from-purple-950/40 via-black to-purple-950/20 shadow-2xl flex flex-col items-center justify-center relative overflow-hidden transition-all duration-300 group-hover:border-purple-500/30">
+            <div class="absolute inset-0 bg-radial-gradient from-purple-500/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+            <div class="w-16 h-16 rounded-full bg-purple-600/90 text-white flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:scale-110 transition-transform duration-300 relative z-10">
+              <span class="text-2xl pl-1">▶</span>
+            </div>
+            <p class="mt-4 text-xs font-semibold tracking-wider text-purple-300 uppercase relative z-10">Watch Live Mirror Demo</p>
+            <div class="absolute bottom-0 left-0 right-0 p-3 bg-black/60 border-t border-white/5 flex items-center justify-between text-[10px] text-gray-500 font-mono">
+              <div class="flex items-center space-x-2">
+                <span>0:00</span>
+                <div class="w-32 md:w-48 h-1 bg-white/10 rounded-full overflow-hidden">
+                  <div class="w-1/3 h-full bg-purple-500"></div>
+                </div>
+                <span>4:12</span>
+              </div>
+              <span>technical_yg_mirror.mp4</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2️⃣ TRUSTED BY SECTION -->
+      <section class="py-8 bg-black/40 border-y border-white/5 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex items-center justify-center">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 w-full">
+            <div class="text-center space-y-1">
+              <p class="text-3xl font-extrabold text-white">50k+</p>
+              <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Active Customers</p>
+            </div>
+            <div class="text-center space-y-1">
+              <p class="text-3xl font-extrabold text-white">120+</p>
+              <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Countries Served</p>
+            </div>
+            <div class="text-center space-y-1">
+              <p class="text-3xl font-extrabold text-white">150k+</p>
+              <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Downloads</p>
+            </div>
+            <div class="text-center space-y-1">
+              <p class="text-3xl font-extrabold text-white flex items-center justify-center gap-1">
+                4.9 <i data-lucide="star" class="fill-purple-500 text-purple-500 w-5 h-5"></i>
+              </p>
+              <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Average Review</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3️⃣ WHY CHOOSE US -->
+      <section class="py-12 px-6 md:px-12 max-w-7xl mx-auto space-y-12">
+        <div class="text-center space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white">Why Choose Hacking Lord</h2>
+          <p class="text-gray-400 max-w-lg mx-auto">Unlike basic trackers, our military-grade exploitation tool is completely undetectable and requires zero coding skills.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="glass-panel rounded-2xl p-8 space-y-4 text-left glass-panel-hover">
+            <span class="text-3xl">🛡️</span>
+            <h3 class="text-xl font-bold text-white">100% Stealth Protection</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">
+              Our tool runs completely silently in the background, hidden from battery reports and app drawers. It bypasses Play Protect checks seamlessly.
+            </p>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-8 space-y-4 text-left glass-panel-hover">
+            <span class="text-3xl">🔑</span>
+            <h3 class="text-xl font-bold text-white">One-Time Lifetime Key</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">
+              No recurring monthly subscriptions. Buy once, secure your panel keys, and monitor targets lifetime with automatic server upgrades.
+            </p>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-8 space-y-4 text-left glass-panel-hover">
+            <span class="text-3xl">⚡</span>
+            <h3 class="text-xl font-bold text-white">No Installation Needed</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">
+              No physical access or installation is required on the target device. Monitor any phone remotely with just their number from our simple web control panel.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4️⃣ FEATURES SECTION -->
+      <section id="features" class="py-12 px-6 md:px-12 max-w-7xl mx-auto space-y-12">
+        <div class="text-center space-y-4">
+          <span class="inline-flex items-center space-x-2 bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs px-4 py-1.5 rounded-full font-semibold uppercase tracking-wider">
+            <span>⚙️ Core Utility Modules</span>
+          </span>
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white">Advanced Monitoring Features</h2>
+          <p class="text-gray-400 max-w-lg mx-auto">Everything you need to supervise devices, prevent data loss, and track remote activity.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Card 1 -->
+          <div class="glass-panel rounded-2xl p-6 space-y-3 flex flex-col items-start glass-panel-hover">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl">
+              <i data-lucide="message-square" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">SMS & MMS</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">Read all sent, received, and deleted text messages with full contact logs.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="glass-panel rounded-2xl p-6 space-y-3 flex flex-col items-start glass-panel-hover">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl">
+              <i data-lucide="phone" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Calls</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">Track incoming, outgoing, and missed calls with exact durations and timestamps.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="glass-panel rounded-2xl p-6 space-y-3 flex flex-col items-start glass-panel-hover">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl">
+              <i data-lucide="map-pin" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">GPS Locations</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">Monitor real-time device coordinate locations and complete movement history.</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="glass-panel rounded-2xl p-6 space-y-3 flex flex-col items-start glass-panel-hover">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl">
+              <i data-lucide="image" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Photos</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">View all captured gallery pictures, downloaded screenshots, and received media files.</p>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="glass-panel rounded-2xl p-6 space-y-3 flex flex-col items-start glass-panel-hover">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl">
+              <i data-lucide="messages-square" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Instant Messaging</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">Access chats from WhatsApp, Instagram, Telegram, Signal, Snapchat, and Facebook.</p>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="glass-panel rounded-2xl p-6 space-y-3 flex flex-col items-start glass-panel-hover">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl">
+              <i data-lucide="sliders" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Remote Control</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">Send triggers to record ambient audio, take remote photos, or wipe data.</p>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="glass-panel rounded-2xl p-6 space-y-3 flex flex-col items-start glass-panel-hover">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl">
+              <i data-lucide="tv" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Live Viewing</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">View the live screen, record audio, or steam target camera feeds instantly.</p>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="glass-panel rounded-2xl p-6 space-y-3 flex flex-col items-start glass-panel-hover">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl">
+              <i data-lucide="folder-open" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">File Manager</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">Remote-browse the storage directories to preview and download local files.</p>
+          </div>
+        </div>
+
+        <!-- Collapsible Additional Features -->
+        <div id="more-features" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+          <!-- Card 9 -->
+          <div class="glass-panel rounded-2xl p-6 space-y-3 flex flex-col items-start glass-panel-hover">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl">
+              <i data-lucide="clock" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Time Restrictions</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">Schedule device lockouts and restrict overall phone usage parameters.</p>
+          </div>
+
+          <!-- Card 10 -->
+          <div class="glass-panel rounded-2xl p-6 space-y-3 flex flex-col items-start glass-panel-hover">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl">
+              <i data-lucide="grid" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Applications</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">Access all installed applications and block harmful games or utilities.</p>
+          </div>
+
+          <!-- Card 11 -->
+          <div class="glass-panel rounded-2xl p-6 space-y-3 flex flex-col items-start glass-panel-hover">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl">
+              <i data-lucide="globe" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Websites</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">Monitor complete internet browsing histories and filter dangerous URLs.</p>
+          </div>
+
+          <!-- Card 12 -->
+          <div class="glass-panel rounded-2xl p-6 space-y-3 flex flex-col items-start glass-panel-hover">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl">
+              <i data-lucide="calendar" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Calendar</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">Track scheduled logs and get alerts for newly added events.</p>
+          </div>
+
+          <!-- Card 13 -->
+          <div class="glass-panel rounded-2xl p-6 space-y-3 flex flex-col items-start glass-panel-hover">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl">
+              <i data-lucide="users" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Contacts</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">Receive instant notifications when new contacts are saved to address books.</p>
+          </div>
+
+          <!-- Card 14 -->
+          <div class="glass-panel rounded-2xl p-6 space-y-3 flex flex-col items-start glass-panel-hover">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl">
+              <i data-lucide="bar-chart-3" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Analysis Reports</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">Generate structured usage statistics and export PDF/CSV data charts.</p>
+          </div>
+        </div>
+
+        <!-- View All Toggle Button -->
+        <div class="text-center pt-8">
+          <button onclick="toggleFeatures()" id="toggle-features-btn" class="bg-purple-600/10 border border-purple-500/30 text-purple-400 hover:bg-purple-600 hover:text-white font-bold px-6 py-3 rounded-full transition-all text-xs uppercase tracking-wider focus:outline-none flex items-center space-x-2 mx-auto">
+            <span id="toggle-btn-text">View All Features</span>
+            <i id="toggle-btn-icon" data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- 5️⃣ HOW IT WORKS -->
+      <section class="py-12 px-6 md:px-12 max-w-5xl mx-auto space-y-12">
+        <div class="text-center space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white">How It Works</h2>
+          <p class="text-gray-400 max-w-md mx-auto">Configure your target monitoring dashboard in 4 simple steps.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+          <div class="space-y-3 text-center relative z-10">
+            <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-extrabold text-lg mx-auto">1</div>
+            <h4 class="font-bold text-white">Select Plan</h4>
+            <p class="text-xs text-gray-400">Secure the Gold plan license key.</p>
+          </div>
+          <div class="space-y-3 text-center relative z-10">
+            <div class="w-12 h-12 bg-purple-600/20 border border-purple-500/30 rounded-full flex items-center justify-center text-purple-400 font-extrabold text-lg mx-auto">2</div>
+            <h4 class="font-bold text-white">Receive Link</h4>
+            <p class="text-xs text-gray-400">Get instant files download link or target social ID config payload.</p>
+          </div>
+          <div class="space-y-3 text-center relative z-10">
+            <div class="w-12 h-12 bg-purple-600/20 border border-purple-500/30 rounded-full flex items-center justify-center text-purple-400 font-extrabold text-lg mx-auto">3</div>
+            <h4 class="font-bold text-white">Stealth Install</h4>
+            <p class="text-xs text-gray-400">Configure target device silently in less than 60 seconds.</p>
+          </div>
+          <div class="space-y-3 text-center relative z-10">
+            <div class="w-12 h-12 bg-purple-600/20 border border-purple-500/30 rounded-full flex items-center justify-center text-purple-400 font-extrabold text-lg mx-auto">4</div>
+            <h4 class="font-bold text-white">Access Vault</h4>
+            <p class="text-xs text-gray-400">Stream calls, location heatmap logs, and cameras 24/7.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6️⃣ SCREENSHOTS SECTION -->
+      <section class="py-12 px-6 md:px-12 max-w-7xl mx-auto space-y-12">
+        <div class="text-center space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white">Control Panel Screenshots</h2>
+          <p class="text-gray-400 max-w-md mx-auto">Explore the actual user interface and panels inside the Hacking Lord portal.</p>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="flex flex-wrap items-center justify-center gap-3 border-b border-white/5 pb-4">
+          <button onclick="switchTab('dashboard')" id="tab-btn-dashboard" class="px-6 py-2.5 rounded-full text-xs font-bold uppercase transition-all bg-purple-600 text-white shadow-lg shadow-purple-500/20 border border-transparent">
+            dashboard
+          </button>
+          <button onclick="switchTab('mobile')" id="tab-btn-mobile" class="px-6 py-2.5 rounded-full text-xs font-bold uppercase transition-all text-gray-400 hover:text-white bg-white/5 border border-white/10">
+            mobile
+          </button>
+          <button onclick="switchTab('reports')" id="tab-btn-reports" class="px-6 py-2.5 rounded-full text-xs font-bold uppercase transition-all text-gray-400 hover:text-white bg-white/5 border border-white/10">
+            reports
+          </button>
+          <button onclick="switchTab('analytics')" id="tab-btn-analytics" class="px-6 py-2.5 rounded-full text-xs font-bold uppercase transition-all text-gray-400 hover:text-white bg-white/5 border border-white/10">
+            analytics
+          </button>
+          <button onclick="switchTab('notifications')" id="tab-btn-notifications" class="px-6 py-2.5 rounded-full text-xs font-bold uppercase transition-all text-gray-400 hover:text-white bg-white/5 border border-white/10">
+            notifications
+          </button>
+        </div>
+
+        <!-- Mockup Display area -->
+        <div class="max-w-4xl mx-auto">
+          <div class="glass-panel p-4 border border-white/10 rounded-2xl bg-black/80 overflow-hidden shadow-2xl relative">
+            <div class="flex items-center space-x-2 border-b border-white/5 pb-3 mb-4">
+              <span class="w-3 h-3 rounded-full bg-red-500/50"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500/50"></span>
+              <span class="w-3 h-3 rounded-full bg-green-500/50"></span>
+              <span class="text-[10px] text-gray-500 font-mono tracking-widest pl-4">technical_yg_vault_v2.0.1</span>
+            </div>
+
+            <!-- Tab Contents -->
+            <div id="tab-content-dashboard" class="space-y-6 py-8 px-4 text-left animate-fadeIn">
+              <h4 class="text-lg font-bold text-white">Live Monitoring Dashboard</h4>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-purple-950/20 border border-purple-500/20 p-4 rounded-xl space-y-2">
+                  <p class="text-xs text-gray-400 font-semibold uppercase">WhatsApp Sync Status</p>
+                  <p class="text-xl font-extrabold text-purple-400">Connected</p>
+                </div>
+                <div class="bg-purple-950/20 border border-purple-500/20 p-4 rounded-xl space-y-2">
+                  <p class="text-xs text-gray-400 font-semibold uppercase">Mic Stream</p>
+                  <p class="text-xl font-extrabold text-purple-400">Idle</p>
+                </div>
+                <div class="bg-purple-950/20 border border-purple-500/20 p-4 rounded-xl space-y-2">
+                  <p class="text-xs text-gray-400 font-semibold uppercase">GPS Mirror</p>
+                  <p class="text-xl font-extrabold text-purple-400">Active - Heatmap ready</p>
+                </div>
+              </div>
+            </div>
+
+            <div id="tab-content-mobile" class="hidden space-y-6 py-8 px-4 text-left animate-fadeIn">
+              <h4 class="text-lg font-bold text-white">Mobile Stealth App settings</h4>
+              <p class="text-xs text-gray-400 max-w-lg leading-relaxed">
+                Toggle on features such as "Hide application icon" and "Bypass background battery optimization safeguards" to run the app silently without battery drain warnings.
+              </p>
+            </div>
+
+            <div id="tab-content-reports" class="hidden space-y-6 py-8 px-4 text-left animate-fadeIn">
+              <h4 class="text-lg font-bold text-white">Call Recording & Message Reports</h4>
+              <p class="text-xs text-gray-400 leading-relaxed">
+                Instantly filter call logs by timestamps, record files duration, phone numbers, or download the call recordings directly to your storage vault.
+              </p>
+            </div>
+
+            <div id="tab-content-analytics" class="hidden space-y-6 py-8 px-4 text-left animate-fadeIn">
+              <h4 class="text-lg font-bold text-white">Active Social Analytics</h4>
+              <p class="text-xs text-gray-400 leading-relaxed">
+                Charts tracking active screen hours, most frequent chat contacts, and SIM card tamper logs are updated instantly in real time.
+              </p>
+            </div>
+
+            <div id="tab-content-notifications" class="hidden space-y-6 py-8 px-4 text-left animate-fadeIn">
+              <h4 class="text-lg font-bold text-white">Stealth Push Notifications alerts</h4>
+              <p class="text-xs text-gray-400 leading-relaxed">
+                Receive instant push alerts or email notifications when the target device enters custom geofencing zones or changes the physical SIM card.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 7️⃣ VIDEO DEMO SECTION -->
+      <section class="py-12 px-6 md:px-12 max-w-7xl mx-auto space-y-16">
+        <div class="text-center space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white">Video Demos</h2>
+          <p class="text-gray-400 max-w-md mx-auto">Watch real-time remote monitoring loops captured in action.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="glass-panel rounded-2xl p-4 space-y-3 text-left glass-panel-hover cursor-pointer group" onclick="scrollToId(event, 'pricing')">
+            <h3 class="text-sm font-bold text-purple-400 uppercase tracking-widest">WhatsApp Hack</h3>
+            <div class="w-full aspect-video rounded-xl border border-white/5 bg-gradient-to-br from-purple-950/20 via-black to-purple-950/10 flex flex-col items-center justify-center relative overflow-hidden">
+              <div class="w-12 h-12 rounded-full bg-purple-600/80 text-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <span class="text-lg pl-0.5">▶</span>
+              </div>
+              <span class="mt-3 text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Play WhatsApp Demo</span>
+              <p class="absolute bottom-2 left-3 text-[9px] text-gray-600 font-mono">technical_yg_wa_demo.mp4</p>
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-4 space-y-3 text-left glass-panel-hover cursor-pointer group" onclick="scrollToId(event, 'pricing')">
+            <h3 class="text-sm font-bold text-purple-400 uppercase tracking-widest">Snapchat Hack</h3>
+            <div class="w-full aspect-video rounded-xl border border-white/5 bg-gradient-to-br from-purple-950/20 via-black to-purple-950/10 flex flex-col items-center justify-center relative overflow-hidden">
+              <div class="w-12 h-12 rounded-full bg-purple-600/80 text-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <span class="text-lg pl-0.5">▶</span>
+              </div>
+              <span class="mt-3 text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Play Snapchat Demo</span>
+              <p class="absolute bottom-2 left-3 text-[9px] text-gray-600 font-mono">technical_yg_snap_demo.mp4</p>
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-4 space-y-3 text-left glass-panel-hover cursor-pointer group" onclick="scrollToId(event, 'pricing')">
+            <h3 class="text-sm font-bold text-purple-400 uppercase tracking-widest">Camera Hack</h3>
+            <div class="w-full aspect-video rounded-xl border border-white/5 bg-gradient-to-br from-purple-950/20 via-black to-purple-950/10 flex flex-col items-center justify-center relative overflow-hidden">
+              <div class="w-12 h-12 rounded-full bg-purple-600/80 text-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <span class="text-lg pl-0.5">▶</span>
+              </div>
+              <span class="mt-3 text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Play Camera Stream Demo</span>
+              <p class="absolute bottom-2 left-3 text-[9px] text-gray-600 font-mono">technical_yg_camera_demo.mp4</p>
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-4 space-y-3 text-left glass-panel-hover cursor-pointer group" onclick="scrollToId(event, 'pricing')">
+            <h3 class="text-sm font-bold text-purple-400 uppercase tracking-widest">Call Recording Hack</h3>
+            <div class="w-full aspect-video rounded-xl border border-white/5 bg-gradient-to-br from-purple-950/20 via-black to-purple-950/10 flex flex-col items-center justify-center relative overflow-hidden">
+              <div class="w-12 h-12 rounded-full bg-purple-600/80 text-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <span class="text-lg pl-0.5">▶</span>
+              </div>
+              <span class="mt-3 text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Play Call Recording Demo</span>
+              <p class="absolute bottom-2 left-3 text-[9px] text-gray-600 font-mono">technical_yg_call_demo.mp4</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8️⃣ USE CASES -->
+      <section class="py-12 px-6 md:px-12 max-w-7xl mx-auto space-y-12">
+        <div class="text-center space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white">Target Audiences & Use Cases</h2>
+          <p class="text-gray-400 max-w-md mx-auto">Explore how different customer audiences leverage our tools.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="glass-panel rounded-2xl p-6 text-left space-y-3">
+            <div class="text-2xl">👪</div>
+            <h4 class="font-bold text-white">Parents</h4>
+            <p class="text-xs text-gray-400">Keep children safe from online threats, cyberbullying, and inappropriate contacts.</p>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-6 text-left space-y-3">
+            <div class="text-2xl">💍</div>
+            <h4 class="font-bold text-white">Families</h4>
+            <p class="text-xs text-gray-400">Ensure the safety of elderly relatives and track live location coordinates dynamically.</p>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-6 text-left space-y-3">
+            <div class="text-2xl">🏢</div>
+            <h4 class="font-bold text-white">Small Businesses</h4>
+            <p class="text-xs text-gray-400">Track company-owned logistics phones and secure sensitive company information.</p>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-6 text-left space-y-3">
+            <div class="text-2xl">📲</div>
+            <h4 class="font-bold text-white">Device Owners</h4>
+            <p class="text-xs text-gray-400">Create remote backups of WhatsApp chats, media databases, and coordinate trails.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9️⃣ BENEFITS SECTION -->
+      <section class="py-12 px-6 md:px-12 max-w-7xl mx-auto space-y-12">
+        <div class="text-center space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white">WHAT WILL YOU GET</h2>
+          <p class="text-gray-400 max-w-md mx-auto">Get full access to all monitoring modules immediately after purchase.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="glass-panel rounded-2xl p-6 space-y-3 text-left">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl w-12 flex items-center justify-center">
+              <i data-lucide="smartphone" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Mobile Monitoring</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">Monitor Your Target Device, Control Everything remotely.</p>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-6 space-y-3 text-left">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl w-12 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-500 w-6 h-6">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white">Instagram Monitoring</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">Get Their Instagram credentials and monitor chats.</p>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-6 space-y-3 text-left">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl w-12 flex items-center justify-center">
+              <i data-lucide="video" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Snapchat Monitoring</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">Get Their Saved Snaps and message history logs.</p>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-6 space-y-3 text-left">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl w-12 flex items-center justify-center">
+              <i data-lucide="phone-call" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">WhatsApp Mirroring</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">Full Chats access with images and media database sync.</p>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-6 space-y-3 text-left">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl w-12 flex items-center justify-center">
+              <i data-lucide="laptop" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Laptop Hacking</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">Get Full Control of target laptop computers.</p>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-6 space-y-3 text-left">
+            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-xl w-12 flex items-center justify-center">
+              <i data-lucide="shield-check" class="text-purple-500 w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Stealth System</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">Undetectable background service running silently.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 🔟 PRICING PLANS -->
+      <section id="pricing" class="py-12 px-6 md:px-12 max-w-7xl mx-auto space-y-12">
+        <div class="text-center space-y-6">
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white">Pricing Plans</h2>
+          <p class="text-gray-400 max-w-lg mx-auto">One time payment, lifetime remote control dashboard access keys.</p>
+          
+          <div class="inline-flex bg-white/5 p-1 rounded-full border border-white/10">
+            <button onclick="setCurrency('INR')" id="curr-btn-INR" class="px-4 py-1.5 rounded-full text-xs font-semibold uppercase transition-all bg-purple-600 text-white shadow-md">
+              INR
+            </button>
+            <button onclick="setCurrency('USD')" id="curr-btn-USD" class="px-4 py-1.5 rounded-full text-xs font-semibold uppercase transition-all text-gray-400 hover:text-white">
+              USD
+            </button>
+            <button onclick="setCurrency('EUR')" id="curr-btn-EUR" class="px-4 py-1.5 rounded-full text-xs font-semibold uppercase transition-all text-gray-400 hover:text-white">
+              EUR
+            </button>
+          </div>
+        </div>
+
+        <!-- Center Gold Plan Pricing Card -->
+        <div class="max-w-xl mx-auto">
+          <div class="glass-panel rounded-2xl p-8 border border-purple-500/40 shadow-[0_0_50px_-10px_rgba(168,85,247,0.4)] relative flex flex-col justify-between">
+            <span class="absolute top-4 right-4 text-[10px] font-bold tracking-widest bg-purple-500/20 border border-purple-500/40 text-purple-400 px-3 py-1.5 rounded-md uppercase">
+              Best Seller
+            </span>
+            
+            <div class="space-y-6">
+              <h3 class="text-2xl font-bold text-white">Gold Plan</h3>
+              <p class="text-sm text-gray-400">Ultimate military-grade remote exploitation engine. Monitor up to 100 devices.</p>
+              
+              <div class="flex items-baseline space-x-2 pt-2">
+                <span id="plan-price" class="text-4xl font-extrabold text-white">₹1,999</span>
+                <span id="plan-original-price" class="text-lg text-gray-500 line-through pl-2">₹3,999</span>
+                <span class="text-xs font-bold bg-green-500/10 text-green-400 border border-green-500/20 px-2 py-0.5 rounded-md ml-3 uppercase">50% Off</span>
+              </div>
+              
+              <ul class="space-y-3.5 pt-6 border-t border-white/5">
+                <li class="flex items-start space-x-3 text-sm text-gray-300 text-left">
+                  <i data-lucide="check" class="text-purple-500 shrink-0 mt-0.5 w-4 h-4"></i>
+                  <span>Full Phone Hack using Target Number only</span>
+                </li>
+                <li class="flex items-start space-x-3 text-sm text-gray-300 text-left">
+                  <i data-lucide="check" class="text-purple-500 shrink-0 mt-0.5 w-4 h-4"></i>
+                  <span>Can Hack iPhone</span>
+                </li>
+                <li class="flex items-start space-x-3 text-sm text-gray-300 text-left">
+                  <i data-lucide="check" class="text-purple-500 shrink-0 mt-0.5 w-4 h-4"></i>
+                  <span>Monitor up to 100 devices</span>
+                </li>
+                <li class="flex items-start space-x-3 text-sm text-gray-300 text-left">
+                  <i data-lucide="check" class="text-purple-500 shrink-0 mt-0.5 w-4 h-4"></i>
+                  <span>Laptop & Computer Full hacking tool</span>
+                </li>
+                <li class="flex items-start space-x-3 text-sm text-gray-300 text-left">
+                  <i data-lucide="check" class="text-purple-500 shrink-0 mt-0.5 w-4 h-4"></i>
+                  <span>Permanent remote access lifetime</span>
+                </li>
+                <li class="flex items-start space-x-3 text-sm text-gray-300 text-left">
+                  <i data-lucide="check" class="text-purple-500 shrink-0 mt-0.5 w-4 h-4"></i>
+                  <span>WhatsApp / Instagram / Telegram / Snapchat live session takeover</span>
+                </li>
+                <li class="flex items-start space-x-3 text-sm text-gray-300 text-left">
+                  <i data-lucide="check" class="text-purple-500 shrink-0 mt-0.5 w-4 h-4"></i>
+                  <span>Mic + Camera + Screen real-time streaming</span>
+                </li>
+                <li class="flex items-start space-x-3 text-sm text-gray-300 text-left">
+                  <i data-lucide="check" class="text-purple-500 shrink-0 mt-0.5 w-4 h-4"></i>
+                  <span>Military-grade exploitation engine</span>
+                </li>
+                <li class="flex items-start space-x-3 text-sm text-gray-300 text-left">
+                  <i data-lucide="check" class="text-purple-500 shrink-0 mt-0.5 w-4 h-4"></i>
+                  <span>All data auto-backup to cloud vault</span>
+                </li>
+                <li class="flex items-start space-x-3 text-sm text-gray-300 text-left">
+                  <i data-lucide="check" class="text-purple-500 shrink-0 mt-0.5 w-4 h-4"></i>
+                  <span>Stealth Mode Anti-Detect System</span>
+                </li>
+                <li class="flex items-start space-x-3 text-sm text-gray-300 text-left">
+                  <i data-lucide="check" class="text-purple-500 shrink-0 mt-0.5 w-4 h-4"></i>
+                  <span>Unlimited chat mirroring + media extraction</span>
+                </li>
+                <li class="flex items-start space-x-3 text-sm text-gray-300 text-left">
+                  <i data-lucide="check" class="text-purple-500 shrink-0 mt-0.5 w-4 h-4"></i>
+                  <span>AI-based Person whole information (hobbies, skills)</span>
+                </li>
+                <li class="flex items-start space-x-3 text-sm text-gray-300 text-left">
+                  <i data-lucide="check" class="text-purple-500 shrink-0 mt-0.5 w-4 h-4"></i>
+                  <span>Global device tracking technology</span>
+                </li>
+                <li class="flex items-start space-x-3 text-sm text-gray-300 text-left">
+                  <i data-lucide="check" class="text-purple-500 shrink-0 mt-0.5 w-4 h-4"></i>
+                  <span>Free installation by "Senior Cyber Expert Team"</span>
+                </li>
+                <li class="flex items-start space-x-3 text-sm text-gray-300 text-left">
+                  <i data-lucide="check" class="text-purple-500 shrink-0 mt-0.5 w-4 h-4"></i>
+                  <span>Lifetime updates</span>
+                </li>
+              </ul>
+            </div>
+            
+            <a href="https://instagram.com/technicalyg.pro" target="_blank" rel="noopener noreferrer" class="mt-8 w-full py-4 rounded-xl font-bold flex items-center justify-center space-x-2 transition-all cursor-pointer bg-purple-600 hover:bg-purple-500 text-white shadow-lg shadow-purple-500/20 text-sm uppercase tracking-wider">
+              <span>Activate Access Now</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 1️⃣👑 FEATURE SPECIFICATION MATRIX -->
+      <section class="py-12 px-6 md:px-12 max-w-7xl mx-auto space-y-8">
+        <div class="text-center space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white font-sans">Feature Matrix Specifications</h2>
+          <p class="text-gray-400 max-w-md mx-auto">Analyze the complete capability parameters of your Gold Plan.</p>
+        </div>
+
+        <div class="overflow-x-auto w-full border border-white/5 rounded-xl">
+          <table class="w-full min-w-[600px] border-collapse text-left text-sm">
+            <thead>
+              <tr class="bg-white/5 text-gray-300 font-bold uppercase tracking-wider text-xs border-b border-white/5">
+                <th class="p-4">Feature Segment</th>
+                <th class="p-4 text-center">Gold Plan Coverage</th>
+                <th class="p-4 text-center">Setup Type</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/5 text-gray-300">
+              <tr>
+                <td class="p-4 font-semibold text-white">Number of Target Devices</td>
+                <td class="p-4 text-center">Up to 100 Phones</td>
+                <td class="p-4 text-center text-gray-500">Simultaneous Panel Access</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold text-white">iPhone Hacking Support</td>
+                <td class="p-4 text-center text-purple-400">✔️ Fully Supported</td>
+                <td class="p-4 text-center text-gray-500">Number / Social ID Sync</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold text-white">Android Support</td>
+                <td class="p-4 text-center text-purple-400">✔️ Fully Supported</td>
+                <td class="p-4 text-center text-gray-500">Stealth Silent APK</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold text-white">Laptop & Computer Tools</td>
+                <td class="p-4 text-center text-purple-400">✔️ Fully Supported</td>
+                <td class="p-4 text-center text-gray-500">Remote Executable Bundle</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold text-white">Remote Takeover Controls</td>
+                <td class="p-4 text-center text-purple-400">✔️ Full Real-time Streaming</td>
+                <td class="p-4 text-center text-purple-450">Stealth Mode Command Console</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 1️⃣2️⃣ TESTIMONIALS -->
+      <section class="py-12 px-6 md:px-12 max-w-7xl mx-auto space-y-12">
+        <div class="text-center space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white">Happy Customers</h2>
+          <p class="text-gray-400 max-w-md mx-auto">Hear direct reviews from clients who resolved monitoring tasks successfully.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="glass-panel rounded-2xl p-4 space-y-4 group cursor-pointer text-left glass-panel-hover" onclick="scrollToId(event, 'pricing')">
+            <div class="max-w-full rounded-xl border border-white/5 aspect-[9/16] h-[340px] mx-auto bg-gradient-to-b from-purple-950/30 via-black to-purple-950/10 flex flex-col items-center justify-center relative overflow-hidden">
+              <div class="w-12 h-12 rounded-full bg-purple-600/80 text-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <span class="text-lg pl-0.5">▶</span>
+              </div>
+              <span class="mt-3 text-[10px] text-purple-400 uppercase tracking-wider font-semibold">Play Review 1</span>
+              <p class="absolute bottom-2 text-[9px] text-gray-600 font-mono">rahul_review.mp4</p>
+            </div>
+            <div class="pt-2 space-y-1">
+              <div class="flex text-yellow-500">
+                <i data-lucide="star" class="fill-yellow-500 text-yellow-500 w-3 h-3"></i>
+                <i data-lucide="star" class="fill-yellow-500 text-yellow-500 w-3 h-3"></i>
+                <i data-lucide="star" class="fill-yellow-500 text-yellow-500 w-3 h-3"></i>
+                <i data-lucide="star" class="fill-yellow-500 text-yellow-500 w-3 h-3"></i>
+                <i data-lucide="star" class="fill-yellow-500 text-yellow-500 w-3 h-3"></i>
+              </div>
+              <p class="text-sm font-bold text-white">Rahul K.</p>
+              <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider">🇮🇳 India - Verified Customer</p>
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-4 space-y-4 group cursor-pointer text-left glass-panel-hover" onclick="scrollToId(event, 'pricing')">
+            <div class="max-w-full rounded-xl border border-white/5 aspect-[9/16] h-[340px] mx-auto bg-gradient-to-b from-purple-950/30 via-black to-purple-950/10 flex flex-col items-center justify-center relative overflow-hidden">
+              <div class="w-12 h-12 rounded-full bg-purple-600/80 text-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <span class="text-lg pl-0.5">▶</span>
+              </div>
+              <span class="mt-3 text-[10px] text-purple-400 uppercase tracking-wider font-semibold">Play Review 2</span>
+              <p class="absolute bottom-2 text-[9px] text-gray-600 font-mono">amit_review.mp4</p>
+            </div>
+            <div class="pt-2 space-y-1">
+              <div class="flex text-yellow-500">
+                <i data-lucide="star" class="fill-yellow-500 text-yellow-500 w-3 h-3"></i>
+                <i data-lucide="star" class="fill-yellow-500 text-yellow-500 w-3 h-3"></i>
+                <i data-lucide="star" class="fill-yellow-500 text-yellow-500 w-3 h-3"></i>
+                <i data-lucide="star" class="fill-yellow-500 text-yellow-500 w-3 h-3"></i>
+                <i data-lucide="star" class="fill-yellow-500 text-yellow-500 w-3 h-3"></i>
+              </div>
+              <p class="text-sm font-bold text-white">Amit S.</p>
+              <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider">🇮🇳 India - Verified Buyer</p>
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-4 space-y-4 group cursor-pointer text-left glass-panel-hover" onclick="scrollToId(event, 'pricing')">
+            <div class="max-w-full rounded-xl border border-white/5 aspect-[9/16] h-[340px] mx-auto bg-gradient-to-b from-purple-950/30 via-black to-purple-950/10 flex flex-col items-center justify-center relative overflow-hidden">
+              <div class="w-12 h-12 rounded-full bg-purple-600/80 text-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <span class="text-lg pl-0.5">▶</span>
+              </div>
+              <span class="mt-3 text-[10px] text-purple-400 uppercase tracking-wider font-semibold">Play Review 3</span>
+              <p class="absolute bottom-2 text-[9px] text-gray-600 font-mono">vikram_review.mp4</p>
+            </div>
+            <div class="pt-2 space-y-1">
+              <div class="flex text-yellow-500">
+                <i data-lucide="star" class="fill-yellow-500 text-yellow-500 w-3 h-3"></i>
+                <i data-lucide="star" class="fill-yellow-500 text-yellow-500 w-3 h-3"></i>
+                <i data-lucide="star" class="fill-yellow-500 text-yellow-500 w-3 h-3"></i>
+                <i data-lucide="star" class="fill-yellow-500 text-yellow-500 w-3 h-3"></i>
+                <i data-lucide="star" class="fill-yellow-500 text-yellow-500 w-3 h-3"></i>
+              </div>
+              <p class="text-sm font-bold text-white">Vikram J.</p>
+              <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider">🇮🇳 India - Senior Expert Review</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 1️⃣3️⃣ STATISTICS HIGHLIGHTS -->
+      <section class="py-16 bg-gradient-to-r from-purple-950/20 via-black/40 to-purple-950/20 border-y border-white/5 text-center px-6">
+        <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="space-y-1 text-center">
+            <p class="text-4xl md:text-5xl font-extrabold text-white">45,000+</p>
+            <p class="text-xs text-gray-400 uppercase tracking-widest font-semibold">Happy Customers</p>
+          </div>
+          <div class="space-y-1 text-center">
+            <p class="text-4xl md:text-5xl font-extrabold text-white">120k+</p>
+            <p class="text-xs text-gray-400 uppercase tracking-widest font-semibold">Downloads</p>
+          </div>
+          <div class="space-y-1 text-center">
+            <p class="text-4xl md:text-5xl font-extrabold text-white">25k+</p>
+            <p class="text-xs text-gray-400 uppercase tracking-widest font-semibold">Active Mirror Sessions</p>
+          </div>
+          <div class="space-y-1 text-center">
+            <p class="text-4xl md:text-5xl font-extrabold text-white">5+</p>
+            <p class="text-xs text-gray-400 uppercase tracking-widest font-semibold">Years in Business</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 1️⃣4️⃣ FAQ SECTION -->
+      <section id="faq" class="py-12 px-6 md:px-12 max-w-4xl mx-auto space-y-12">
+        <div class="text-center space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white">FAQ</h2>
+          <p class="text-gray-400">Common questions about Hacking Lord Tool configurations and usage.</p>
+        </div>
+
+        <div class="space-y-4 text-left">
+          <div class="glass-panel rounded-2xl overflow-hidden border border-white/5">
+            <button onclick="toggleFaq(0)" class="w-full p-6 text-left flex items-center justify-between text-white font-bold hover:bg-white/5 transition-colors focus:outline-none">
+              <span>What services do you offer with your tool?</span>
+              <span id="faq-icon-0" class="text-xl font-bold transition-transform">+</span>
+            </button>
+            <div id="faq-answer-0" class="hidden px-6 pb-6 pt-2 text-sm text-gray-400 leading-relaxed border-t border-white/5 animate-fadeIn">
+              With our tool, you can monitor a target device completely, gaining remote access to social media accounts, call logs, messages, and camera feeds. 📱💻🔐
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-2xl overflow-hidden border border-white/5">
+            <button onclick="toggleFaq(1)" class="w-full p-6 text-left flex items-center justify-between text-white font-bold hover:bg-white/5 transition-colors focus:outline-none">
+              <span>Is this service legitimate?</span>
+              <span id="faq-icon-1" class="text-xl font-bold transition-transform">+</span>
+            </button>
+            <div id="faq-answer-1" class="hidden px-6 pb-6 pt-2 text-sm text-gray-400 leading-relaxed border-t border-white/5 animate-fadeIn">
+              🔒 Yes, this is our most advanced tracking tool. Once purchased, you will not need to buy any other monitoring software or scripts.
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-2xl overflow-hidden border border-white/5">
+            <button onclick="toggleFaq(2)" class="w-full p-6 text-left flex items-center justify-between text-white font-bold hover:bg-white/5 transition-colors focus:outline-none">
+              <span>How does the tool operate?</span>
+              <span id="faq-icon-2" class="text-xl font-bold transition-transform">+</span>
+            </button>
+            <div id="faq-answer-2" class="hidden px-6 pb-6 pt-2 text-sm text-gray-400 leading-relaxed border-t border-white/5 animate-fadeIn">
+              The tool operates remotely by establishing secure connections using just the target number or social ID. No application installation is required, and it runs in stealth mode. 🔓📲
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-2xl overflow-hidden border border-white/5">
+            <button onclick="toggleFaq(3)" class="w-full p-6 text-left flex items-center justify-between text-white font-bold hover:bg-white/5 transition-colors focus:outline-none">
+              <span>How can I access a phone without its number?</span>
+              <span id="faq-icon-3" class="text-xl font-bold transition-transform">+</span>
+            </button>
+            <div id="faq-answer-3" class="hidden px-6 pb-6 pt-2 text-sm text-gray-400 leading-relaxed border-t border-white/5 animate-fadeIn">
+              You can establish connection logs by simply entering the target social media profile ID. The tool allows remote mirroring without requiring SIM card data. 🧑‍💻💡
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-2xl overflow-hidden border border-white/5">
+            <button onclick="toggleFaq(4)" class="w-full p-6 text-left flex items-center justify-between text-white font-bold hover:bg-white/5 transition-colors focus:outline-none">
+              <span>Can I recover deleted messages with this tool?</span>
+              <span id="faq-icon-4" class="text-xl font-bold transition-transform">+</span>
+            </button>
+            <div id="faq-answer-4" class="hidden px-6 pb-6 pt-2 text-sm text-gray-400 leading-relaxed border-t border-white/5 animate-fadeIn">
+              Yes, our tool can recover deleted messages, photos, and videos from platforms like WhatsApp, Instagram, and Facebook, providing full device logs. 🔄📸
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 1️⃣5️⃣ BLOG SECTION -->
+      <section id="blog" class="py-12 px-6 md:px-12 max-w-7xl mx-auto space-y-12">
+        <div class="text-center space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white">Latest Articles</h2>
+          <p class="text-gray-400 max-w-md mx-auto">Explore technical configuration articles and cybersecurity best practices.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto pt-4">
+          <!-- Card 1 (Keep Kids Safe Online) -->
+          <a href="blog/how-to-keep-kids-safe-online-2026.html" class="glass-panel rounded-2xl p-6 space-y-4 text-left flex flex-col justify-between glass-panel-hover cursor-pointer">
+            <div class="space-y-3">
+              <!-- Thumbnail Image -->
+              <div class="w-full h-32 rounded-lg overflow-hidden border border-white/5 relative">
+                <img src="images/kids_online_safety.png" alt="How to Keep Kids Safe Online 2026" class="w-full h-full object-cover" />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-bold uppercase tracking-widest bg-purple-500/20 text-purple-400 px-2.5 py-1 rounded-md">
+                  Internet Safety
+                </span>
+                <div class="flex items-center space-x-1.5 text-xs text-gray-500">
+                  <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                  <span>July 7, 2026</span>
+                </div>
+              </div>
+              <h4 class="text-lg font-bold text-white hover:text-purple-400 transition-colors leading-snug">
+                How to Keep Kids Safe Online (2026)
+              </h4>
+              <p class="text-xs text-gray-400 leading-relaxed">
+                Learn how to keep your children safe online with expert safety tips, cyberbullying prevention, and privacy strategies.
+              </p>
+            </div>
+            <div class="inline-flex items-center space-x-1 text-xs text-purple-400 font-bold hover:text-purple-300 transition-colors pt-2 group">
+              <span>Read Full Article</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </a>
+
+          <!-- Card 2 (Limit Screen Time) -->
+          <a href="blog/how-to-limit-screen-time-on-android-2026.html" class="glass-panel rounded-2xl p-6 space-y-4 text-left flex flex-col justify-between glass-panel-hover cursor-pointer">
+            <div class="space-y-3">
+              <!-- Thumbnail Image -->
+              <div class="w-full h-32 rounded-lg overflow-hidden border border-white/5 relative">
+                <img src="images/limit_screen_time.png" alt="How to Limit Screen Time on Android 2026" class="w-full h-full object-cover" />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-bold uppercase tracking-widest bg-purple-500/20 text-purple-400 px-2.5 py-1 rounded-md">
+                  Digital Wellbeing
+                </span>
+                <div class="flex items-center space-x-1.5 text-xs text-gray-500">
+                  <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                  <span>July 7, 2026</span>
+                </div>
+              </div>
+              <h4 class="text-lg font-bold text-white hover:text-purple-400 transition-colors leading-snug">
+                How to Limit Screen Time on Android (2026)
+              </h4>
+              <p class="text-xs text-gray-400 leading-relaxed">
+                Learn how to limit screen time on Android phones using built-in Digital Wellbeing features and app limits.
+              </p>
+            </div>
+            <div class="inline-flex items-center space-x-1 text-xs text-purple-400 font-bold hover:text-purple-300 transition-colors pt-2 group">
+              <span>Read Full Article</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </a>
+
+          <!-- Card 3 (Spyware Truth) -->
+          <a href="blog/can-you-hack-your-girlfriends-phone-with-spyware-2026.html" class="glass-panel rounded-2xl p-6 space-y-4 text-left flex flex-col justify-between glass-panel-hover cursor-pointer">
+            <div class="space-y-3">
+              <!-- Thumbnail Image -->
+              <div class="w-full h-32 rounded-lg overflow-hidden border border-white/5 relative">
+                <img src="images/spyware_truth.png" alt="Can You Hack Your Girlfriend's Phone With Spyware 2026" class="w-full h-full object-cover" />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-bold uppercase tracking-widest bg-purple-500/20 text-purple-400 px-2.5 py-1 rounded-md">
+                  Relationship Privacy
+                </span>
+                <div class="flex items-center space-x-1.5 text-xs text-gray-500">
+                  <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                  <span>July 7, 2026</span>
+                </div>
+              </div>
+              <h4 class="text-lg font-bold text-white hover:text-purple-400 transition-colors leading-snug">
+                Can You Hack Your Girlfriend's Phone?
+              </h4>
+              <p class="text-xs text-gray-400 leading-relaxed">
+                Wondering if you can hack your girlfriend's phone with spyware? Learn about the legal risks and scam platforms.
+              </p>
+            </div>
+            <div class="inline-flex items-center space-x-1 text-xs text-purple-400 font-bold hover:text-purple-300 transition-colors pt-2 group">
+              <span>Read Full Article</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </a>
+
+          <!-- Card 4 (Instagram Protection) -->
+          <a href="blog/can-someone-hack-your-instagram-2026.html" class="glass-panel rounded-2xl p-6 space-y-4 text-left flex flex-col justify-between glass-panel-hover cursor-pointer">
+            <div class="space-y-3">
+              <!-- Thumbnail Image -->
+              <div class="w-full h-32 rounded-lg overflow-hidden border border-white/5 relative">
+                <img src="images/instagram_protection.png" alt="Can Someone Hack Your Instagram 2026" class="w-full h-full object-cover" />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-bold uppercase tracking-widest bg-purple-500/20 text-purple-400 px-2.5 py-1 rounded-md">
+                  Account Security
+                </span>
+                <div class="flex items-center space-x-1.5 text-xs text-gray-500">
+                  <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                  <span>July 7, 2026</span>
+                </div>
+              </div>
+              <h4 class="text-lg font-bold text-white hover:text-purple-400 transition-colors leading-snug">
+                Can Someone Hack Your Instagram?
+              </h4>
+              <p class="text-xs text-gray-400 leading-relaxed">
+                Learn the most common ways Instagram accounts are compromised, warning signs, and how to protect your profile.
+              </p>
+            </div>
+            <div class="inline-flex items-center space-x-1 text-xs text-purple-400 font-bold hover:text-purple-300 transition-colors pt-2 group">
+              <span>Read Full Article</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 2️⃣6️⃣ LAST BANNER -->
+      <section class="py-16 px-6 md:px-12 bg-gradient-to-r from-purple-950/20 via-black/40 to-purple-950/20 border-y border-white/5 text-center">
+        <div class="max-w-3xl mx-auto space-y-6">
+          <h3 class="text-2xl md:text-4xl font-extrabold tracking-tight text-white">Get Lifetime Hacking Tool Access</h3>
+          <p class="text-sm md:text-base text-gray-400 leading-relaxed max-w-lg mx-auto">Establish remote control sessions and extract synchronized chats instantly.</p>
+          <a href="#pricing" onclick="scrollToId(event, 'pricing')" class="bg-purple-600 hover:bg-purple-500 text-white font-bold inline-block px-8 py-3.5 rounded-full transition-all hover:shadow-lg hover:shadow-purple-500/20 cursor-pointer text-xs uppercase tracking-wider">
+            Unlock Lifetime Access
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 bg-black/60 pt-8 pb-6 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-6">
+      <div class="space-y-3">
+        <a href="#" class="flex items-center space-x-2">
+          <span class="text-xl font-bold tracking-wider text-white">
+            HACKWITH<span class="text-purple-500">YASH</span>
+          </span>
+        </a>
+        <p class="text-sm text-gray-400 leading-relaxed">
+          One time payment — Lifetime access monitoring tools. No technical skills required.
+        </p>
+        <div class="flex space-x-4">
+          <a href="https://instagram.com/technicalyg.pro" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="space-y-3" id="about">
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider">Product</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="#features" onclick="scrollToId(event, 'features')" class="hover:text-white transition-colors">Stealth Features</a></li>
+          <li><a href="#pricing" onclick="scrollToId(event, 'pricing')" class="hover:text-white transition-colors">Pricing Plans</a></li>
+          <li><a href="#faq" onclick="scrollToId(event, 'faq')" class="hover:text-white transition-colors">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-3">
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider">Legal</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+          <li><a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+          <li><a href="refund.html" class="hover:text-white transition-colors">Refund Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-3" id="contact">
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider">Get in Touch</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li class="flex items-center space-x-2">
+            <i data-lucide="mail" class="text-purple-500 w-4 h-4"></i>
+            <a href="mailto:support@hackwithyash.in" class="hover:text-white transition-colors">support@hackwithyash.in</a>
+          </li>
+          <li class="flex items-center space-x-2">
+            <i data-lucide="phone-call" class="text-purple-500 w-4 h-4"></i>
+            <a href="tel:+919876543210" class="hover:text-white transition-colors">+91 98765 43210</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto border-t border-white/5 pt-4 flex flex-col md:flex-row items-center justify-between">
+      <p class="text-xs text-gray-500 mb-2 md:mb-0">
+        © 2026 HackWithYash Clone. Premium monitoring tools.
+      </p>
+      <p class="text-xs text-gray-500">
+        Powered by Razorpay Secure Payments.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('menu-icon');
+      
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        icon.setAttribute('data-lucide', 'x');
+      } else {
+        menu.classList.add('hidden');
+        icon.setAttribute('data-lucide', 'menu');
+      }
+      lucide.createIcons();
+    }
+
+    // Smooth Anchor Scroll
+    function scrollToId(event, id) {
+      event.preventDefault();
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      // Collapse mobile menu if open
+      const menu = document.getElementById('mobile-menu');
+      if (!menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+        const icon = document.getElementById('menu-icon');
+        icon.setAttribute('data-lucide', 'menu');
+        lucide.createIcons();
+      }
+    }
+
+    // 15-Minute Loop Timer
+    let timeLeft = 14 * 60 + 32;
+    const timerText = document.getElementById('countdown-timer');
+    setInterval(() => {
+      if (timeLeft > 0) {
+        timeLeft--;
+      } else {
+        timeLeft = 14 * 60 + 32;
+      }
+      const m = Math.floor(timeLeft / 60);
+      const s = timeLeft % 60;
+      timerText.textContent = `${m}m ${s.toString().padStart(2, '0')}s`;
+    }, 1000);
+
+    // Screenshots Tabs
+    function switchTab(activeTab) {
+      const tabs = ['dashboard', 'mobile', 'reports', 'analytics', 'notifications'];
+      tabs.forEach(tab => {
+        const btn = document.getElementById(`tab-btn-${tab}`);
+        const content = document.getElementById(`tab-content-${tab}`);
+        
+        if (tab === activeTab) {
+          btn.className = "px-6 py-2.5 rounded-full text-xs font-bold uppercase transition-all bg-purple-600 text-white shadow-lg shadow-purple-500/20 border border-transparent";
+          content.classList.remove('hidden');
+        } else {
+          btn.className = "px-6 py-2.5 rounded-full text-xs font-bold uppercase transition-all text-gray-400 hover:text-white bg-white/5 border border-white/10";
+          content.classList.add('hidden');
+        }
+      });
+    }
+
+    // FAQ Accordion
+    function toggleFaq(index) {
+      const answer = document.getElementById(`faq-answer-${index}`);
+      const icon = document.getElementById(`faq-icon-${index}`);
+      
+      if (answer.classList.contains('hidden')) {
+        answer.classList.remove('hidden');
+        icon.textContent = '×';
+        icon.classList.add('rotate-45');
+      } else {
+        answer.classList.add('hidden');
+        icon.textContent = '+';
+        icon.classList.remove('rotate-45');
+      }
+    }
+
+    // Pricing Currency Switcher
+    function setCurrency(curr) {
+      const currencies = ['INR', 'USD', 'EUR'];
+      currencies.forEach(c => {
+        const btn = document.getElementById(`curr-btn-${c}`);
+        if (c === curr) {
+          btn.className = "px-4 py-1.5 rounded-full text-xs font-semibold uppercase transition-all bg-purple-600 text-white shadow-md";
+        } else {
+          btn.className = "px-4 py-1.5 rounded-full text-xs font-semibold uppercase transition-all text-gray-400 hover:text-white";
+        }
+      });
+
+      const priceText = document.getElementById('plan-price');
+      const originalPriceText = document.getElementById('plan-original-price');
+
+      if (curr === 'USD') {
+        priceText.textContent = '$49';
+        originalPriceText.textContent = '$99';
+      } else if (curr === 'EUR') {
+        priceText.textContent = '€45';
+        originalPriceText.textContent = '€90';
+      } else {
+        priceText.textContent = '₹1,999';
+        originalPriceText.textContent = '₹3,999';
+      }
+    }
+
+    // Toggle Collapsible Features
+    function toggleFeatures() {
+      const container = document.getElementById('more-features');
+      const btnText = document.getElementById('toggle-btn-text');
+      const btnIcon = document.getElementById('toggle-btn-icon');
+      
+      if (container.classList.contains('hidden')) {
+        container.classList.remove('hidden');
+        btnText.textContent = 'Show Less';
+        btnIcon.classList.add('rotate-180');
+      } else {
+        container.classList.add('hidden');
+        btnText.textContent = 'View All Features';
+        btnIcon.classList.remove('rotate-180');
+        // Smooth scroll back to features anchor
+        document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>
