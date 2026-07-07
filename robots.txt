@@ -1,0 +1,6 @@
+# Robots.txt for HackWithYash SaaS
+User-agent: *
+Allow: /
+
+# Sitemap Location
+Sitemap: https://hackwithyash.in/sitemap.xml
