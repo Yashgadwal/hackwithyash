@@ -771,9 +771,9 @@
               </ul>
             </div>
             
-            <a href="https://instagram.com/technicalyg.pro" target="_blank" rel="noopener noreferrer" class="mt-8 w-full py-4 rounded-xl font-bold flex items-center justify-center space-x-2 transition-all cursor-pointer bg-purple-600 hover:bg-purple-500 text-white shadow-lg shadow-purple-500/20 text-sm uppercase tracking-wider">
+            <button id="razorpay-buy-btn" class="mt-8 w-full py-4 rounded-xl font-bold flex items-center justify-center space-x-2 transition-all cursor-pointer bg-purple-600 hover:bg-purple-500 text-white shadow-lg shadow-purple-500/20 text-sm uppercase tracking-wider focus:outline-none">
               <span>Activate Access Now</span>
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -1316,6 +1316,60 @@
         document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
       }
     }
+
+    // Razorpay Integration
+    const RAZORPAY_KEY = 'rzp_live_xxxxxxxxxxxxxx'; // Replace with your live Key ID
+    let activeCurrency = 'INR';
+
+    // Extend setCurrency to update our tracking state
+    const originalSetCurrency = setCurrency;
+    setCurrency = function(curr) {
+      activeCurrency = curr;
+      originalSetCurrency(curr);
+    };
+
+    document.getElementById('razorpay-buy-btn').addEventListener('click', function() {
+      let amount, currency;
+      if (activeCurrency === 'INR') {
+        amount = 199900; // ₹1,999 in paise
+        currency = 'INR';
+      } else if (activeCurrency === 'USD') {
+        amount = 4900; // $49 in cents
+        currency = 'USD';
+      } else if (activeCurrency === 'EUR') {
+        amount = 4500; // €45 in cents
+        currency = 'EUR';
+      }
+
+      const options = {
+        key: RAZORPAY_KEY,
+        amount: amount,
+        currency: currency,
+        name: "Hacking Lord - Premium Tools",
+        description: "Gold Plan - Lifetime Access Key",
+        image: "images/favicon.svg",
+        handler: function (response) {
+          alert("Payment Successful! Razorpay Payment ID: " + response.razorpay_payment_id + "\nYour dashboard access key will be emailed shortly.");
+        },
+        prefill: {
+          name: "",
+          email: "",
+          contact: ""
+        },
+        theme: {
+          color: "#9333ea" // matching purple
+        }
+      };
+
+      if (RAZORPAY_KEY === 'rzp_live_xxxxxxxxxxxxxx') {
+        alert("Please configure your live Razorpay Key in index.html before taking payments.");
+        return;
+      }
+
+      const rzp = new Razorpay(options);
+      rzp.open();
+    });
   </script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </body>
 </html>
