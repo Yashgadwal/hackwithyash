@@ -125,26 +125,35 @@
       </div>
     </div>
 
-    <!-- Header Image (Custom Vector SVG inline illustration) -->
+    <!-- Header Image (PNG Graphic from subagent generation) -->
     <div class="w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative bg-gray-950/60 max-h-[420px] aspect-[16/9] flex items-center justify-center">
-      <svg viewBox="0 0 512 512" class="w-full h-full"><defs><radialGradient id="g2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#a855f7" stop-opacity="0.2"/><stop offset="100%" stop-color="#1e1b4b" stop-opacity="0"/></radialGradient></defs><rect width="512" height="512" fill="url(#g2)"/><path d="M156 220 C156 120, 356 120, 356 220 C356 340, 256 420, 256 420 C256 420, 156 340, 156 220 Z" fill="none" stroke="#a855f7" stroke-width="12"/><circle cx="256" cy="220" r="30" fill="#a855f7"/></svg>
+      <img src="../images/android_privacy_guide.png" alt="Ultimate Android Privacy Guide (2026)" class="w-full h-full object-cover" />
     </div>
 
     <div class="glass-panel rounded-2xl p-6 md:p-10 leading-relaxed text-gray-300 space-y-8">
       
       <h2>Take Control of Your Digital Footprint</h2>
-      <p>Your operating system handles a vast array of personal telemetry, location trails, and network habits. Taking charge of your privacy configurations ensures your private details remain secure from background monitoring trackers.</p>
+      <p>Your operating system handles a vast array of personal telemetry, location trails, and network habits. Taking charge of your privacy configurations ensures your private details remain secure from background monitoring trackers. Without user adjustments, default settings often upload device logs, location history, and app usage parameters to remote telemetry systems.</p>
       
       <h2>Step-by-Step Privacy Lockdown</h2>
       <p>Follow these standard OS tweaks to maximize your security:</p>
       <ul>
         <li><strong>Permission Manager Audit:</strong> Inspect <em>Settings > Privacy > Permission Manager</em> and revoke location, camera, and microphone permissions from apps that do not require them.</li>
-        <li><strong>Opt-Out of Telemetry:</strong> Turn off usage & diagnostics reports under system privacy options.</li>
-        <li><strong>Secure DNS:</strong> Set a private, encrypted DNS server to shield browsing records from ISP monitoring.</li>
+        <li><strong>Opt-Out of Telemetry:</strong> Turn off usage & diagnostics reports under system privacy options to stop diagnostic reports from sending to third parties.</li>
+        <li><strong>Secure DNS:</strong> Set a private, encrypted DNS server to shield browsing records from ISP monitoring and prevent DNS spoofing.</li>
       </ul>
       
       <h2>Enforcing Encrypted Communications</h2>
-      <p>Always utilize secure, end-to-end encrypted messaging utilities, and disable default notification previews on your lock screen to prevent visual spying.</p>
+      <p>Always utilize secure, end-to-end encrypted messaging utilities, and disable default notification previews on your lock screen to prevent visual spying. Adjust your app settings to lock private chats with biometric access for an extra layer of privacy.</p>
+
+      <h2>Managing Location Tracking Features</h2>
+      <p>Modern applications frequently track your precise location in the background. Set location permissions to "Only while using the app" and disable "Use precise location" for social media platforms and utility tools that do not require high accuracy.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>What is the difference between precise and approximate location?</h3>
+      <p>Precise location uses GPS coordinates to pinpoint your exact location within meters, while approximate location uses cell tower data to estimate your general area within a few blocks.</p>
+      <h3>Does blocking permissions break applications?</h3>
+      <p>Most apps will continue to function properly even if secondary permissions like contacts or location are disabled. If a core feature breaks, you can re-enable the permission temporarily.</p>
     
       
       <!-- CTA Block -->
