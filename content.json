@@ -1,0 +1,172 @@
+{
+  "branding": {
+    "siteName": "TrackMaster",
+    "tagline": "",
+    "logoUrl": "images/trackmaster_tool_logo.png",
+    "ctaLink": "https://pages.razorpay.com/pl_S9MzxZBz4DDAg6/view",
+    "ctaText": "Details Dekhein",
+    "whatsappUrl": "https://wa.me/919111814338?text=I+need+this+tool",
+    "instagramUrl": "https://www.instagram.com/trackmastertool"
+  },
+  "hero": {
+    "badge": "100% Easy Setup • Kisi Technical Gyan Ki Zaroorat Nahi",
+    "headline": "Apne Partner Aur Family Ki Suraksha Ke Liye Best Phone Monitoring Tool",
+    "subheading": "Bina kisi jhanjhat ke, sirf 1 minute mein apne phone se WhatsApp chat, live location aur call details dekhein. Sab kuch aasan Hindi mein samjhaya gaya hai.",
+    "primaryCtaText": "Details Dekhein — Aage Badhein",
+    "secondaryCtaText": "Video Demos Dekhein",
+    "trustBadge1": "Koi App Download Nahi Karni",
+    "trustBadge2": "Android Aur iPhone Dono Par Support",
+    "trustBadge3": "Ek Baar Payment • Lifetime Access",
+    "youtubeVideoUrl": "https://www.youtube.com/embed/WjmrgO-tGtc?rel=0&modestbranding=1"
+  },
+  "benefits": [
+    {
+      "title": "WhatsApp & Messages",
+      "desc": "WhatsApp ki sabhi chat, photos aur messages apne phone par saaf-saaf dekhein."
+    },
+    {
+      "title": "Live Location & Map",
+      "desc": "Family member is waqt kahan hain aur kahan ja rahe hain, Google Map par live dekhein."
+    },
+    {
+      "title": "Call Details & History",
+      "desc": "Kisse baat hui, kitni der baat hui, aur kab call aayi, poori call list aur sath hi kya baat huyi puri jankari milegi ismein"
+    },
+    {
+      "title": "Lifetime Access",
+      "desc": "Koi monthly subscription ya mahine ka recharge nahi. Ek baar lijiye aur hamesha ke liye use kijiye."
+    }
+  ],
+  "howItWorks": [
+    {
+      "step": "1",
+      "badge": "Aapko Kya Karna Hai",
+      "title": "Details Enter Karein",
+      "timeBadge": "Sirf 30 seconds lagte hain",
+      "desc": "Niche diye gaye button par click karein aur aage badhein. Sirf zaroori number ya ID enter karein. Kisi doosre ke phone ko hath lagane ki zaroorat nahi."
+    },
+    {
+      "step": "2",
+      "badge": "System Kaise Kaam Karta Hai",
+      "title": "Secure Auto Connect",
+      "timeBadge": "100% Private & Safe",
+      "desc": "Hamara secure system bina kisi app installation ke remote network connection banata hai. Yeh bilkul chupchap aur surakshit tareeqe se hota hai."
+    },
+    {
+      "step": "3",
+      "badge": "Aapko Kya Milega",
+      "title": "Dashboard Par Dekhein",
+      "timeBadge": "Apne mobile par kabhi bhi dekhein",
+      "desc": "Aapko ek aasan dashboard (Tool) link milta hai. Apne phone par open karein aur WhatsApp messages, location aur call details aaram se padhein."
+    }
+  ],
+  "videos": {
+    "youtube": "https://www.youtube.com/embed/WjmrgO-tGtc?rel=0&modestbranding=1",
+    "whatsapp": {
+      "title": "WhatsApp Demo",
+      "url": "videos/whatsapp h.mp4",
+      "desc": "WhatsApp chat, messages aur media mirroring demo."
+    },
+    "location": {
+      "title": "Location Tracker Demo",
+      "url": "videos/location tracker.mp4",
+      "desc": "Live real-time location aur travel route history."
+    },
+    "social": {
+      "title": "All Social Media Demo",
+      "url": "videos/all social media.mp4",
+      "desc": "Instagram, Facebook, Snapchat aur chat notifications."
+    },
+    "advance": {
+      "title": "Advance Mobile Access",
+      "url": "videos/advance mobile access.mp4",
+      "desc": "Call logs, SMS, phone settings aur silent remote access."
+    },
+    "fullPhone": {
+      "title": "Full Phone Access",
+      "url": "videos/full phone access.mp4",
+      "desc": "Poora phone control, screen preview aur complete monitoring demo."
+    },
+    "calls": {
+      "title": "Location Tracker Demo",
+      "url": "videos/location tracker.mp4",
+      "desc": "Live real-time location aur travel route history."
+    },
+    "camera": {
+      "title": "Advance Mobile Access",
+      "url": "videos/advance mobile access.mp4",
+      "desc": "Call logs, SMS, phone settings aur silent remote access."
+    },
+    "guide1": {
+      "title": "Step 1 Guide: Setup Kaise Karein",
+      "url": "videos/advance mobile access.mp4"
+    },
+    "guide2": {
+      "title": "Step 2 Guide: Dashboard Kaise Chalayein",
+      "url": "videos/full phone access.mp4"
+    },
+    "testimonial1": {
+      "text": "\"Bina kisi dikkat ke 2 minute mein connect ho gaya. Bahut hi easy tool hai.\"",
+      "url": "videos/testimonial 1.mp4"
+    },
+    "testimonial2": {
+      "text": "\"Live location aur calls dono saaf dikhti hain. Parivar ki safety ke liye best hai.\"",
+      "url": "videos/testimonial 2.mp4"
+    },
+    "testimonial3": {
+      "text": "\"Maine pehli baar aisa tool use kiya aur mujhe koi mushkil nahi aayi. Video guide bahut acchi hai.\"",
+      "url": "videos/testimonial 3.mp4"
+    }
+  },
+  "pricing": {
+    "badge": "All-in-One Complete Pack",
+    "planName": "TrackMaster Complete Lifetime License",
+    "subtitle": "Poore features aur Hindi video guide ke sath",
+    "price": "1,999",
+    "priceNote": "One-Time Payment • No Monthly Fees",
+    "features": [
+      "WhatsApp chats, messages aur photos access",
+      "Live Location aur map par safar ki jankari",
+      "Call history, incoming & outgoing details",
+      "Android aur Apple iPhone dono par support",
+      "Step-by-step Hindi video guide",
+      "Dedicated WhatsApp customer support"
+    ],
+    "buttonText": "Aage Badhein — Details Dekhein (₹1,999)"
+  },
+  "faqs": [
+    {
+      "question": "1. Kya iske liye mujhe computer ya technical knowledge hona zaroori hai?",
+      "answer": "Bilkul nahi. Is tool ko khaaskar aise logon ke liye design kiya gaya hai jinhe technical cheezon ki zyada jankari nahi hoti. Aapko bas step-by-step aasan Hindi video dekh kar follow karna hai. 10 minute mai aap sab sikh jaaoge"
+    },
+    {
+      "question": "2. Kya samne wale ke phone mein koi software ya app download karni padegi?",
+      "answer": "Nahi, isme kisi app ya software ko samne wale ke phone mein install karne ki zaroorat nahi hoti. Yeh remote network connection ke zariye safe dashboard par jankari dikhata hai. sirf number ya instagram id honi chahiye"
+    },
+    {
+      "question": "3. Kya yeh tool Android aur iPhone dono par kaam karega?",
+      "answer": "Haan, yeh tool sabhi Android, Iphone aur Laptop per poori tarah se kaam karta hai."
+    },
+    {
+      "question": "4. Kya ₹1,999 ke baad koi aur extra monthly charges honge?",
+      "answer": "Nahi, koi bhi chhupa hua monthly ya yearly charge nahi hai. Yeh ek baar ka payment hai (One-Time Payment), jisse aapko lifetime access milta hai."
+    },
+    {
+      "question": "5. Access kitni der mein milta hai aur shuru kaise karna hai?",
+      "answer": "Jaise hi aap payment complete karte hain, aapko turant access link aur video tutorial mil jata hai. Aap turant usi waqt shuru kar sakte hain. 10  minute k andar aap pura kaam kar skte hai"
+    },
+    {
+      "question": "6. Agar mujhe koi pareshani aaye toh kya customer support milega?",
+      "answer": "Haan, hamari dedicated support team WhatsApp par available hai. Aap kabhi bhi message karke setup mein help le sakte hain."
+    }
+  ],
+  "finalCta": {
+    "title": "Apne Partner pe Shaq mat karo Tool se asli sach pata karo",
+    "desc": "Sirf ₹1,999 mein lifetime license paayein. Bina kisi jhanjhat ke turant setup karein aur har zaroori update par nazar rakhein.",
+    "buttonText": "Abhi Access Paayein — Shuru Karein"
+  },
+  "footer": {
+    "disclaimer": "Disclaimer: Yeh tool parivar aur bachchon ki digital safety, parental control aur device tracking ke udyesh se banaya gaya hai. Kripya iska upayog sabhi lagu kanoono aur niyamawali ke anusaar karein.",
+    "copyright": "© 2026 TrackMaster / hackwithyash.in. Sabhi adhikar surakshit hain."
+  }
+}
