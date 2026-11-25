@@ -36,6 +36,44 @@ const server = http.createServer((req, res) => {
     }
   }
 
+  // API Route: GET /api/video
+  if (reqUrl === '/api/video' && req.method === 'GET') {
+    const urlObj = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+    let file = urlObj.searchParams.get('file') || '';
+    if (file) {
+      try { file = decodeURIComponent(file); } catch (e) {}
+      const videoPath = path.join(BASE_DIR, 'videos', file);
+      if (fs.existsSync(videoPath)) {
+        const stats = fs.statSync(videoPath);
+        const range = req.headers.range;
+        if (range) {
+          const parts = range.replace(/bytes=/, '').split('-');
+          const start = parseInt(parts[0], 10);
+          const end = parts[1] ? parseInt(parts[1], 10) : stats.size - 1;
+          const chunkSize = (end - start) + 1;
+          res.writeHead(206, {
+            'Content-Range': `bytes ${start}-${end}/${stats.size}`,
+            'Accept-Ranges': 'bytes',
+            'Content-Length': chunkSize,
+            'Content-Type': 'video/mp4',
+            'Access-Control-Allow-Origin': '*'
+          });
+          return fs.createReadStream(videoPath, { start, end }).pipe(res);
+        } else {
+          res.writeHead(200, {
+            'Content-Length': stats.size,
+            'Accept-Ranges': 'bytes',
+            'Content-Type': 'video/mp4',
+            'Access-Control-Allow-Origin': '*'
+          });
+          return fs.createReadStream(videoPath).pipe(res);
+        }
+      }
+    }
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    return res.end('Video not found');
+  }
+
   // API Route: POST /api/content
   if (reqUrl === '/api/content' && req.method === 'POST') {
     let body = '';
