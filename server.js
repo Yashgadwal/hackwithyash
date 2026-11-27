@@ -112,6 +112,8 @@ const server = http.createServer((req, res) => {
     reqUrl = '/index.html';
   } else if (reqUrl === '/admin') {
     reqUrl = '/admin.html';
+  } else if (reqUrl.toLowerCase() === '/trackmasterpro') {
+    reqUrl = '/trackmasterPro.html';
   }
 
   let decodedUrl = reqUrl;

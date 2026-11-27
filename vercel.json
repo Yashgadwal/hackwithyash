@@ -4,6 +4,18 @@
     {
       "source": "/videos/:file*",
       "destination": "/api/video?file=:file*"
+    },
+    {
+      "source": "/trackmasterpro",
+      "destination": "/trackmasterPro.html"
+    },
+    {
+      "source": "/trackmasterPro",
+      "destination": "/trackmasterPro.html"
+    },
+    {
+      "source": "/trackmasterpro.html",
+      "destination": "/trackmasterPro.html"
     }
   ],
   "headers": [
