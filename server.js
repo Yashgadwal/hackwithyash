@@ -120,8 +120,8 @@ const server = http.createServer((req, res) => {
     reqUrl = '/trackmaster.html';
   } else if (reqUrl.toLowerCase() === '/links' || reqUrl.toLowerCase() === '/links.html') {
     reqUrl = '/links.html';
-  } else if (reqUrl.toLowerCase() === '/linkk' || reqUrl.toLowerCase() === '/linkk.html' || reqUrl.toLowerCase() === '/link' || reqUrl.toLowerCase() === '/link.html') {
-    reqUrl = '/linkk.html';
+  } else if (reqUrl.toLowerCase() === '/link' || reqUrl.toLowerCase() === '/link.html' || reqUrl.toLowerCase() === '/linkk' || reqUrl.toLowerCase() === '/linkk.html') {
+    reqUrl = '/link.html';
   }
 
   let decodedUrl = reqUrl;
