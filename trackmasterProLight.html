@@ -421,6 +421,320 @@
             line-height: 1.5;
         }
 
+        /* Dashboard Container & Elements */
+        .container.dash-expanded {
+            max-width: 480px;
+            transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .dash-header-card {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #ffffff;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.2);
+        }
+
+        .dash-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .dash-target-num {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #38bdf8;
+        }
+
+        .dash-live-badge {
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dash-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .dash-spec-item {
+            font-size: 10.5px;
+            color: #94a3b8;
+        }
+
+        .dash-spec-item strong {
+            display: block;
+            font-size: 12px;
+            color: #ffffff;
+            margin-top: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Dashboard Tab Bar */
+        .dash-tabs {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            padding-bottom: 6px;
+            margin-bottom: 14px;
+            scrollbar-width: none;
+        }
+        .dash-tabs::-webkit-scrollbar { display: none; }
+
+        .dash-tab-btn {
+            white-space: nowrap;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid #e2e8f0;
+            background: #ffffff;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .dash-tab-btn.active {
+            background: #0f172a;
+            color: #ffffff;
+            border-color: #0f172a;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+        }
+
+        .dash-tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-out;
+        }
+        .dash-tab-content.active {
+            display: block;
+        }
+
+        /* Chat List */
+        .chat-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .chat-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 11px 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .chat-item:hover {
+            border-color: #cbd5e1;
+            background: #f8fafc;
+            transform: translateY(-1px);
+        }
+
+        .chat-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+
+        .chat-details {
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        .chat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2px;
+        }
+
+        .chat-name {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .chat-time {
+            font-size: 11px;
+            color: #94a3b8;
+        }
+
+        .chat-msg {
+            font-size: 12px;
+            color: #64748b;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Photo Grid */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .photo-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .photo-thumb {
+            height: 90px;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .photo-info {
+            padding: 8px 10px;
+        }
+
+        .photo-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: #0f172a;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .photo-meta {
+            font-size: 10px;
+            color: #94a3b8;
+            margin-top: 2px;
+        }
+
+        /* Call Item */
+        .call-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 8px;
+        }
+
+        .call-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .call-play-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11.5px;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 16px;
+            border: 1px solid #4f46e5;
+            background: #eef2ff;
+            color: #4f46e5;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .call-play-btn:hover {
+            background: #4f46e5;
+            color: #ffffff;
+        }
+
+        /* Map Box */
+        .map-card {
+            background: #0f172a;
+            border-radius: 14px;
+            height: 130px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            background-image: radial-gradient(#334155 1.5px, transparent 1.5px);
+            background-size: 18px 18px;
+        }
+
+        @keyframes waveAnim {
+            0%, 100% { height: 8px; }
+            50% { height: 32px; }
+        }
+
+        .wave-bar {
+            width: 4px;
+            background: #38bdf8;
+            border-radius: 2px;
+            animation: waveAnim 1s ease-in-out infinite alternate;
+        }
+        .wave-bar:nth-child(2) { animation-delay: 0.2s; }
+        .wave-bar:nth-child(3) { animation-delay: 0.4s; }
+        .wave-bar:nth-child(4) { animation-delay: 0.1s; }
+        .wave-bar:nth-child(5) { animation-delay: 0.5s; }
+        .wave-bar:nth-child(6) { animation-delay: 0.3s; }
+        .wave-bar:nth-child(7) { animation-delay: 0.6s; }
+        .wave-bar:nth-child(8) { animation-delay: 0.25s; }
+        .wave-bar:nth-child(9) { animation-delay: 0.45s; }
+
+        /* Modal Preview */
+        .chat-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .chat-modal-overlay.active {
+            display: flex;
+        }
+        .chat-modal-box {
+            background: #ffffff;
+            border-radius: 18px;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            animation: fadeIn 0.25s ease-out;
+        }
+
         /* Footer */
         .footer {
             padding: 18px;
@@ -597,6 +911,312 @@
                     <div style="display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 12px; font-size: 11.5px; color: #64748b; font-weight: 500;">
                         <span>🔒 256-Bit SSL Encrypted</span>
                         <span>⚡ Instant Delivery</span>
+                    </div>
+
+                    <!-- Instant Test / Preview Button -->
+                    <div style="margin-top: 12px; padding-top: 10px; border-top: 1px dashed #e2e8f0;">
+                        <button type="button" id="demoDashboardBtn" style="background:none; border:none; color:#4f46e5; font-size:12px; text-decoration:underline; cursor:pointer; font-weight:700;">
+                            ✨ Test Mode: Instant Dashboard Preview (Free)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 4: Unlocked Full Intelligence Dashboard -->
+            <div id="stepDashboard" class="step">
+                <!-- Dashboard Top Device Info Card -->
+                <div class="dash-header-card">
+                    <div class="dash-top-row">
+                        <div>
+                            <div style="font-size:10.5px; text-transform:uppercase; letter-spacing:0.5px; color:#94a3b8; font-weight:700;">Target Device Live Telemetry</div>
+                            <div class="dash-target-num" id="dashTargetPhone">+91 85751 31552</div>
+                        </div>
+                        <span class="dash-live-badge">
+                            <span class="pulse-dot"></span> Live Sync
+                        </span>
+                    </div>
+
+                    <div class="dash-specs-grid">
+                        <div class="dash-spec-item">
+                            Device
+                            <strong id="dashDeviceName">Samsung S24 Ultra</strong>
+                        </div>
+                        <div class="dash-spec-item">
+                            Battery
+                            <strong id="dashBattery">84% ⚡ (Charging)</strong>
+                        </div>
+                        <div class="dash-spec-item">
+                            Network
+                            <strong id="dashNetwork">Jio 5G (Wi-Fi)</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Tabs -->
+                <div class="dash-tabs">
+                    <button type="button" class="dash-tab-btn active" onclick="switchDashTab(this, 'tab-wa')">💬 WhatsApp (<span id="dashWaBadge">3,075</span>)</button>
+                    <button type="button" class="dash-tab-btn" onclick="switchDashTab(this, 'tab-photos')">📸 Photos (<span id="dashPhotoBadge">2,888</span>)</button>
+                    <button type="button" class="dash-tab-btn" onclick="switchDashTab(this, 'tab-calls')">📞 Calls (<span id="dashCallBadge">34</span>)</button>
+                    <button type="button" class="dash-tab-btn" onclick="switchDashTab(this, 'tab-gps')">📍 Live GPS</button>
+                    <button type="button" class="dash-tab-btn" onclick="switchDashTab(this, 'tab-mic')">🎙️ Room Audio</button>
+                </div>
+
+                <!-- TAB 1: WhatsApp Chats -->
+                <div id="tab-wa" class="dash-tab-content active">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                        <span style="font-size:13px; font-weight:700; color:#0f172a;">Decrypted Conversations</span>
+                        <span style="font-size:11px; color:#059669; font-weight:600; background:#ecfdf5; padding:2px 8px; border-radius:12px;">● End-to-End Decrypted</span>
+                    </div>
+                    <div class="chat-list" id="chatListContainer">
+                        <!-- Chat 1 -->
+                        <div class="chat-item" onclick="openChatModal('Pooja Sharma', 'Online', 'pooja')">
+                            <div class="chat-avatar" style="background: linear-gradient(135deg, #ec4899, #f43f5e);">PS</div>
+                            <div class="chat-details">
+                                <div class="chat-header">
+                                    <span class="chat-name">Pooja Sharma <span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:#10b981; margin-left:3px;"></span></span>
+                                    <span class="chat-time">2m ago</span>
+                                </div>
+                                <div class="chat-msg">Photos dekh li na tumne? Delete kr dena baad me...</div>
+                            </div>
+                            <span style="background:#22c55e; color:white; font-size:10px; font-weight:700; border-radius:50%; width:18px; height:18px; display:flex; align-items:center; justify-content:center;">2</span>
+                        </div>
+                        <!-- Chat 2 -->
+                        <div class="chat-item" onclick="openChatModal('Rahul (Office Tech)', 'Last seen today at 08:30 PM', 'rahul')">
+                            <div class="chat-avatar" style="background: linear-gradient(135deg, #3b82f6, #6366f1);">RO</div>
+                            <div class="chat-details">
+                                <div class="chat-header">
+                                    <span class="chat-name">Rahul (Office Tech)</span>
+                                    <span class="chat-time">14m ago</span>
+                                </div>
+                                <div class="chat-msg">Maine client files aur passwords drive par upload kr diye hain.</div>
+                            </div>
+                        </div>
+                        <!-- Chat 3 -->
+                        <div class="chat-item" onclick="openChatModal('Mummy ❤️', 'Last seen 48m ago', 'mummy')">
+                            <div class="chat-avatar" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">M</div>
+                            <div class="chat-details">
+                                <div class="chat-header">
+                                    <span class="chat-name">Mummy ❤️</span>
+                                    <span class="chat-time">48m ago</span>
+                                </div>
+                                <div class="chat-msg">Ghar kab aa rahe ho beta? Khana bana diya hai.</div>
+                            </div>
+                        </div>
+                        <!-- Chat 4 -->
+                        <div class="chat-item" onclick="openChatModal('Kunal (College)', 'Last seen 2h ago', 'kunal')">
+                            <div class="chat-avatar" style="background: linear-gradient(135deg, #8b5cf6, #d946ef);">KC</div>
+                            <div class="chat-details">
+                                <div class="chat-header">
+                                    <span class="chat-name">Kunal (College)</span>
+                                    <span class="chat-time">2h ago</span>
+                                </div>
+                                <div class="chat-msg">Bhai weekend trip fix hai! Location share kar raha hu.</div>
+                            </div>
+                        </div>
+                        <!-- Chat 5 -->
+                        <div class="chat-item" onclick="openChatModal('Archived Contact', 'Yesterday', 'secret')">
+                            <div class="chat-avatar" style="background: linear-gradient(135deg, #0f172a, #475569);">🔒</div>
+                            <div class="chat-details">
+                                <div class="chat-header">
+                                    <span class="chat-name">Archived Contact</span>
+                                    <span class="chat-time">Yesterday</span>
+                                </div>
+                                <div class="chat-msg">Payment mil gaya hai. Document safe rakhna.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: Photos Gallery -->
+                <div id="tab-photos" class="dash-tab-content">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                        <span style="font-size:13px; font-weight:700; color:#0f172a;">Gallery & Media Files</span>
+                        <button type="button" onclick="downloadBackup()" style="font-size:11px; font-weight:600; color:#4f46e5; background:#eff6ff; border:1px solid #c7d2fe; padding:4px 10px; border-radius:12px; cursor:pointer;">
+                            ⬇️ Download All (.ZIP)
+                        </button>
+                    </div>
+                    <div class="photo-grid">
+                        <div class="photo-card">
+                            <div class="photo-thumb" style="background: linear-gradient(135deg, #fbcfe8, #f472b6);">
+                                <span style="font-size:28px;">📷</span>
+                                <span style="position:absolute; bottom:5px; right:5px; font-size:9.5px; background:rgba(0,0,0,0.6); color:white; padding:1px 5px; border-radius:4px;">Camera</span>
+                            </div>
+                            <div class="photo-info">
+                                <div class="photo-title">IMG_20261127_0042.jpg</div>
+                                <div class="photo-meta">3.4 MB • Today 07:15 PM</div>
+                            </div>
+                        </div>
+                        <div class="photo-card">
+                            <div class="photo-thumb" style="background: linear-gradient(135deg, #fed7aa, #fb923c);">
+                                <span style="font-size:28px;">🖼️</span>
+                                <span style="position:absolute; bottom:5px; right:5px; font-size:9.5px; background:rgba(0,0,0,0.6); color:white; padding:1px 5px; border-radius:4px;">WhatsApp</span>
+                            </div>
+                            <div class="photo-info">
+                                <div class="photo-title">WA_Media_Doc_Ticket.png</div>
+                                <div class="photo-meta">1.8 MB • Today 04:30 PM</div>
+                            </div>
+                        </div>
+                        <div class="photo-card">
+                            <div class="photo-thumb" style="background: linear-gradient(135deg, #cbd5e1, #94a3b8);">
+                                <span style="font-size:28px;">📱</span>
+                                <span style="position:absolute; bottom:5px; right:5px; font-size:9.5px; background:rgba(0,0,0,0.6); color:white; padding:1px 5px; border-radius:4px;">Screenshot</span>
+                            </div>
+                            <div class="photo-info">
+                                <div class="photo-title">Screenshot_UPI_Txn.jpg</div>
+                                <div class="photo-meta">780 KB • Yesterday</div>
+                            </div>
+                        </div>
+                        <div class="photo-card">
+                            <div class="photo-thumb" style="background: linear-gradient(135deg, #ddd6fe, #a78bfa);">
+                                <span style="font-size:28px;">🔒</span>
+                                <span style="position:absolute; bottom:5px; right:5px; font-size:9.5px; background:rgba(0,0,0,0.6); color:white; padding:1px 5px; border-radius:4px;">Private Safe</span>
+                            </div>
+                            <div class="photo-info">
+                                <div class="photo-title">Vault_Hidden_Doc_09.jpg</div>
+                                <div class="photo-meta">4.2 MB • 2 days ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 3: Calls & Recordings -->
+                <div id="tab-calls" class="dash-tab-content">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                        <span style="font-size:13px; font-weight:700; color:#0f172a;">Call Recordings (High Definition)</span>
+                        <span style="font-size:11px; color:#2563eb; background:#eff6ff; padding:2px 8px; border-radius:12px; font-weight:600;">Audio Indexed</span>
+                    </div>
+
+                    <div class="call-item">
+                        <div class="call-header">
+                            <div>
+                                <strong style="font-size:13px; color:#0f172a;">Pooja Sharma</strong>
+                                <span style="font-size:11px; color:#64748b; margin-left:6px;">+91 98765 43210</span>
+                            </div>
+                            <span style="font-size:11px; color:#16a34a; font-weight:600;">↗ Outgoing (04:28)</span>
+                        </div>
+                        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:8px;">
+                            <div style="font-size:11px; color:#94a3b8;">Today, 08:45 PM • 3.2 MB</div>
+                            <button type="button" class="call-play-btn" onclick="togglePlayAudio(this)">
+                                <span>▶</span> Play Audio
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="call-item">
+                        <div class="call-header">
+                            <div>
+                                <strong style="font-size:13px; color:#0f172a;">Rahul (Office Tech)</strong>
+                                <span style="font-size:11px; color:#64748b; margin-left:6px;">+91 91234 56789</span>
+                            </div>
+                            <span style="font-size:11px; color:#2563eb; font-weight:600;">↙ Incoming (02:15)</span>
+                        </div>
+                        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:8px;">
+                            <div style="font-size:11px; color:#94a3b8;">Today, 06:12 PM • 1.8 MB</div>
+                            <button type="button" class="call-play-btn" onclick="togglePlayAudio(this)">
+                                <span>▶</span> Play Audio
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="call-item">
+                        <div class="call-header">
+                            <div>
+                                <strong style="font-size:13px; color:#0f172a;">Private / Unknown</strong>
+                                <span style="font-size:11px; color:#64748b; margin-left:6px;">+91 80001 23456</span>
+                            </div>
+                            <span style="font-size:11px; color:#dc2626; font-weight:600;">↙ Incoming (01:10)</span>
+                        </div>
+                        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:8px;">
+                            <div style="font-size:11px; color:#94a3b8;">Yesterday, 11:20 PM • 920 KB</div>
+                            <button type="button" class="call-play-btn" onclick="togglePlayAudio(this)">
+                                <span>▶</span> Play Audio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 4: Live GPS -->
+                <div id="tab-gps" class="dash-tab-content">
+                    <div class="map-card">
+                        <div style="position:absolute; width:120px; height:120px; border-radius:50%; border:1px solid rgba(56, 189, 248, 0.3); animation:pulseRing 2s infinite;"></div>
+                        <div style="position:absolute; width:60px; height:60px; border-radius:50%; border:1px solid rgba(56, 189, 248, 0.5);"></div>
+                        <div style="width:14px; height:14px; background:#ef4444; border:3px solid white; border-radius:50%; box-shadow:0 0 15px #ef4444; z-index:2;"></div>
+                        <div style="position:absolute; bottom:8px; left:12px; background:rgba(0,0,0,0.7); color:white; font-size:10.5px; padding:3px 8px; border-radius:6px; z-index:2;">
+                            📍 GPS Accuracy: ±2.4m
+                        </div>
+                    </div>
+
+                    <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:12px; margin-bottom:10px;">
+                        <div style="font-size:11px; color:#64748b; text-transform:uppercase; font-weight:600;">Current Fixed Location</div>
+                        <div style="font-size:14px; font-weight:700; color:#0f172a; margin:3px 0;">Connaught Place, Inner Circle, New Delhi</div>
+                        <div style="font-size:11.5px; color:#475569;">Coordinates: 28.6315° N, 77.2167° E • Speed: 0 km/h (Stationary)</div>
+                    </div>
+
+                    <div style="font-size:12px; font-weight:700; color:#0f172a; margin-bottom:6px;">Recent Location Timeline</div>
+                    <div style="display:flex; flex-direction:column; gap:6px; font-size:11.5px; color:#64748b;">
+                        <div style="padding:6px 10px; background:#f8fafc; border-radius:8px; border:1px solid #e2e8f0;">● 09:15 PM - Connaught Place Block C, New Delhi</div>
+                        <div style="padding:6px 10px; background:#f8fafc; border-radius:8px; border:1px solid #e2e8f0;">● 06:40 PM - Cyber Hub, Gurugram (Connected to Wi-Fi)</div>
+                        <div style="padding:6px 10px; background:#f8fafc; border-radius:8px; border:1px solid #e2e8f0;">● 02:20 PM - DLF Cyber City, Tower B</div>
+                    </div>
+                </div>
+
+                <!-- TAB 5: Room Mic Feed -->
+                <div id="tab-mic" class="dash-tab-content">
+                    <div style="background:#0f172a; color:white; border-radius:14px; padding:16px; text-align:center; margin-bottom:12px;">
+                        <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(239,68,68,0.2); color:#fca5a5; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:12px;">
+                            <span class="pulse-dot" style="background:#ef4444;"></span> Live Microphone Feed
+                        </div>
+                        <div style="font-size:13px; color:#cbd5e1; margin-bottom:12px;">Ambient room listening audio buffer (32 kbps Opus Audio)</div>
+                        
+                        <div style="display:flex; justify-content:center; align-items:flex-end; gap:4px; height:40px; margin-bottom:14px;">
+                            <div class="wave-bar" style="height:15px;"></div>
+                            <div class="wave-bar" style="height:28px;"></div>
+                            <div class="wave-bar" style="height:38px;"></div>
+                            <div class="wave-bar" style="height:22px;"></div>
+                            <div class="wave-bar" style="height:32px;"></div>
+                            <div class="wave-bar" style="height:18px;"></div>
+                            <div class="wave-bar" style="height:35px;"></div>
+                            <div class="wave-bar" style="height:25px;"></div>
+                            <div class="wave-bar" style="height:12px;"></div>
+                        </div>
+                        <button type="button" id="micBtn" onclick="toggleMicStream(this)" style="background:#ef4444; color:white; border:none; padding:8px 18px; border-radius:20px; font-size:12px; font-weight:700; cursor:pointer;">
+                            🔴 Stop Listening Stream
+                        </button>
+                    </div>
+
+                    <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:12px;">
+                        <div style="font-size:12px; font-weight:700; color:#0f172a; margin-bottom:6px;">Live Keystroke & Search Logs</div>
+                        <div style="display:flex; flex-direction:column; gap:5px; font-size:11px; color:#64748b; font-family:monospace;">
+                            <div>[22:15] WhatsApp: "Theek hai main bhejta hu"</div>
+                            <div>[21:40] Chrome: "best resort in goa with private pool"</div>
+                            <div>[19:10] Notes: "meeting agenda & confidential checklist"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom VIP Telegram & Download Actions -->
+                <div style="margin-top:18px; padding-top:16px; border-top:1px solid #e2e8f0; display:flex; flex-direction:column; gap:8px;">
+                    <a href="https://t.me/+Q0LPyiKlJ78zMzRl" target="_blank" class="primary-btn" style="text-align:center; text-decoration:none; margin-top:0; background:linear-gradient(135deg, #0284c7, #0369a1);">
+                        ✈️ Join VIP Telegram Support & Bot
+                    </a>
+                    <button type="button" onclick="downloadBackup()" style="padding:12px; border-radius:12px; border:1px solid #cbd5e1; background:#ffffff; color:#0f172a; font-size:13px; font-weight:700; cursor:pointer;">
+                        📥 Download Full Forensics Dossier (.PDF)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Chat Modal Popup -->
+            <div id="chatModal" class="chat-modal-overlay" onclick="closeChatModal(event)">
+                <div class="chat-modal-box" onclick="event.stopPropagation()">
+                    <div style="padding:14px 16px; background:#0f172a; color:white; display:flex; justify-content:space-between; align-items:center;">
+                        <div>
+                            <div id="modalChatName" style="font-weight:700; font-size:14px;">Contact</div>
+                            <div id="modalChatStatus" style="font-size:11px; color:#94a3b8;">Online</div>
+                        </div>
+                        <button type="button" onclick="closeChatModal(null)" style="background:none; border:none; color:white; font-size:18px; cursor:pointer;">✕</button>
+                    </div>
+                    <div id="modalChatMessages" style="padding:16px; max-height:260px; overflow-y:auto; display:flex; flex-direction:column; gap:10px; background:#f8fafc; font-size:12.5px;">
+                        <!-- messages inserted here -->
                     </div>
                 </div>
             </div>
@@ -795,7 +1415,14 @@
             document.getElementById('waCountText').textContent = waCount.toLocaleString() + ' Chats Found • Media Accessible';
             document.getElementById('instaCountText').textContent = instaCount.toLocaleString() + ' DMs Found • Story History';
             document.getElementById('photosCountText').textContent = photosCount.toLocaleString() + ' Photos & Files Found • Gallery Indexed';
-            document.getElementById('callCountText').textContent = callCount + ' Calls Recorded • Last 30 Days';
+            // Save unlocked data for dashboard
+            window.unlockedData = {
+                number: number,
+                waCount: waCount,
+                instaCount: instaCount,
+                photosCount: photosCount,
+                callCount: callCount
+            };
 
             // Display target number in results badge
             resultsTargetNumber.textContent = formatPhone(number);
@@ -803,6 +1430,174 @@
             // Switch to Results View
             stepScan.classList.remove('active');
             stepResults.classList.add('active');
+        }
+
+        // Demo / Instant Preview button handler
+        const demoDashboardBtn = document.getElementById('demoDashboardBtn');
+        if (demoDashboardBtn) {
+            demoDashboardBtn.addEventListener('click', () => {
+                showUnlockedDashboard();
+            });
+        }
+
+        // Dashboard Transition Logic
+        function showUnlockedDashboard() {
+            const data = window.unlockedData || {
+                number: victimInput.value.trim() || '8575131552',
+                waCount: 3075,
+                instaCount: 1761,
+                photosCount: 2888,
+                callCount: 34
+            };
+
+            // Update Header & Stats in Dashboard
+            document.getElementById('dashTargetPhone').textContent = formatPhone(data.number);
+            document.getElementById('dashWaBadge').textContent = (data.waCount || 3075).toLocaleString();
+            document.getElementById('dashPhotoBadge').textContent = (data.photosCount || 2888).toLocaleString();
+            document.getElementById('dashCallBadge').textContent = (data.callCount || 34).toString();
+
+            // Hide other steps, activate dashboard
+            stepInput.classList.remove('active');
+            stepScan.classList.remove('active');
+            stepResults.classList.remove('active');
+            
+            const stepDashboard = document.getElementById('stepDashboard');
+            stepDashboard.classList.add('active');
+
+            // Expand container for comfortable dashboard view
+            document.querySelector('.container').classList.add('dash-expanded');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Switch Dashboard Tabs
+        function switchDashTab(btn, tabId) {
+            document.querySelectorAll('.dash-tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.dash-tab-content').forEach(c => c.classList.remove('active'));
+
+            btn.classList.add('active');
+            const target = document.getElementById(tabId);
+            if (target) {
+                target.classList.add('active');
+            }
+        }
+
+        // Chat Modal Preview with dummy conversation threads
+        const chatConversations = {
+            pooja: [
+                { sender: 'them', text: 'Hey, free ho baat krne ke liye?', time: '07:12 PM' },
+                { sender: 'me', text: 'Haan bolo kya hua?', time: '07:15 PM' },
+                { sender: 'them', text: 'Photos dekh li na tumne? Delete kr dena baad me phone se...', time: '07:18 PM' },
+                { sender: 'me', text: 'Haan dekh li, dont worry safe hain.', time: '07:20 PM' }
+            ],
+            rahul: [
+                { sender: 'them', text: 'Bhai office ka server log check karo.', time: '06:05 PM' },
+                { sender: 'me', text: 'Checking now. All credentials working.', time: '06:10 PM' },
+                { sender: 'them', text: 'Maine client files aur passwords drive par upload kr diye hain.', time: '06:14 PM' }
+            ],
+            mummy: [
+                { sender: 'them', text: 'Beta dawai le li thi subah?', time: '02:30 PM' },
+                { sender: 'me', text: 'Haan mummy le li thi.', time: '02:45 PM' },
+                { sender: 'them', text: 'Ghar kab aa rahe ho beta? Khana bana diya hai.', time: '08:10 PM' }
+            ],
+            kunal: [
+                { sender: 'them', text: 'Bhai weekend trip fix hai! Location share kar raha hu.', time: '04:12 PM' },
+                { sender: 'me', text: 'Car se chalenge ya train se?', time: '04:20 PM' },
+                { sender: 'them', text: 'Car se bhai, sab ready hain.', time: '04:22 PM' }
+            ],
+            secret: [
+                { sender: 'them', text: 'Account statement verify ho gaya.', time: 'Yesterday' },
+                { sender: 'them', text: 'Payment mil gaya hai. Document safe rakhna.', time: 'Yesterday' },
+                { sender: 'me', text: 'Understood. Archive cleared.', time: 'Yesterday' }
+            ]
+        };
+
+        function openChatModal(name, status, contactId) {
+            const modal = document.getElementById('chatModal');
+            document.getElementById('modalChatName').textContent = name;
+            document.getElementById('modalChatStatus').textContent = status;
+            
+            const messagesContainer = document.getElementById('modalChatMessages');
+            const messages = chatConversations[contactId] || [
+                { sender: 'them', text: 'Hey, are you there?', time: '10:00 AM' },
+                { sender: 'me', text: 'Yes, tell me.', time: '10:05 AM' }
+            ];
+
+            messagesContainer.innerHTML = messages.map(m => `
+                <div style="align-self: ${m.sender === 'me' ? 'flex-end' : 'flex-start'}; max-width: 80%;">
+                    <div style="padding: 8px 12px; border-radius: 12px; background: ${m.sender === 'me' ? '#4f46e5' : '#ffffff'}; color: ${m.sender === 'me' ? 'white' : '#0f172a'}; box-shadow: 0 1px 3px rgba(0,0,0,0.08); font-size: 12px; border: ${m.sender === 'me' ? 'none' : '1px solid #e2e8f0'};">
+                        ${m.text}
+                    </div>
+                    <div style="font-size: 9.5px; color: #94a3b8; text-align: ${m.sender === 'me' ? 'right' : 'left'}; margin-top: 2px;">
+                        ${m.time}
+                    </div>
+                </div>
+            `).join('');
+
+            modal.classList.add('active');
+        }
+
+        function closeChatModal(e) {
+            if (!e || e.target.id === 'chatModal' || e.target.tagName === 'BUTTON') {
+                document.getElementById('chatModal').classList.remove('active');
+            }
+        }
+
+        // Interactive Call Audio Player Simulator
+        let playingBtn = null;
+        let playInterval = null;
+        function togglePlayAudio(btn) {
+            if (playingBtn === btn) {
+                clearInterval(playInterval);
+                btn.innerHTML = '<span>▶</span> Play Audio';
+                btn.style.background = '#eef2ff';
+                btn.style.color = '#4f46e5';
+                playingBtn = null;
+                return;
+            }
+
+            if (playingBtn) {
+                clearInterval(playInterval);
+                playingBtn.innerHTML = '<span>▶</span> Play Audio';
+                playingBtn.style.background = '#eef2ff';
+                playingBtn.style.color = '#4f46e5';
+            }
+
+            playingBtn = btn;
+            let sec = 0;
+            btn.style.background = '#10b981';
+            btn.style.color = '#ffffff';
+            btn.innerHTML = '<span>⏸</span> 00:00';
+
+            playInterval = setInterval(() => {
+                sec++;
+                const mm = String(Math.floor(sec / 60)).padStart(2, '0');
+                const ss = String(sec % 60).padStart(2, '0');
+                btn.innerHTML = `<span>⏸</span> ${mm}:${ss}`;
+                if (sec >= 15) {
+                    clearInterval(playInterval);
+                    btn.innerHTML = '<span>▶</span> Play Audio';
+                    btn.style.background = '#eef2ff';
+                    btn.style.color = '#4f46e5';
+                    playingBtn = null;
+                }
+            }, 1000);
+        }
+
+        // Toggle Mic Stream
+        function toggleMicStream(btn) {
+            if (btn.textContent.includes('Stop')) {
+                btn.textContent = '🟢 Resume Listening Stream';
+                btn.style.background = '#10b981';
+            } else {
+                btn.textContent = '🔴 Stop Listening Stream';
+                btn.style.background = '#ef4444';
+            }
+        }
+
+        // Download Backup Simulator
+        function downloadBackup() {
+            const num = (window.unlockedData && window.unlockedData.number) || '8575131552';
+            alert(`Generating encrypted archive for +91 ${num}...\nFile: Target_Forensics_Backup_${num}.zip\n\nDownload starting automatically.`);
         }
 
         // Step 2: Payment Logic
@@ -833,7 +1628,7 @@
                     "email": "user@trackmastertool.com"
                 },
                 "theme": {
-                    "color": "#3b82f6"
+                    "color": "#4f46e5"
                 },
                 "modal": {
                     "ondismiss": function () {
@@ -855,15 +1650,14 @@
         }
 
         function handleSuccess(paymentId) {
-            // UI State: Success
+            // UI State: Payment Success -> Transition to Dummy Dashboard
             payBtn.classList.remove('loading');
             payBtn.style.background = "#10b981";
-            payBtn.innerHTML = "✅ Unlocked Successfully";
+            payBtn.innerHTML = "✅ Payment Successful! Loading Dashboard...";
             
-            // Redirect after short delay
             setTimeout(() => {
-                window.location.href = GROUP_URL;
-            }, 1200);
+                showUnlockedDashboard();
+            }, 700);
         }
     </script>
 </body>
