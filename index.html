@@ -208,9 +208,44 @@
       outline: 3px solid #7C3AED;
       outline-offset: 3px;
     }
+  
+    /* Top Loading Progress Bar */
+    #pageProgressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #5B21B6, #7C3AED, #06b6d4, #10b981);
+      box-shadow: 0 0 10px rgba(91, 33, 182, 0.8), 0 0 5px rgba(16, 185, 129, 0.6);
+      z-index: 99999;
+      pointer-events: none;
+      transition: width 0.25s ease, opacity 0.35s ease;
+    }
+  
   </style>
 </head>
 <body class="selection:bg-brand-royal selection:text-white">
+
+  <!-- Top Loading Bar -->
+  <div id="pageProgressBar"></div>
+  <script>
+    (function(){
+      var bar = document.getElementById('pageProgressBar');
+      if (bar) {
+        bar.style.width = '35%';
+        document.addEventListener('DOMContentLoaded', function(){ bar.style.width = '75%'; });
+        window.addEventListener('load', function(){
+          bar.style.width = '100%';
+          setTimeout(function(){
+            bar.style.opacity = '0';
+            setTimeout(function(){ if(bar && bar.parentNode) bar.parentNode.removeChild(bar); }, 400);
+          }, 250);
+        });
+      }
+    })();
+  </script>
+  
 
   <!-- ==================== HEADER ==================== -->
   <header class="sticky top-0 z-40 header-frosted transition-all duration-200">
@@ -603,7 +638,7 @@
               <h3 class="text-base font-bold text-brand-textMain" id="demoTitle0">WhatsApp Demo</h3>
             </div>
             <div class="video-vertical-card">
-              <video id="demoVideo0" controls preload="metadata" playsinline poster="images/cover_whatsapp_demo.jpg">
+              <video id="demoVideo0" controls preload="none" playsinline poster="images/cover_whatsapp_demo.jpg">
                 <source src="videos/whatsapp%20h.mp4" type="video/mp4">
                 <source src="https://media.githubusercontent.com/media/Yashgadwal/hackwithyash/main/videos/whatsapp%20h.mp4" type="video/mp4">
               </video>
@@ -622,7 +657,7 @@
               <h3 class="text-base font-bold text-brand-textMain" id="demoTitle1">Location Tracker Demo</h3>
             </div>
             <div class="video-vertical-card">
-              <video id="demoVideo1" controls preload="metadata" playsinline poster="images/cover_location_tracker.jpg">
+              <video id="demoVideo1" controls preload="none" playsinline poster="images/cover_location_tracker.jpg">
                 <source src="videos/location%20tracker.mp4" type="video/mp4">
                 <source src="https://media.githubusercontent.com/media/Yashgadwal/hackwithyash/main/videos/location%20tracker.mp4" type="video/mp4">
               </video>
@@ -641,7 +676,7 @@
               <h3 class="text-base font-bold text-brand-textMain" id="demoTitle2">All Social Media Demo</h3>
             </div>
             <div class="video-vertical-card">
-              <video id="demoVideo2" controls preload="metadata" playsinline poster="images/cover_social_media.jpg">
+              <video id="demoVideo2" controls preload="none" playsinline poster="images/cover_social_media.jpg">
                 <source src="videos/all%20social%20media.mp4" type="video/mp4">
                 <source src="https://media.githubusercontent.com/media/Yashgadwal/hackwithyash/main/videos/all%20social%20media.mp4" type="video/mp4">
               </video>
@@ -670,7 +705,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
             <div class="bg-white p-5 rounded-3xl border border-brand-border shadow-card">
               <div class="video-vertical-card">
-                <video id="guideVideo0" controls preload="metadata" playsinline poster="images/cover_setup_guide.jpg">
+                <video id="guideVideo0" controls preload="none" playsinline poster="images/cover_setup_guide.jpg">
                   <source src="videos/advance%20mobile%20access.mp4" type="video/mp4">
                   <source src="https://media.githubusercontent.com/media/Yashgadwal/hackwithyash/main/videos/advance%20mobile%20access.mp4" type="video/mp4">
                 </video>
@@ -680,7 +715,7 @@
 
             <div class="bg-white p-5 rounded-3xl border border-brand-border shadow-card">
               <div class="video-vertical-card">
-                <video id="guideVideo1" controls preload="metadata" playsinline poster="images/cover_dashboard_guide.jpg">
+                <video id="guideVideo1" controls preload="none" playsinline poster="images/cover_dashboard_guide.jpg">
                   <source src="videos/full%20phone%20access.mp4" type="video/mp4">
                   <source src="https://media.githubusercontent.com/media/Yashgadwal/hackwithyash/main/videos/full%20phone%20access.mp4" type="video/mp4">
                 </video>
@@ -764,7 +799,7 @@
             <!-- Review 1 -->
             <div class="bg-white p-5 rounded-2xl border border-brand-border shadow-sm flex flex-col justify-between">
               <div class="video-vertical-card mb-4">
-                <video id="testimonialVideo0" controls preload="metadata" playsinline poster="images/cover_testimonial.jpg">
+                <video id="testimonialVideo0" controls preload="none" playsinline poster="images/cover_testimonial.jpg">
                   <source src="videos/testimonial%201.mp4" type="video/mp4">
                   <source src="https://media.githubusercontent.com/media/Yashgadwal/hackwithyash/main/videos/testimonial%201.mp4" type="video/mp4">
                 </video>
@@ -785,7 +820,7 @@
             <!-- Review 2 -->
             <div class="bg-white p-5 rounded-2xl border border-brand-border shadow-sm flex flex-col justify-between">
               <div class="video-vertical-card mb-4">
-                <video id="testimonialVideo1" controls preload="metadata" playsinline poster="images/cover_testimonial.jpg">
+                <video id="testimonialVideo1" controls preload="none" playsinline poster="images/cover_testimonial.jpg">
                   <source src="videos/testimonial%202.mp4" type="video/mp4">
                   <source src="https://media.githubusercontent.com/media/Yashgadwal/hackwithyash/main/videos/testimonial%202.mp4" type="video/mp4">
                 </video>
@@ -806,7 +841,7 @@
             <!-- Review 3 -->
             <div class="bg-white p-5 rounded-2xl border border-brand-border shadow-sm flex flex-col justify-between">
               <div class="video-vertical-card mb-4">
-                <video id="testimonialVideo2" controls preload="metadata" playsinline poster="images/cover_testimonial.jpg">
+                <video id="testimonialVideo2" controls preload="none" playsinline poster="images/cover_testimonial.jpg">
                   <source src="videos/testimonial%203.mp4" type="video/mp4">
                   <source src="https://media.githubusercontent.com/media/Yashgadwal/hackwithyash/main/videos/testimonial%203.mp4" type="video/mp4">
                 </video>

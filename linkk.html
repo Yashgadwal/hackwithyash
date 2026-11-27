@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://trackmastertool.vercel.app/link" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/trackmaster_tool_logo.png"><circle cx='50' cy='50' r='50' fill='%233b0764'/><path d='M30 50 L45 65 L70 35' stroke='%23ffffff' stroke-width='10' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>" />
+  <link rel="icon" type="image/png" href="images/trackmaster_tool_logo.png">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -467,18 +467,14 @@
       font-weight: 700;
       color: var(--text-main);
       line-height: 1.3;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: normal; word-break: break-word;
     }
 
     .card-subtitle {
       font-size: 12.5px;
       color: var(--text-secondary);
       margin-top: 2px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: normal; word-break: break-word;
     }
 
     .card-right {
@@ -596,7 +592,7 @@
       box-shadow: 0 12px 32px -4px rgba(18, 140, 126, 0.45), 0 0 0 1px rgba(37, 211, 102, 0.3);
       position: relative;
       overflow: hidden;
-      transform: scale(1.02);
+      transform: none;
     }
 
     .whatsapp-primary-card::before {
@@ -973,11 +969,81 @@
       opacity: 1;
     }
 
-    /* Responsive adjustments */
+    
+    /* Enhanced Mobile Responsiveness (320px - 480px) */
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden !important;
+    }
     @media (max-width: 480px) {
       .tree-container {
-        padding: 14px 14px 28px;
+        padding: 12px 10px 36px !important;
+        max-width: 100% !important;
       }
+      .link-card {
+        padding: 13px 12px !important;
+      }
+      .card-left {
+        gap: 11px !important;
+      }
+      .card-icon-box {
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 10px !important;
+      }
+      .card-icon-box svg {
+        width: 20px !important;
+        height: 20px !important;
+      }
+      .arrow-circle {
+        width: 30px !important;
+        height: 30px !important;
+      }
+      .arrow-circle svg {
+        width: 14px !important;
+        height: 14px !important;
+      }
+      .card-title {
+        font-size: 14.5px !important;
+        line-height: 1.3 !important;
+      }
+      .card-subtitle {
+        font-size: 11.5px !important;
+        line-height: 1.3 !important;
+      }
+      .featured-tag, .wa-focus-tag {
+        font-size: 8.5px !important;
+        padding: 2px 8px !important;
+        right: 14px !important;
+      }
+      .whatsapp-primary-card {
+        transform: none !important;
+      }
+      .profile-name {
+        font-size: 21px !important;
+      }
+      .profile-bio {
+        font-size: 13px !important;
+        padding: 0 8px !important;
+      }
+      .avatar-ring {
+        width: 90px !important;
+        height: 90px !important;
+      }
+      .floating-wa {
+        bottom: 16px !important;
+        right: 16px !important;
+      }
+      .floating-wa-icon {
+        width: 48px !important;
+        height: 48px !important;
+      }
+      .floating-wa-icon svg {
+        width: 26px !important;
+        height: 26px !important;
+      }
+    }
+  
       .profile-name {
         font-size: 22px;
       }
@@ -1064,9 +1130,44 @@
       height: 30px;
       fill: #ffffff;
     }
+  
+    /* Top Loading Progress Bar */
+    #pageProgressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #7c22d4, #9d4edd, #06b6d4, #10b981);
+      box-shadow: 0 0 10px rgba(124, 34, 212, 0.8), 0 0 5px rgba(16, 185, 129, 0.6);
+      z-index: 99999;
+      pointer-events: none;
+      transition: width 0.25s ease, opacity 0.35s ease;
+    }
+  
   </style>
 </head>
 <body>
+
+  <!-- Top Loading Bar -->
+  <div id="pageProgressBar"></div>
+  <script>
+    (function(){
+      var bar = document.getElementById('pageProgressBar');
+      if (bar) {
+        bar.style.width = '30%';
+        document.addEventListener('DOMContentLoaded', function(){ bar.style.width = '75%'; });
+        window.addEventListener('load', function(){
+          bar.style.width = '100%';
+          setTimeout(function(){
+            bar.style.opacity = '0';
+            setTimeout(function(){ if(bar && bar.parentNode) bar.parentNode.removeChild(bar); }, 400);
+          }, 250);
+        });
+      }
+    })();
+  </script>
+  
 
   <!-- Ambient Light Mesh Background -->
   <div class="bg-mesh"></div>
