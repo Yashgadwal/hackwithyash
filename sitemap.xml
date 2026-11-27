@@ -1,224 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Main Pages -->
   <url>
-    <loc>https://hackwithyash.in/</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://trackmastertool.vercel.app/</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hackwithyash.in/index.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://trackmastertool.vercel.app/link</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hackwithyash.in/blog.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/trackmastertool.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <loc>https://trackmastertool.vercel.app/about.html</loc>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hackwithyash.in/parental-control.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <loc>https://trackmastertool.vercel.app/faq.html</loc>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hackwithyash.in/about.html</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://trackmastertool.vercel.app/contact.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trackmastertool.vercel.app/trackmaster.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://trackmastertool.vercel.app/privacy.html</loc>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-
-  <!-- Legal Pages -->
   <url>
-    <loc>https://hackwithyash.in/privacy.html</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://trackmastertool.vercel.app/terms.html</loc>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://hackwithyash.in/terms.html</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://trackmastertool.vercel.app/refund.html</loc>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/refund.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <!-- Blog Articles (27 Total) -->
-  <url>
-    <loc>https://hackwithyash.in/blog/best-parental-control-apps-for-android-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/best-apps-to-manage-your-childs-phone-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/how-to-keep-kids-safe-online-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/how-to-limit-screen-time-on-android-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/can-you-hack-your-girlfriends-phone-with-spyware-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/how-to-detect-and-remove-spyware-on-android-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/best-android-security-apps-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/android-privacy-guide-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/android-safety-tips-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/how-to-secure-your-smartphone-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/family-device-security-checklist-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/mobile-security-tips-for-parents-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/protect-kids-from-cyberbullying-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/online-safety-for-teenagers-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/internet-safety-rules-every-parent-should-know-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/safe-smartphone-setup-guide-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/what-is-parental-control-software-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/why-screen-time-matters-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/online-dangers-every-parent-should-know-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/signs-of-smartphone-addiction-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/protecting-children-from-online-predators-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/safe-social-media-habits-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/teaching-kids-digital-responsibility-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/family-online-safety-checklist-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/how-to-build-healthy-screen-habits-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/common-online-scams-targeting-kids-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hackwithyash.in/blog/can-someone-hack-your-instagram-2026.html</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
 </urlset>

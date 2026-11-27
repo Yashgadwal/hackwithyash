@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions (FAQ) — TrackMaster Tool</title>
+  <meta name="description" content="Frequently asked questions about TrackMaster device tracking, WhatsApp monitoring, compatibility, and lifetime license.">
+  <link rel="canonical" href="https://trackmastertool.vercel.app/faq.html">
+  <link rel="icon" type="image/png" href="images/trackmaster_tool_logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trackmastertool.vercel.app/faq.html">
+  <meta property="og:title" content="Frequently Asked Questions (FAQ) — TrackMaster Tool">
+  <meta property="og:description" content="Frequently asked questions about TrackMaster device tracking, WhatsApp monitoring, compatibility, and lifetime license.">
+  <meta property="og:image" content="https://trackmastertool.vercel.app/images/cover_whatsapp_demo.jpg">
+
+  <!-- Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              deep: '#1F1037',
+              royal: '#5B21B6',
+              violet: '#7C3AED',
+              bgMain: '#FFFFFF',
+              bgAlt: '#F8F7FC',
+              textMain: '#211B2B',
+              textSec: '#625B6B',
+              border: '#E8E3EF',
+              softPurple: '#EDE9FE',
+              highlight: '#F3E8FF'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    #pageProgressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #5B21B6, #7C3AED, #06b6d4, #10b981);
+      box-shadow: 0 0 10px rgba(91, 33, 182, 0.8), 0 0 5px rgba(16, 185, 129, 0.6);
+      z-index: 99999;
+      pointer-events: none;
+      transition: width 0.25s ease, opacity 0.35s ease;
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "TrackMaster Tool kaise kaam karta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TrackMaster ek modern cloud-based device monitoring tool hai. Yeh background me bina target device ko slow kiye WhatsApp chats, call logs, live location aur social media activity monitor karne me madad karta hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya iske liye phone ko Root ya Jailbreak karna padta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bilkul nahi! TrackMaster ko bilkul bina root (Android) aur bina jailbreak (iPhone) ke chalane ke liye design kiya gaya hai. Isme device ki warranty par koi asar nahi padta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Target device me kitna time lagta hai setup karne me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Setup process sirf 2 se 3 minute ka hota hai. Humare step-by-step Hindi video guide ko dekhkar koi bhi aam vyakti bina kisi technical gyan ke ise aasaani se connect kar sakta hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya target vyakti ko pata chalega ki monitoring ho rahi hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yeh tool stealth mode me kaam karta hai, yaani application icon hide ho jata hai aur koi notification ya alert display nahi hota."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "License fees kya hai aur iski validity kitni hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TrackMaster ka full version sirf ₹1,999 me Lifetime License ke sath milta hai. Isme koi monthly subscription ya hidden fees nahi hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Agar tool kaam na kare toh kya refund milta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan! Humari taraf se 7-day hassle-free refund policy uplabdh hai. Agar setup me koi technical samasya aati hai aur hamari support team use solve nahi kar pati, toh aapka poora payment wapas kar diya jata hai."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="bg-brand-bgAlt text-brand-textMain font-sans flex flex-col min-h-screen">
+  <div id="pageProgressBar"></div>
+  <script>
+    (function(){
+      var bar = document.getElementById('pageProgressBar');
+      if (bar) {
+        bar.style.width = '35%';
+        document.addEventListener('DOMContentLoaded', function(){ bar.style.width = '75%'; });
+        window.addEventListener('load', function(){
+          bar.style.width = '100%';
+          setTimeout(function(){
+            bar.style.opacity = '0';
+            setTimeout(function(){ if(bar && bar.parentNode) bar.parentNode.removeChild(bar); }, 400);
+          }, 250);
+        });
+      }
+    })();
+  </script>
+
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-brand-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3.5 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl p-0.5 bg-gradient-to-tr from-brand-deep to-brand-royal shadow-sm">
+          <img src="images/trackmaster_tool_logo.png" alt="TrackMaster Logo" class="w-full h-full rounded-xl object-contain bg-black">
+        </div>
+        <span class="text-xl font-extrabold tracking-tight text-brand-textMain">TrackMaster</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-brand-textSec">
+        <a href="/" class="hover:text-brand-royal transition-colors">Home</a>
+        <a href="/#video-demo" class="hover:text-brand-royal transition-colors">Demos</a>
+        <a href="/about.html" class="hover:text-brand-royal transition-colors">About Us</a>
+        <a href="/faq.html" class="hover:text-brand-royal transition-colors">FAQ</a>
+        <a href="/contact.html" class="hover:text-brand-royal transition-colors">Contact</a>
+        <a href="/link" class="text-brand-royal font-bold hover:underline">Quick Links</a>
+      </nav>
+      <a href="https://pages.razorpay.com/pl_S9MzxZBz4DDAg6/view" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-brand-deep via-brand-royal to-brand-violet hover:opacity-95 shadow-md">
+        Instant Access
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-grow py-12 sm:py-16">
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold text-brand-royal uppercase tracking-wider bg-brand-highlight px-3 py-1 rounded-full border border-brand-border">
+          Knowledge Base & Help
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-brand-textMain mt-3 mb-3">
+          Frequently Asked Questions (FAQ)
+        </h1>
+        <p class="text-brand-textSec text-base">
+          TrackMaster ke features, setup, compatibility aur pricing se jude sabhi aam sawalon ke seedhe jawab.
+        </p>
+      </div>
+
+      <div class="space-y-4 mb-12">
+        
+          <div class="bg-white rounded-2xl border border-brand-border p-6 shadow-sm">
+            <h2 class="text-lg font-bold text-brand-textMain flex items-start gap-3">
+              <span class="text-brand-royal font-extrabold">Q1.</span>
+              <span>TrackMaster Tool kaise kaam karta hai?</span>
+            </h2>
+            <p class="mt-3 text-sm text-brand-textSec leading-relaxed pl-7">TrackMaster ek modern cloud-based device monitoring tool hai. Yeh background me bina target device ko slow kiye WhatsApp chats, call logs, live location aur social media activity monitor karne me madad karta hai.</p>
+          </div>
+        
+          <div class="bg-white rounded-2xl border border-brand-border p-6 shadow-sm">
+            <h2 class="text-lg font-bold text-brand-textMain flex items-start gap-3">
+              <span class="text-brand-royal font-extrabold">Q2.</span>
+              <span>Kya iske liye phone ko Root ya Jailbreak karna padta hai?</span>
+            </h2>
+            <p class="mt-3 text-sm text-brand-textSec leading-relaxed pl-7">Bilkul nahi! TrackMaster ko bilkul bina root (Android) aur bina jailbreak (iPhone) ke chalane ke liye design kiya gaya hai. Isme device ki warranty par koi asar nahi padta.</p>
+          </div>
+        
+          <div class="bg-white rounded-2xl border border-brand-border p-6 shadow-sm">
+            <h2 class="text-lg font-bold text-brand-textMain flex items-start gap-3">
+              <span class="text-brand-royal font-extrabold">Q3.</span>
+              <span>Target device me kitna time lagta hai setup karne me?</span>
+            </h2>
+            <p class="mt-3 text-sm text-brand-textSec leading-relaxed pl-7">Setup process sirf 2 se 3 minute ka hota hai. Humare step-by-step Hindi video guide ko dekhkar koi bhi aam vyakti bina kisi technical gyan ke ise aasaani se connect kar sakta hai.</p>
+          </div>
+        
+          <div class="bg-white rounded-2xl border border-brand-border p-6 shadow-sm">
+            <h2 class="text-lg font-bold text-brand-textMain flex items-start gap-3">
+              <span class="text-brand-royal font-extrabold">Q4.</span>
+              <span>Kya target vyakti ko pata chalega ki monitoring ho rahi hai?</span>
+            </h2>
+            <p class="mt-3 text-sm text-brand-textSec leading-relaxed pl-7">Yeh tool stealth mode me kaam karta hai, yaani application icon hide ho jata hai aur koi notification ya alert display nahi hota.</p>
+          </div>
+        
+          <div class="bg-white rounded-2xl border border-brand-border p-6 shadow-sm">
+            <h2 class="text-lg font-bold text-brand-textMain flex items-start gap-3">
+              <span class="text-brand-royal font-extrabold">Q5.</span>
+              <span>License fees kya hai aur iski validity kitni hai?</span>
+            </h2>
+            <p class="mt-3 text-sm text-brand-textSec leading-relaxed pl-7">TrackMaster ka full version sirf ₹1,999 me Lifetime License ke sath milta hai. Isme koi monthly subscription ya hidden fees nahi hai.</p>
+          </div>
+        
+          <div class="bg-white rounded-2xl border border-brand-border p-6 shadow-sm">
+            <h2 class="text-lg font-bold text-brand-textMain flex items-start gap-3">
+              <span class="text-brand-royal font-extrabold">Q6.</span>
+              <span>Agar tool kaam na kare toh kya refund milta hai?</span>
+            </h2>
+            <p class="mt-3 text-sm text-brand-textSec leading-relaxed pl-7">Ji haan! Humari taraf se 7-day hassle-free refund policy uplabdh hai. Agar setup me koi technical samasya aati hai aur hamari support team use solve nahi kar pati, toh aapka poora payment wapas kar diya jata hai.</p>
+          </div>
+        
+      </div>
+
+      <div class="bg-gradient-to-br from-brand-deep to-brand-royal rounded-3xl p-8 text-center text-white shadow-xl">
+        <h3 class="text-2xl font-bold mb-2">Abhi Bhi Koi Sawal Hai?</h3>
+        <p class="text-purple-200 text-sm max-w-xl mx-auto mb-6">
+          Hamari support team se WhatsApp par direct chat karein aur turant jawab paayein.
+        </p>
+        <a href="https://wa.me/919111814338?text=Hello+I+have+a+question+about+TrackMaster" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-extrabold text-brand-deep bg-white hover:bg-purple-50 shadow-lg">
+          <span>WhatsApp Par Poochhein</span>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="bg-white border-t border-brand-border py-12 text-sm text-brand-textSec">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-brand-border">
+        <div class="flex items-center gap-3">
+          <img src="images/trackmaster_tool_logo.png" alt="TrackMaster" class="w-8 h-8 rounded-lg object-contain bg-black">
+          <span class="font-bold text-base text-brand-textMain">TrackMaster Tool</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 text-xs sm:text-sm font-semibold">
+          <a href="/" class="hover:text-brand-royal transition-colors">Home</a>
+          <a href="/about.html" class="hover:text-brand-royal transition-colors">About Us</a>
+          <a href="/contact.html" class="hover:text-brand-royal transition-colors">Contact</a>
+          <a href="/faq.html" class="hover:text-brand-royal transition-colors">FAQ</a>
+          <a href="/privacy.html" class="hover:text-brand-royal transition-colors">Privacy Policy</a>
+          <a href="/terms.html" class="hover:text-brand-royal transition-colors">Terms of Service</a>
+          <a href="/refund.html" class="hover:text-brand-royal transition-colors">Refund Policy</a>
+          <a href="/link" class="hover:text-brand-royal transition-colors">All Links</a>
+        </div>
+      </div>
+      <div class="pt-8 text-center text-xs text-brand-textSec/80 space-y-2">
+        <p><strong>Disclaimer:</strong> TrackMaster parivar ki suraksha, parental control aur device tracking ke udyesh se banaya gaya tool hai. Kripya iska upayog sabhi lagu kanoono ke anusaar karein.</p>
+        <p>&copy; 2026 TrackMaster Tool. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

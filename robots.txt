@@ -1,6 +1,6 @@
-# Robots.txt for HackWithYash SaaS
+# Robots.txt for TrackMaster Tool
 User-agent: *
 Allow: /
 
 # Sitemap Location
-Sitemap: https://hackwithyash.in/sitemap.xml
+Sitemap: https://trackmastertool.vercel.app/sitemap.xml

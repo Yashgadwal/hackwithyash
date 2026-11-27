@@ -1,213 +1,179 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="hi" class="scroll-smooth">
 <head>
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Hacking Lord Security & Monitoring Solutions</title>
-  <meta name="description" content="Learn about the Hacking Lord team, our history in mobile security research, and our mission to provide stealth monitoring software.">
-  
-  <!-- Tailwind CSS Play CDN -->
+  <title>About Us — TrackMaster Digital Safety & Monitoring</title>
+  <meta name="description" content="Learn about TrackMaster's mission, technology, and commitment to family safety, digital parenting, and secure location tracking.">
+  <link rel="canonical" href="https://trackmastertool.vercel.app/about.html">
+  <link rel="icon" type="image/png" href="images/trackmaster_tool_logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trackmastertool.vercel.app/about.html">
+  <meta property="og:title" content="About Us — TrackMaster Digital Safety & Monitoring">
+  <meta property="og:description" content="Learn about TrackMaster's mission, technology, and commitment to family safety, digital parenting, and secure location tracking.">
+  <meta property="og:image" content="https://trackmastertool.vercel.app/images/cover_whatsapp_demo.jpg">
+
+  <!-- Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            purple: {
-              950: '#1e1b4b',
+            brand: {
+              deep: '#1F1037',
+              royal: '#5B21B6',
+              violet: '#7C3AED',
+              bgMain: '#FFFFFF',
+              bgAlt: '#F8F7FC',
+              textMain: '#211B2B',
+              textSec: '#625B6B',
+              border: '#E8E3EF',
+              softPurple: '#EDE9FE',
+              highlight: '#F3E8FF'
             }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'sans-serif'],
           }
         }
       }
     }
   </script>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Lucide Icons CDN -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
   <style>
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #000000;
-      color: #f9fafb;
-      overflow-x: hidden;
-      overscroll-behavior-y: none;
-    }
-
-    /* Glassmorphism Styles */
-    .glass-panel {
-      background: rgba(17, 24, 39, 0.6);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .glow-bubble {
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, rgba(88, 28, 135, 0) 70%);
-      filter: blur(40px);
+    #pageProgressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #5B21B6, #7C3AED, #06b6d4, #10b981);
+      box-shadow: 0 0 10px rgba(91, 33, 182, 0.8), 0 0 5px rgba(16, 185, 129, 0.6);
+      z-index: 99999;
       pointer-events: none;
-      z-index: -1;
+      transition: width 0.25s ease, opacity 0.35s ease;
     }
   </style>
+  
 </head>
-<body class="w-full">
+<body class="bg-brand-bgAlt text-brand-textMain font-sans flex flex-col min-h-screen">
+  <div id="pageProgressBar"></div>
+  <script>
+    (function(){
+      var bar = document.getElementById('pageProgressBar');
+      if (bar) {
+        bar.style.width = '35%';
+        document.addEventListener('DOMContentLoaded', function(){ bar.style.width = '75%'; });
+        window.addEventListener('load', function(){
+          bar.style.width = '100%';
+          setTimeout(function(){
+            bar.style.opacity = '0';
+            setTimeout(function(){ if(bar && bar.parentNode) bar.parentNode.removeChild(bar); }, 400);
+          }, 250);
+        });
+      }
+    })();
+  </script>
 
-  <!-- Alert Banner -->
-  <div class="w-full bg-purple-600/90 text-white py-2.5 px-4 text-center text-xs font-semibold tracking-wide backdrop-blur-sm border-b border-purple-500/20 z-50 relative">
-    ⚡ Alert: Lifetime exploit tools update now active. Mirror calls, chats, and cameras remotely.
-  </div>
-
-  <!-- Navbar -->
-  <nav class="sticky top-0 z-40 glass-panel border-b border-white/5 py-4 px-6 md:px-12 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <a href="index.html" class="flex items-center space-x-2">
-        <span class="text-xl font-bold tracking-wider text-white">
-          HACKWITH<span class="text-purple-500">YASH</span>
-        </span>
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-brand-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3.5 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl p-0.5 bg-gradient-to-tr from-brand-deep to-brand-royal shadow-sm">
+          <img src="images/trackmaster_tool_logo.png" alt="TrackMaster Logo" class="w-full h-full rounded-xl object-contain bg-black">
+        </div>
+        <span class="text-xl font-extrabold tracking-tight text-brand-textMain">TrackMaster</span>
       </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-brand-textSec">
+        <a href="/" class="hover:text-brand-royal transition-colors">Home</a>
+        <a href="/#video-demo" class="hover:text-brand-royal transition-colors">Demos</a>
+        <a href="/about.html" class="hover:text-brand-royal transition-colors">About Us</a>
+        <a href="/faq.html" class="hover:text-brand-royal transition-colors">FAQ</a>
+        <a href="/contact.html" class="hover:text-brand-royal transition-colors">Contact</a>
+        <a href="/link" class="text-brand-royal font-bold hover:underline">Quick Links</a>
+      </nav>
+      <a href="https://pages.razorpay.com/pl_S9MzxZBz4DDAg6/view" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-brand-deep via-brand-royal to-brand-violet hover:opacity-95 shadow-md">
+        Instant Access
+      </a>
+    </div>
+  </header>
 
-      <!-- Desktop Links -->
-      <div class="hidden md:flex items-center space-x-8">
-        <a href="index.html#features" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Features</a>
-        <a href="index.html#pricing" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Pricing</a>
-        <a href="index.html#faq" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">FAQ</a>
-        <a href="blog.html" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Blog</a>
-        <a href="about.html" class="text-sm text-white transition-colors duration-200 font-semibold border-b-2 border-purple-500 pb-1">About</a>
+  <main class="flex-grow py-12 sm:py-16">
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold text-brand-royal uppercase tracking-wider bg-brand-highlight px-3 py-1 rounded-full border border-brand-border">
+          About TrackMaster
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-brand-textMain mt-3 mb-3">
+          Empowering Family Safety & Digital Trust
+        </h1>
+        <p class="text-brand-textSec text-base">
+          TrackMaster ka lakshya parivaron aur bachchon ki digital suraksha sunishchit karna hai.
+        </p>
       </div>
 
-      <!-- Burger Menu Trigger -->
-      <button onclick="toggleMobileMenu()" class="md:hidden text-gray-400 hover:text-white focus:outline-none">
-        <i id="menu-icon" data-lucide="menu" class="w-6 h-6"></i>
-      </button>
-    </div>
-
-    <!-- Mobile Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden mt-4 pt-4 border-t border-white/5 space-y-4 px-2">
-      <a href="index.html#features" class="block text-gray-300 hover:text-white text-base py-1">Features</a>
-      <a href="index.html#pricing" class="block text-gray-300 hover:text-white text-base py-1">Pricing</a>
-      <a href="index.html#faq" class="block text-gray-300 hover:text-white text-base py-1">FAQ</a>
-      <a href="blog.html" class="block text-gray-300 hover:text-white text-base py-1">Blog</a>
-      <a href="about.html" class="block text-white text-base py-1 font-semibold">About</a>
-    </div>
-  </nav>
-
-  <main class="relative z-10 py-16 px-6 md:px-12 max-w-4xl mx-auto space-y-12">
-    <div class="glow-bubble top-20 left-1/2 -translate-x-1/2"></div>
-
-    <div class="space-y-4 text-center md:text-left">
-      <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">About Us</h1>
-      <p class="text-gray-400 max-w-lg">Learn more about our team, security objectives, and system diagnostic research.</p>
-    </div>
-
-    <div class="glass-panel rounded-2xl p-6 md:p-10 leading-relaxed text-gray-300 space-y-6">
-      <p class="text-base md:text-lg">
-        Welcome to Hacking Lord. We are a specialized team of mobile utility researchers and developers committed to providing high-performance, silent device monitoring tools for households and small businesses.
-      </p>
-
-      <h2 class="text-xl font-bold text-white pt-4">Our Mission</h2>
-      <p class="text-sm text-gray-400 leading-relaxed">
-        Our mission is to empower families and business managers with reliable, remote monitoring applications that run silently in the background, enabling safe digital experiences without technical obstacles.
-      </p>
-
-      <h2 class="text-xl font-bold text-white pt-4">Why Choose Our Solutions?</h2>
-      <p class="text-sm text-gray-400 leading-relaxed">
-        We specialize in remote deployment frameworks that sync databases, screen logs, and messaging channels to a central, user-friendly control dashboard. Our tools are optimized to run efficiently with low battery impact and minimum configuration requirements.
-      </p>
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer class="border-t border-white/5 bg-black/60 pt-8 pb-6 px-6 md:px-12">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-6">
-      <div class="space-y-3">
-        <a href="index.html" class="flex items-center space-x-2">
-          <span class="text-xl font-bold tracking-wider text-white">
-            HACKWITH<span class="text-purple-500">YASH</span>
-          </span>
-        </a>
-        <p class="text-sm text-gray-400 leading-relaxed">
-          One time payment — Lifetime access monitoring tools. No technical skills required.
+      <div class="bg-white p-8 sm:p-12 rounded-3xl border border-brand-border shadow-sm space-y-6 leading-relaxed text-brand-textSec text-sm sm:text-base mb-12">
+        <h2 class="text-xl font-bold text-brand-textMain">Hamara Mission</h2>
+        <p>
+          Aaj ke digital yug me smartphone har kisi ki zindagi ka hissa ban chuka hai. Lekin internet par badhte cyber threats, cyberbullying, aur online scams ke chalte apne parivar aur bachchon ki digital activities par nazar rakhna zaroori ho gaya hai.
         </p>
-        <div class="flex space-x-4">
-          <a href="https://instagram.com/technicalyg.pro" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
-              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-            </svg>
-          </a>
+        <p>
+          TrackMaster ek aasan, bharosemand aur modern phone monitoring software hai jo parents aur individuals ko bina kisi technical gyan ke live location, messaging apps aur call logs track karne ki suvidha deta hai.
+        </p>
+
+        <h2 class="text-xl font-bold text-brand-textMain pt-4">TrackMaster Kyun Chunein?</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+          <div class="p-4 rounded-2xl bg-brand-bgAlt border border-brand-border">
+            <h4 class="font-bold text-brand-textMain mb-1">🔒 100% End-to-End Encrypted</h4>
+            <p class="text-xs text-brand-textSec">Aapka data sirf aapke control me rehta hai. Third party access impossible hai.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-brand-bgAlt border border-brand-border">
+            <h4 class="font-bold text-brand-textMain mb-1">⚡ 2-Minute Remote Setup</h4>
+            <p class="text-xs text-brand-textSec">Kisi technical degree ki zaroorat nahi. Step-by-step Hindi guide ke sath instant activation.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-brand-bgAlt border border-brand-border">
+            <h4 class="font-bold text-brand-textMain mb-1">📱 Zero Root / Zero Jailbreak</h4>
+            <p class="text-xs text-brand-textSec">Sabhi Android aur iOS devices par bina phone ki warranty lose kiye kaam karta hai.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-brand-bgAlt border border-brand-border">
+            <h4 class="font-bold text-brand-textMain mb-1">💬 24/7 Direct WhatsApp Help</h4>
+            <p class="text-xs text-brand-textSec">Kabhi bhi koi dikkat aaye, hamari dedicated support team turant madad ke liye taiyaar hai.</p>
+          </div>
         </div>
       </div>
-
-      <div class="space-y-3">
-        <h4 class="text-sm font-semibold text-white uppercase tracking-wider">Product</h4>
-        <ul class="space-y-2 text-sm text-gray-400">
-          <li><a href="index.html#features" class="hover:text-white transition-colors">Stealth Features</a></li>
-          <li><a href="index.html#pricing" class="hover:text-white transition-colors">Pricing Plans</a></li>
-          <li><a href="index.html#faq" class="hover:text-white transition-colors">FAQ</a></li>
-        </ul>
-      </div>
-
-      <div class="space-y-3">
-        <h4 class="text-sm font-semibold text-white uppercase tracking-wider">Legal</h4>
-        <ul class="space-y-2 text-sm text-gray-400">
-          <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
-          <li><a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
-          <li><a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a></li>
-          <li><a href="refund.html" class="hover:text-white transition-colors">Refund Policy</a></li>
-        </ul>
-      </div>
-
-      <div class="space-y-3" id="contact">
-        <h4 class="text-sm font-semibold text-white uppercase tracking-wider">Get in Touch</h4>
-        <ul class="space-y-2 text-sm text-gray-400">
-          <li class="flex items-center space-x-2">
-            <i data-lucide="mail" class="text-purple-500 w-4 h-4"></i>
-            <a href="mailto:support@hackwithyash.in" class="hover:text-white transition-colors">support@hackwithyash.in</a>
-          </li>
-          <li class="flex items-center space-x-2">
-            <i data-lucide="phone-call" class="text-purple-500 w-4 h-4"></i>
-            <a href="tel:+919876543210" class="hover:text-white transition-colors">+91 98765 43210</a>
-          </li>
-        </ul>
-      </div>
     </div>
 
-    <div class="max-w-7xl mx-auto border-t border-white/5 pt-4 flex flex-col md:flex-row items-center justify-between">
-      <p class="text-xs text-gray-500 mb-2 md:mb-0">
-        © 2026 HackWithYash Clone. Premium monitoring tools.
-      </p>
-      <p class="text-xs text-gray-500">
-        Powered by Razorpay Secure Payments.
-      </p>
+  </main>
+
+  <footer class="bg-white border-t border-brand-border py-12 text-sm text-brand-textSec">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-brand-border">
+        <div class="flex items-center gap-3">
+          <img src="images/trackmaster_tool_logo.png" alt="TrackMaster" class="w-8 h-8 rounded-lg object-contain bg-black">
+          <span class="font-bold text-base text-brand-textMain">TrackMaster Tool</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 text-xs sm:text-sm font-semibold">
+          <a href="/" class="hover:text-brand-royal transition-colors">Home</a>
+          <a href="/about.html" class="hover:text-brand-royal transition-colors">About Us</a>
+          <a href="/contact.html" class="hover:text-brand-royal transition-colors">Contact</a>
+          <a href="/faq.html" class="hover:text-brand-royal transition-colors">FAQ</a>
+          <a href="/privacy.html" class="hover:text-brand-royal transition-colors">Privacy Policy</a>
+          <a href="/terms.html" class="hover:text-brand-royal transition-colors">Terms of Service</a>
+          <a href="/refund.html" class="hover:text-brand-royal transition-colors">Refund Policy</a>
+          <a href="/link" class="hover:text-brand-royal transition-colors">All Links</a>
+        </div>
+      </div>
+      <div class="pt-8 text-center text-xs text-brand-textSec/80 space-y-2">
+        <p><strong>Disclaimer:</strong> TrackMaster parivar ki suraksha, parental control aur device tracking ke udyesh se banaya gaya tool hai. Kripya iska upayog sabhi lagu kanoono ke anusaar karein.</p>
+        <p>&copy; 2026 TrackMaster Tool. All rights reserved.</p>
+      </div>
     </div>
   </footer>
-
-  <script>
-    lucide.createIcons();
-
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobile-menu');
-      const icon = document.getElementById('menu-icon');
-      
-      if (menu.classList.contains('hidden')) {
-        menu.classList.remove('hidden');
-        icon.setAttribute('data-lucide', 'x');
-      } else {
-        menu.classList.add('hidden');
-        icon.setAttribute('data-lucide', 'menu');
-      }
-      lucide.createIcons();
-    }
-  </script>
 </body>
 </html>

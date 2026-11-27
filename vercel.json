@@ -80,6 +80,30 @@
     {
       "source": "/trackmasterprolight.html",
       "destination": "/trackmasterProLight.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/refund",
+      "destination": "/refund.html"
     }
   ],
   "headers": [

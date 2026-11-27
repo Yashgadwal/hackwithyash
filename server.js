@@ -122,6 +122,18 @@ const server = http.createServer((req, res) => {
     reqUrl = '/links.html';
   } else if (reqUrl.toLowerCase() === '/link' || reqUrl.toLowerCase() === '/link.html' || reqUrl.toLowerCase() === '/linkk' || reqUrl.toLowerCase() === '/linkk.html') {
     reqUrl = '/link.html';
+  } else if (reqUrl.toLowerCase() === '/about' || reqUrl.toLowerCase() === '/about.html') {
+    reqUrl = '/about.html';
+  } else if (reqUrl.toLowerCase() === '/contact' || reqUrl.toLowerCase() === '/contact.html') {
+    reqUrl = '/contact.html';
+  } else if (reqUrl.toLowerCase() === '/faq' || reqUrl.toLowerCase() === '/faq.html') {
+    reqUrl = '/faq.html';
+  } else if (reqUrl.toLowerCase() === '/privacy' || reqUrl.toLowerCase() === '/privacy.html') {
+    reqUrl = '/privacy.html';
+  } else if (reqUrl.toLowerCase() === '/terms' || reqUrl.toLowerCase() === '/terms.html') {
+    reqUrl = '/terms.html';
+  } else if (reqUrl.toLowerCase() === '/refund' || reqUrl.toLowerCase() === '/refund.html') {
+    reqUrl = '/refund.html';
   }
 
   let decodedUrl = reqUrl;
