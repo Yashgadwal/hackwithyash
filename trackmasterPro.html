@@ -56,8 +56,14 @@
 
         /* Header */
         .header {
-            padding: 24px;
+            padding: 20px 24px;
             border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-brand {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -77,6 +83,26 @@
             font-size: 18px;
             font-weight: 600;
             letter-spacing: -0.5px;
+        }
+
+        .theme-toggle-link {
+            font-size: 12px;
+            color: #cbd5e1;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-color);
+            transition: all 0.2s;
+        }
+
+        .theme-toggle-link:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            transform: translateY(-1px);
         }
 
         /* Content Area */
@@ -107,13 +133,33 @@
             margin-bottom: 8px;
         }
 
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .country-prefix {
+            position: absolute;
+            left: 14px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            pointer-events: none;
+            padding-right: 10px;
+            border-right: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
         input[type="tel"] {
             width: 100%;
-            padding: 14px 16px;
+            padding: 14px 16px 14px 80px;
             font-size: 16px;
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.3);
             color: white;
             outline: none;
             transition: all 0.2s;
@@ -122,6 +168,67 @@
         input:focus {
             border-color: var(--accent-blue);
             box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+
+        input.input-error {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25);
+            animation: shake 0.35s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+
+        .error-message {
+            display: none;
+            margin-top: 10px;
+            padding: 10px 14px;
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.35);
+            border-radius: 10px;
+            color: #fca5a5;
+            font-size: 12.5px;
+            line-height: 1.45;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .scan-progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 18px 0 10px;
+        }
+
+        .scan-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .target-badge {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #94a3b8;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .target-badge strong {
+            color: #38bdf8;
+            letter-spacing: 0.5px;
         }
 
         /* Buttons */
@@ -190,11 +297,11 @@
         }
 
         /* Icon Colors */
-        .icon-wa { background: rgba(37, 211, 102, 0.1); color: #25D366; }
-        .icon-insta { background: rgba(225, 48, 108, 0.1); color: #E1306C; }
-        .icon-twitter { background: rgba(29, 161, 242, 0.1); color: #1DA1F2; }
-        .icon-call { background: rgba(16, 185, 129, 0.1); color: #10b981; }
-        .icon-loc { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+        .icon-wa { background: rgba(37, 211, 102, 0.15); color: #25D366; }
+        .icon-insta { background: rgba(225, 48, 108, 0.15); color: #E1306C; }
+        .icon-photos { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+        .icon-call { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+        .icon-loc { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
 
         .card-info h3 {
             font-size: 14px;
@@ -253,14 +360,19 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <div class="logo-icon">
-                <!-- SVG Logo Icon -->
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6z"/>
-                    <circle cx="12" cy="12" r="3"/>
-                </svg>
+            <div class="header-brand">
+                <div class="logo-icon">
+                    <!-- SVG Logo Icon -->
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                </div>
+                <h1>Trackmaster<span style="color:var(--accent-blue)">Pro</span></h1>
             </div>
-            <h1>Trackmaster<span style="color:var(--accent-blue)">Pro</span></h1>
+            <a href="/trackmasterProLight.html" class="theme-toggle-link" title="Switch to Light Theme">
+                ☀️ Light Mode
+            </a>
         </div>
 
         <div class="content">
@@ -268,13 +380,24 @@
             <!-- STEP 1: Input -->
             <div id="stepInput" class="step active">
                 <div style="margin-bottom: 20px;">
-                    <h2 style="font-size: 20px; margin-bottom: 8px;">Hack Device</h2>
-                    <p style="color: var(--text-secondary); font-size: 14px;">Enter the target number to access their entire phone.</p>
+                    <h2 style="font-size: 20px; margin-bottom: 8px;">Device Intelligence Scan</h2>
+                    <p style="color: var(--text-secondary); font-size: 14px;">Enter the target 10-digit Indian mobile number to access their device data.</p>
                 </div>
 
-                <form id="scanForm">
-                    <label for="victimNumber">Target Mobile Number</label>
-                    <input type="tel" id="victimNumber" placeholder="e.g., 9876543210" required pattern="[0-9]{10}" autocomplete="off">
+                <form id="scanForm" novalidate>
+                    <label for="victimNumber">Target Mobile Number (India)</label>
+                    <div class="input-wrapper">
+                        <span class="country-prefix">🇮🇳 +91</span>
+                        <input type="tel" id="victimNumber" placeholder="98XXXXXXXX" maxlength="10" autocomplete="off">
+                    </div>
+
+                    <!-- In-UI Error Display -->
+                    <div id="errorBox" class="error-message">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:2px;">
+                            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                        </svg>
+                        <span id="errorMsg">Please enter a valid 10-digit Indian mobile number.</span>
+                    </div>
                     
                     <button type="submit" class="primary-btn" id="scanBtn">
                         <span class="btn-text">Initiate Scan</span>
@@ -285,18 +408,27 @@
 
             <!-- STEP 2: Scanning Animation -->
             <div id="stepScan" class="step">
-                <div style="text-align: center; padding: 20px 0;">
-                    <div style="width: 50px; height: 50px; border: 3px solid var(--accent-blue); border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px;"></div>
+                <div style="text-align: center; padding: 16px 0;">
+                    <div style="width: 50px; height: 50px; border: 3px solid var(--accent-blue); border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 16px;"></div>
                     <h2 style="font-size: 18px; margin-bottom: 5px;">Connecting to Database...</h2>
-                    <p style="color: var(--text-secondary); font-size: 13px;" id="scanStatus">Resolving IP Address</p>
+                    <p style="color: var(--accent-blue); font-size: 13px;" id="scanStatus">Resolving IP Address</p>
+                    
+                    <div class="scan-progress-bar">
+                        <div class="scan-progress-fill" id="scanProgress"></div>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 12px;" id="scanTargetDisplay">Scanning +91 ...</p>
                 </div>
             </div>
 
             <!-- STEP 3: Results & Payment -->
             <div id="stepResults" class="step">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
                     <h2 style="font-size: 18px;">Scan Complete</h2>
                     <span style="background:rgba(16, 185, 129, 0.2); color:#10b981; font-size:11px; padding:4px 8px; border-radius:20px; font-weight:600;">● Online</span>
+                </div>
+
+                <div class="target-badge">
+                    Target: <strong id="resultsTargetNumber">+91 0000000000</strong>
                 </div>
 
                 <!-- Result Card 1: WhatsApp -->
@@ -307,7 +439,7 @@
                     </div>
                     <div class="card-info">
                         <h3>WhatsApp</h3>
-                        <p>2,450 Chats Found • Media Accessible</p>
+                        <p id="waCountText">2,450 Chats Found • Media Accessible</p>
                     </div>
                 </div>
 
@@ -319,19 +451,23 @@
                     </div>
                     <div class="card-info">
                         <h3>Instagram</h3>
-                        <p>1,120 DMs Found • Story History</p>
+                        <p id="instaCountText">1,120 DMs Found • Story History</p>
                     </div>
                 </div>
 
-                <!-- Result Card 3: X (Twitter) -->
+                <!-- Result Card 3: Photos & Gallery Files (Replaced Twitter) -->
                 <div class="data-card">
-                    <div class="icon-box icon-twitter">
-                        <!-- Twitter/X Icon -->
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.81L5.932 21.75H2.63l7.64-8.74-7.216-9.26h8.48l6.34 8.34-1.46-8.69z"/></svg>
+                    <div class="icon-box icon-photos">
+                        <!-- Photos / Gallery Icon -->
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
                     </div>
                     <div class="card-info">
-                        <h3>X (Twitter)</h3>
-                        <p>850 Tweets Found • Follow List</p>
+                        <h3>Photos & Files</h3>
+                        <p id="photosCountText">1,842 Photos & Files Found • Gallery Indexed</p>
                     </div>
                 </div>
 
@@ -343,7 +479,7 @@
                     </div>
                     <div class="card-info">
                         <h3>Call Recordings</h3>
-                        <p>45 Calls Recorded • Last 30 Days</p>
+                        <p id="callCountText">45 Calls Recorded • Last 30 Days</p>
                     </div>
                 </div>
 
@@ -386,19 +522,108 @@
         const payBtn = document.getElementById('payBtn');
         const victimInput = document.getElementById('victimNumber');
         const scanStatus = document.getElementById('scanStatus');
+        const scanProgress = document.getElementById('scanProgress');
+        const scanTargetDisplay = document.getElementById('scanTargetDisplay');
+        const errorBox = document.getElementById('errorBox');
+        const errorMsg = document.getElementById('errorMsg');
+        const resultsTargetNumber = document.getElementById('resultsTargetNumber');
+
+        // Formatted display helper
+        function formatPhone(num) {
+            if (num.length === 10) {
+                return '+91 ' + num.slice(0, 5) + ' ' + num.slice(5);
+            }
+            return '+91 ' + num;
+        }
+
+        // Real Indian Phone Number Validation
+        function validateIndianNumber(number) {
+            const clean = String(number).replace(/\D/g, '');
+            
+            if (clean.length !== 10) {
+                return { valid: false, message: 'Please enter a complete 10-digit Indian mobile number.' };
+            }
+            
+            // Indian mobile numbers must start with 6, 7, 8, or 9
+            if (!/^[6-9]/.test(clean)) {
+                return { valid: false, message: 'Invalid number: Indian mobile numbers must start with 6, 7, 8, or 9.' };
+            }
+
+            // Block all identical repeating digits (e.g. 9999999999, 8888888888)
+            if (/^(\d)\1{9}$/.test(clean)) {
+                return { valid: false, message: 'Invalid number: Repeated dummy digits are not allowed.' };
+            }
+
+            // Known dummy or test numbers list
+            const dummyNumbers = [
+                '1234567890', '0123456789', '9876543210', '0987654321',
+                '9123456789', '9898989898', '9090909090', '8989898989',
+                '9876598765', '1234512345', '6789012345', '9000000000',
+                '8000000000', '7000000000', '6000000000', '9876501234',
+                '9111111111', '8111111111', '7111111111', '6111111111'
+            ];
+            if (dummyNumbers.includes(clean)) {
+                return { valid: false, message: 'Dummy or test numbers are blocked. Please enter a genuine active mobile number.' };
+            }
+
+            // Sequential checks
+            const sequences = ['0123456789', '9876543210', '1234567890', '9012345678'];
+            for (const seq of sequences) {
+                if (seq.includes(clean)) {
+                    return { valid: false, message: 'Sequential dummy numbers are not permitted.' };
+                }
+            }
+
+            // Repetition check: reject if 7 or more digits are identical
+            const counts = {};
+            for (const d of clean) {
+                counts[d] = (counts[d] || 0) + 1;
+                if (counts[d] >= 7) {
+                    return { valid: false, message: 'Invalid pattern detected: Excessive duplicate digits.' };
+                }
+            }
+
+            return { valid: true, number: clean };
+        }
+
+        // Show / Clear in-UI error
+        function showError(msg) {
+            errorMsg.textContent = msg;
+            errorBox.style.display = 'flex';
+            victimInput.classList.add('input-error');
+            setTimeout(() => {
+                victimInput.classList.remove('input-error');
+            }, 500);
+        }
+
+        function clearError() {
+            errorBox.style.display = 'none';
+            victimInput.classList.remove('input-error');
+        }
+
+        victimInput.addEventListener('input', () => {
+            // Only allow digits
+            victimInput.value = victimInput.value.replace(/\D/g, '').slice(0, 10);
+            if (errorBox.style.display === 'flex') {
+                clearError();
+            }
+        });
 
         // Step 1: Initiate Scan
         scanForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const number = victimInput.value.trim();
-            if(number.length < 10) {
-                alert("Please enter a valid 10-digit mobile number.");
+            clearError();
+
+            const rawVal = victimInput.value.trim();
+            const validation = validateIndianNumber(rawVal);
+
+            if (!validation.valid) {
+                showError(validation.message);
                 return;
             }
 
-            // Start Fake Scanning Sequence
-            startScanningSequence(number);
+            // Start Scanning Sequence for validated Indian number
+            startScanningSequence(validation.number);
         });
 
         function startScanningSequence(number) {
@@ -409,38 +634,71 @@
             scanBtn.classList.add('loading');
             scanBtn.disabled = true;
 
-            // Simulate different scanning steps
-            const statuses = [
-                "Resolving IP Address...",
-                "Querying Telecom Database...",
-                "Extracting Metadata...",
-                "Finalizing Report..."
+            scanTargetDisplay.textContent = 'Scanning Target: ' + formatPhone(number);
+
+            // Simulate realistic scanning steps with progress bar
+            const stages = [
+                { text: "Querying Indian Telecom Gateway (HLR / VLR)...", pct: 25 },
+                { text: "Decrypting WhatsApp & Social Media Tokens...", pct: 55 },
+                { text: "Indexing Photos, Media & File System...", pct: 85 },
+                { text: "Compiling Intelligence Security Report...", pct: 100 }
             ];
 
-            let i = 0;
+            let stageIdx = 0;
             const interval = setInterval(() => {
-                if(i < statuses.length) {
-                    scanStatus.textContent = statuses[i];
-                    i++;
+                if (stageIdx < stages.length) {
+                    scanStatus.textContent = stages[stageIdx].text;
+                    scanProgress.style.width = stages[stageIdx].pct + '%';
+                    stageIdx++;
                 } else {
                     clearInterval(interval);
-                    finishScanning();
+                    setTimeout(() => {
+                        finishScanning(number);
+                    }, 400);
                 }
-            }, 1000);
+            }, 900);
         }
 
-        function finishScanning() {
-            // Generate random fake data
-            const waCount = Math.floor(Math.random() * 3000) + 500;
-            const instaCount = Math.floor(Math.random() * 1500) + 100;
-            const twitterCount = Math.floor(Math.random() * 1000) + 50;
-            const callCount = Math.floor(Math.random() * 50) + 10;
+        // FNV-1a Hash to generate 32-bit integer seed from phone number
+        function hashString(str) {
+            let hash = 2166136261;
+            for (let i = 0; i < str.length; i++) {
+                hash ^= str.charCodeAt(i);
+                hash = Math.imul(hash, 16777619);
+            }
+            return hash >>> 0;
+        }
 
-            // Update DOM with generated numbers
-            document.querySelector('.icon-wa').nextElementSibling.querySelector('p').textContent = `${waCount} Chats Found • Media Accessible`;
-            document.querySelector('.icon-insta').nextElementSibling.querySelector('p').textContent = `${instaCount} DMs Found • Story History`;
-            document.querySelector('.icon-twitter').nextElementSibling.querySelector('p').textContent = `${twitterCount} Tweets Found • Follow List`;
-            document.querySelector('.icon-call').nextElementSibling.querySelector('p').textContent = `${callCount} Calls Recorded • Last 30 Days`;
+        // Seeded PRNG (Mulberry32) - gives 100% deterministic results for the same number
+        function createPrng(seed) {
+            let s = seed;
+            return function() {
+                s |= 0;
+                s = (s + 0x6D2B79F5) | 0;
+                let t = Math.imul(s ^ (s >>> 15), 1 | s);
+                t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+                return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+            };
+        }
+
+        function finishScanning(number) {
+            // Deterministic generation: Same number = exact same results every single time!
+            const seed = hashString(number);
+            const rng = createPrng(seed);
+
+            const waCount = Math.floor(rng() * 2200) + 1400;      // 1400 - 3600 chats
+            const instaCount = Math.floor(rng() * 1200) + 600;    // 600 - 1800 DMs
+            const photosCount = Math.floor(rng() * 3000) + 1250;  // 1250 - 4250 Photos & Files
+            const callCount = Math.floor(rng() * 45) + 15;        // 15 - 60 Calls
+
+            // Update DOM with deterministic counts
+            document.getElementById('waCountText').textContent = waCount.toLocaleString() + ' Chats Found • Media Accessible';
+            document.getElementById('instaCountText').textContent = instaCount.toLocaleString() + ' DMs Found • Story History';
+            document.getElementById('photosCountText').textContent = photosCount.toLocaleString() + ' Photos & Files Found • Gallery Indexed';
+            document.getElementById('callCountText').textContent = callCount + ' Calls Recorded • Last 30 Days';
+
+            // Display target number in results badge
+            resultsTargetNumber.textContent = formatPhone(number);
 
             // Switch to Results View
             stepScan.classList.remove('active');
@@ -457,19 +715,21 @@
             payBtn.classList.add('loading');
             payBtn.disabled = true;
 
+            const targetNum = victimInput.value.trim() || '8575131552';
+
             // Razorpay Options
             var options = {
                 "key": RAZORPAY_KEY_ID, 
                 "amount": "50000", // ₹500 = 50000 paise
                 "currency": "INR",
                 "name": "Trackmaster Pro",
-                "description": "Lifetime Data Access",
+                "description": "Lifetime Data Access for +91 " + targetNum,
                 "image": "https://cdn-icons-png.flaticon.com/512/3665/3665072.png",
                 "handler": function (response){
                     handleSuccess(response.razorpay_payment_id);
                 },
                 "prefill": {
-                    "contact": victimInput.value,
+                    "contact": targetNum,
                     "email": "user@trackmastertool.com"
                 },
                 "theme": {
@@ -503,7 +763,7 @@
             // Redirect after short delay
             setTimeout(() => {
                 window.location.href = GROUP_URL;
-            }, 1500);
+            }, 1200);
         }
     </script>
 </body>

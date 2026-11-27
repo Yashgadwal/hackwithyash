@@ -16,6 +16,22 @@
     {
       "source": "/trackmasterpro.html",
       "destination": "/trackmasterPro.html"
+    },
+    {
+      "source": "/trackmasterpro-light",
+      "destination": "/trackmasterProLight.html"
+    },
+    {
+      "source": "/trackmasterProLight",
+      "destination": "/trackmasterProLight.html"
+    },
+    {
+      "source": "/trackmasterprolight",
+      "destination": "/trackmasterProLight.html"
+    },
+    {
+      "source": "/trackmasterprolight.html",
+      "destination": "/trackmasterProLight.html"
     }
   ],
   "headers": [
