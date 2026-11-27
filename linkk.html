@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>TrackMaster Tool | Official Links</title>
+  <meta name="description" content="Official links for TrackMaster Tool & Ha*king Lord by @trackmastertool. Access official TrackMaster Tool portal, demo videos, WhatsApp support, and free tools." />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="TrackMaster Tool (@trackmastertool)" />
+  <meta property="og:description" content="Official portal for TrackMaster Tool, Ha*king Lord, Demo Videos, and WhatsApp Support." />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://trackmastertool.vercel.app/linkk.html" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%233b0764'/><path d='M30 50 L45 65 L70 35' stroke='%23ffffff' stroke-width='10' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      /* Dark Purple Gradient Theme */
+      --primary-dark: #1b0730;
+      --primary-mid: #330c5a;
+      --primary-purple: #4c1380;
+      --primary-light: #7c22d4;
+      --purple-accent: #9d4edd;
+      --purple-glow: rgba(124, 34, 212, 0.25);
+      
+      /* Light Theme Canvas */
+      --bg-page: #f8f7fd;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #ffffff;
+      --bg-surface-soft: #f4f1fb;
+      --bg-card-hover: #fcfbfe;
+      
+      /* Typography */
+      --text-main: #140524;
+      --text-secondary: #5e5270;
+      --text-muted: #8b7f9e;
+      --text-light: #ffffff;
+      
+      /* Gradients */
+      --grad-dark-purple: linear-gradient(135deg, #1b0730 0%, #350c5d 50%, #521689 100%);
+      --grad-primary-button: linear-gradient(135deg, #240a3e 0%, #431174 55%, #641ba5 100%);
+      --grad-accent: linear-gradient(135deg, #7c22d4 0%, #a855f7 100%);
+      --grad-emerald: linear-gradient(135deg, #059669 0%, #10b981 100%);
+      --grad-gold: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+      --grad-border: linear-gradient(135deg, rgba(82, 22, 137, 0.35), rgba(157, 78, 221, 0.15));
+
+      /* Borders & Shadows */
+      --border-subtle: rgba(76, 19, 128, 0.09);
+      --border-focus: rgba(124, 34, 212, 0.35);
+      --shadow-sm: 0 2px 8px rgba(27, 7, 48, 0.04);
+      --shadow-md: 0 8px 24px -4px rgba(46, 11, 80, 0.08);
+      --shadow-lg: 0 16px 36px -6px rgba(46, 11, 80, 0.14);
+      --shadow-purple-btn: 0 10px 25px -5px rgba(53, 12, 93, 0.38);
+
+      --radius-full: 9999px;
+      --radius-xl: 22px;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow-x: hidden;
+      line-height: 1.5;
+      padding-bottom: 40px;
+    }
+
+    /* Ambient Background Mesh (Light theme with subtle dark purple energy) */
+    .bg-mesh {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: 
+        radial-gradient(circle at 15% 10%, rgba(94, 23, 155, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 85% 20%, rgba(124, 34, 212, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(53, 12, 93, 0.06) 0%, transparent 50%),
+        linear-gradient(180deg, #f7f5fd 0%, #fdfcff 40%, #f6f3fc 100%);
+    }
+
+    /* Subtle grid overlay */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image: radial-gradient(rgba(82, 22, 137, 0.04) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+
+    /* Container */
+    .tree-container {
+      width: 100%;
+      max-width: 580px;
+      padding: 20px 18px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* Top Navigation Bar */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 24px;
+      padding: 4px 2px;
+    }
+
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-sm);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary-mid);
+    }
+
+    .brand-pill-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--primary-light);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--purple-glow);
+    }
+
+    .top-action-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-dark);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .top-action-btn:hover {
+      transform: scale(1.06);
+      background: var(--grad-dark-purple);
+      color: var(--text-light);
+      border-color: transparent;
+      box-shadow: 0 6px 16px rgba(53, 12, 93, 0.25);
+    }
+
+    .top-action-btn svg {
+      width: 19px;
+      height: 19px;
+      fill: currentColor;
+    }
+
+    /* Profile Header */
+    .profile-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      margin-bottom: 18px;
+    }
+
+    .avatar-ring {
+      width: 106px;
+      height: 106px;
+      border-radius: 50%;
+      background: var(--grad-dark-purple);
+      padding: 3.5px;
+      box-shadow: 0 8px 26px rgba(53, 12, 93, 0.28);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar-ring::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px dashed rgba(124, 34, 212, 0.4);
+      animation: spinBorder 22s linear infinite;
+    }
+
+    @keyframes spinBorder {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #240a3e;
+      border: 2.5px solid #ffffff;
+      display: block;
+    }
+
+    .status-badge {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      width: 22px;
+      height: 22px;
+      background: #10b981;
+      border-radius: 50%;
+      border: 3px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .profile-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      margin-bottom: 4px;
+    }
+
+    .profile-name {
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      letter-spacing: -0.5px;
+    }
+
+    .verified-icon {
+      width: 22px;
+      height: 22px;
+      fill: #7c22d4;
+      filter: drop-shadow(0 2px 4px rgba(124, 34, 212, 0.3));
+    }
+
+    .profile-handle {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary-light);
+      background: rgba(124, 34, 212, 0.08);
+      padding: 3px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .profile-handle:hover {
+      background: rgba(124, 34, 212, 0.15);
+    }
+
+    .profile-bio {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      max-width: 420px;
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    .live-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-surface);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #065f46;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .pulse-dot::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.5);
+      animation: pulse 1.8s ease-out infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(2.4); opacity: 0; }
+    }
+
+    /* Social Bar */
+    .social-strip {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-mid);
+      text-decoration: none;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .social-link:hover {
+      transform: translateY(-3px) scale(1.05);
+      background: var(--grad-dark-purple);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 8px 20px rgba(53, 12, 93, 0.25);
+    }
+
+    .social-link svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Links Section */
+    .links-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      width: 100%;
+    }
+
+    /* Standard Card Link */
+    .link-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: var(--radius-xl);
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border-subtle);
+      text-decoration: none;
+      box-shadow: var(--shadow-md);
+      transition: all 0.28s cubic-bezier(0.2, 0.9, 0.3, 1);
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .link-card:hover {
+      transform: translateY(-3.5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border-focus);
+      background: var(--bg-card-hover);
+    }
+
+    .link-card:active {
+      transform: scale(0.985);
+    }
+
+    .card-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .card-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-lg);
+      background: var(--bg-surface-soft);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-mid);
+      flex-shrink: 0;
+      transition: all 0.25s ease;
+    }
+
+    .link-card:hover .card-icon-box {
+      background: var(--grad-dark-purple);
+      color: #ffffff;
+      border-color: transparent;
+      transform: rotate(-3deg) scale(1.05);
+    }
+
+    .card-icon-box svg {
+      width: 23px;
+      height: 23px;
+      fill: currentColor;
+    }
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--primary-light);
+      margin-bottom: 2px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-subtitle {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-right {
+      display: flex;
+      align-items: center;
+      margin-left: 12px;
+      flex-shrink: 0;
+    }
+
+    .arrow-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--bg-surface-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: all 0.25s ease;
+    }
+
+    .link-card:hover .arrow-circle {
+      background: var(--grad-dark-purple);
+      color: #ffffff;
+      transform: translateX(3px);
+    }
+
+    .arrow-circle svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    /* FEATURED CARD (Hacking Lord Tool - hackwithyash.in) */
+    .featured-card {
+      background: var(--grad-dark-purple);
+      border: 1.5px solid rgba(157, 78, 221, 0.4);
+      box-shadow: var(--shadow-purple-btn);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .featured-card .card-title {
+      color: #ffffff;
+      font-size: 17px;
+    }
+
+    .featured-card .card-subtitle {
+      color: #dfd4f0;
+    }
+
+    .featured-card .card-badge {
+      color: #facc15;
+    }
+
+    .featured-card .card-icon-box {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
+    .featured-card:hover {
+      background: linear-gradient(135deg, #240a3e 0%, #431174 50%, #6b1ba5 100%);
+      border-color: rgba(216, 180, 254, 0.7);
+      box-shadow: 0 16px 36px rgba(46, 11, 80, 0.35);
+    }
+
+    .featured-card:hover .card-icon-box {
+      background: #ffffff;
+      color: var(--primary-mid);
+    }
+
+    .featured-card .arrow-circle {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+    }
+
+    .featured-card:hover .arrow-circle {
+      background: #ffffff;
+      color: var(--primary-mid);
+    }
+
+    /* Tag pill inside featured card */
+    .featured-tag {
+      position: absolute;
+      top: 0;
+      right: 28px;
+      background: #facc15;
+      color: #1a0826;
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    /* PRIMARY WHATSAPP CONTACT CARD - HIGHLIGHTED GREEN */
+    .whatsapp-primary-card {
+      background: linear-gradient(135deg, #094e3b 0%, #0d7355 45%, #18a96b 100%);
+      border: 2px solid #25D366;
+      box-shadow: 0 12px 32px -4px rgba(18, 140, 126, 0.45), 0 0 0 1px rgba(37, 211, 102, 0.3);
+      position: relative;
+      overflow: hidden;
+      transform: scale(1.02);
+    }
+
+    .whatsapp-primary-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(37, 211, 102, 0.25) 0%, transparent 60%);
+      pointer-events: none;
+      animation: waShimmer 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes waShimmer {
+      0% { transform: translate(-10%, -10%); }
+      100% { transform: translate(10%, 10%); }
+    }
+
+    .whatsapp-primary-card .card-title {
+      color: #ffffff;
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .whatsapp-primary-card .card-subtitle {
+      color: #d1fae5;
+      font-weight: 500;
+    }
+
+    .whatsapp-primary-card .card-badge {
+      color: #a7f3d0;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+    }
+
+    .whatsapp-primary-card .card-icon-box {
+      background: #ffffff;
+      color: #075E54;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: none;
+    }
+
+    .whatsapp-primary-card:hover {
+      background: linear-gradient(135deg, #075E54 0%, #128C7E 50%, #22c55e 100%);
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 18px 40px -4px rgba(18, 140, 126, 0.55), 0 0 20px rgba(37, 211, 102, 0.5);
+      border-color: #86efac;
+    }
+
+    .whatsapp-primary-card:hover .card-icon-box {
+      background: #25D366;
+      color: #ffffff;
+      transform: scale(1.1) rotate(-4deg);
+    }
+
+    .whatsapp-primary-card .arrow-circle {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
+    .whatsapp-primary-card:hover .arrow-circle {
+      background: #ffffff;
+      color: #075E54;
+    }
+
+    .wa-focus-tag {
+      position: absolute;
+      top: 0;
+      right: 24px;
+      background: #25D366;
+      color: #043828;
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      padding: 3px 11px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .wa-focus-tag::before {
+      content: '●';
+      font-size: 8px;
+      color: #ffffff;
+    }
+
+    /* SUPPORT CARD AT LAST (WhatsApp Channel Support) */
+    .support-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f7fdfa 100%);
+      border: 1.5px solid rgba(16, 185, 129, 0.35);
+      box-shadow: 0 8px 24px -4px rgba(16, 185, 129, 0.14);
+      position: relative;
+    }
+
+    .support-card .card-badge {
+      color: #059669;
+    }
+
+    .support-card .card-icon-box {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: rgba(16, 185, 129, 0.2);
+      color: #059669;
+    }
+
+    .support-card:hover {
+      border-color: #10b981;
+      box-shadow: 0 14px 32px -4px rgba(16, 185, 129, 0.22);
+      background: #ffffff;
+    }
+
+    .support-card:hover .card-icon-box {
+      background: var(--grad-emerald);
+      color: #ffffff;
+    }
+
+    .support-card:hover .arrow-circle {
+      background: var(--grad-emerald);
+      color: #ffffff;
+    }
+
+    /* Member pill */
+    .live-member-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(16, 185, 129, 0.12);
+      color: #065f46;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+      margin-left: 6px;
+    }
+
+    /* Section divider */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 10px 4px 2px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .section-label::before,
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-subtle);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .footer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--primary-mid);
+      text-decoration: none;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .footer-badge:hover {
+      transform: scale(1.03);
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow-md);
+    }
+
+    .footer-badge svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--primary-light);
+    }
+
+    .copyright-text {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Modal Styles (Share & QR Code) */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 5, 34, 0.6);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 999;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-box {
+      background: var(--bg-surface);
+      width: 100%;
+      max-width: 440px;
+      border-radius: var(--radius-xl);
+      padding: 28px 24px;
+      box-shadow: 0 20px 40px rgba(27, 7, 48, 0.25);
+      border: 1.5px solid var(--border-subtle);
+      position: relative;
+      transform: translateY(16px);
+      transition: transform 0.25s ease;
+      text-align: center;
+    }
+
+    .modal-overlay.active .modal-box {
+      transform: translateY(0);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--bg-surface-soft);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: background 0.2s;
+    }
+
+    .modal-close-btn:hover {
+      background: #e9e3f5;
+      color: var(--text-main);
+    }
+
+    .modal-qr-container {
+      margin: 18px auto;
+      padding: 14px;
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      width: 190px;
+      height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .copy-input-group {
+      display: flex;
+      align-items: center;
+      background: var(--bg-surface-soft);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 6px 6px 6px 12px;
+      margin: 18px 0;
+    }
+
+    .copy-input-text {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 13.5px;
+      color: var(--text-main);
+      font-weight: 500;
+      flex: 1;
+      text-overflow: ellipsis;
+    }
+
+    .copy-btn {
+      background: var(--grad-dark-purple);
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius-md);
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s;
+    }
+
+    .copy-btn:hover {
+      opacity: 0.92;
+    }
+
+    .modal-share-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .share-channel-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 8px;
+      background: var(--bg-surface-soft);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .share-channel-btn:hover {
+      background: #e9e3f5;
+      transform: translateY(-2px);
+    }
+
+    .share-channel-btn svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--grad-dark-purple);
+      color: #ffffff;
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 10px 30px rgba(27, 7, 48, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      z-index: 1000;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .tree-container {
+        padding: 14px 14px 28px;
+      }
+      .profile-name {
+        font-size: 22px;
+      }
+      .card-title {
+        font-size: 15px;
+      }
+      .card-subtitle {
+        font-size: 12px;
+      }
+      .card-icon-box {
+        width: 42px;
+        height: 42px;
+      }
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-wa {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      filter: drop-shadow(0 10px 20px rgba(5, 150, 105, 0.35));
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .floating-wa:hover {
+      transform: translateY(-4px) scale(1.04);
+      filter: drop-shadow(0 14px 28px rgba(5, 150, 105, 0.45));
+    }
+
+    .floating-wa-label {
+      background: #ffffff;
+      color: #065f46;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      white-space: nowrap;
+      display: none;
+    }
+
+    @media (min-width: 640px) {
+      .floating-wa-label {
+        display: block;
+      }
+    }
+
+    .floating-wa-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
+      position: relative;
+    }
+
+    .floating-wa-icon::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid #25D366;
+      animation: waPulse 2s infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes waPulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(1.4); opacity: 0; }
+    }
+
+    .floating-wa-icon svg {
+      width: 30px;
+      height: 30px;
+      fill: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Light Mesh Background -->
+  <div class="bg-mesh"></div>
+  <div class="bg-grid"></div>
+
+  <main class="tree-container">
+
+    <!-- Top Action Bar -->
+    <header class="top-bar">
+      <div class="brand-pill">
+        <span class="brand-pill-dot"></span>
+        <span>TrackMaster Official Hub</span>
+      </div>
+      <button class="top-action-btn" id="shareProfileBtn" title="Share profile" aria-label="Share profile">
+        <svg viewBox="0 0 24 24">
+          <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+      <div class="avatar-wrapper">
+        <div class="avatar-ring">
+          <img 
+            class="avatar-img" 
+            src="avatar.png" 
+            alt="TrackMaster Tool Avatar" 
+            onerror="this.onerror=null; this.src='https://ugc.production.linktr.ee/bd6a73e8-5b4c-41f1-9f88-4c3144871cf9_753540895-18070793489470732-646309193880493936-n--1-.png?io=true&size=avatar-v3_0';" 
+          />
+        </div>
+        <div class="status-badge" title="Active"></div>
+      </div>
+
+      <div class="profile-title-row">
+        <h1 class="profile-name">TrackMaster Tool</h1>
+        <svg class="verified-icon" viewBox="0 0 24 24" title="Verified Hub">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+      </div>
+
+      <div class="profile-handle" id="copyHandleBtn" title="Click to copy handle">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm-1-13h2v2h-2zm0 4h2v6h-2z"/>
+        </svg>
+        <span>@trackmastertool</span>
+      </div>
+    </section>
+
+    <!-- Social Strip -->
+    <nav class="social-strip" aria-label="Social Profiles">
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/trackmastertool" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram @trackmastertool">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </a>
+
+      <!-- WhatsApp Channel -->
+      <a href="https://whatsapp.com/channel/0029VbCiyrvDTkJz9KESt21D" target="_blank" rel="noopener noreferrer" class="social-link" title="Official WhatsApp Channel">
+        <svg viewBox="0 0 24 24">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.57 4.185 1.564 5.938l-1.564 5.714 5.864-1.538c1.691.921 3.63 1.458 5.698 1.458 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/>
+        </svg>
+      </a>
+
+      <!-- WhatsApp Direct Chat -->
+      <a href="https://wa.me/919111814338?text=I+need+this+tool" target="_blank" rel="noopener noreferrer" class="social-link" title="Direct WhatsApp Support">
+        <svg viewBox="0 0 24 24">
+          <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12zM7 9h10v2H7zm0-3h10v2H7zm0 6h7v2H7z"/>
+        </svg>
+      </a>
+
+      <!-- Main Website -->
+      <a href="https://trackmastertool.vercel.app/trackmaster" target="_blank" rel="noopener noreferrer" class="social-link" title="TrackMaster Tool Portal">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+        </svg>
+      </a>
+    </nav>
+
+    <!-- Links Section -->
+    <div class="links-stack">
+
+      <!-- 1. MAIN LINK: HACKING LORD TOOL (hackwithyash.in) -->
+      <a href="https://trackmastertool.vercel.app/trackmaster" target="_blank" rel="noopener noreferrer" class="link-card featured-card">
+        <span class="featured-tag">★ PRIMARY PORTAL</span>
+        <div class="card-left">
+          <div class="card-icon-box">
+            <!-- Shield / Tool Terminal Icon -->
+            <svg viewBox="0 0 24 24">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <span class="card-badge">⭐ MAIN OFFICIAL WEBSITE</span>
+            <span class="card-title">Ha*king Lord & TrackMaster Pro Tool</span>
+            <span class="card-subtitle">trackmastertool.vercel.app/trackmaster — Instant Online Access</span>
+          </div>
+        </div>
+        <div class="card-right">
+          <div class="arrow-circle">
+            <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2. WATCH DEMO VIDEOS ONLINE -->
+      <a href="https://trackmastertool.vercel.app/#demos" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="card-left">
+          <div class="card-icon-box">
+            <!-- Video / Play Icon -->
+            <svg viewBox="0 0 24 24">
+              <path d="M10 8.64L15.27 12 10 15.36V8.64M8 5v14l11-7L8 5z"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <span class="card-badge">🎥 TUTORIALS & GUIDES</span>
+            <span class="card-title">Watch Demo Ha*king Videos Online</span>
+            <span class="card-subtitle">trackmastertool.vercel.app — Step-by-step tool walkthroughs & demos</span>
+          </div>
+        </div>
+        <div class="card-right">
+          <div class="arrow-circle">
+            <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- 3. WHATSAPP DIRECT CONTACT FOR TOOL (PRIMARY FOCUS HIGHLIGHTED GREEN) -->
+      <a href="https://wa.me/919111814338?text=I+need+this+tool" target="_blank" rel="noopener noreferrer" class="link-card whatsapp-primary-card">
+        <span class="wa-focus-tag">★ PRIMARY FOCUS</span>
+        <div class="card-left">
+          <div class="card-icon-box">
+            <!-- Official WhatsApp Icon -->
+            <svg viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.57 4.185 1.564 5.938l-1.564 5.714 5.864-1.538c1.691.921 3.63 1.458 5.698 1.458 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <span class="card-badge">⚡ INSTANT 1-ON-1 WHATSAPP</span>
+            <span class="card-title">WhatsApp Contact for Tool</span>
+            <span class="card-subtitle">+91 9111814338 — Click to chat instantly on WhatsApp</span>
+          </div>
+        </div>
+        <div class="card-right">
+          <div class="arrow-circle">
+            <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- Divider -->
+      <div class="section-label">
+        <span>Support & Updates</span>
+      </div>
+
+      <!-- 4. WHATSAPP CHANNEL SUPPORT (At last as requested) -->
+      <a href="https://whatsapp.com/channel/0029VbCiyrvDTkJz9KESt21D" target="_blank" rel="noopener noreferrer" class="link-card support-card">
+        <div class="card-left">
+          <div class="card-icon-box">
+            <!-- Megaphone / Broadcast Community Icon -->
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.35 5L2 22l5.18-1.33c1.43.82 3.09 1.33 4.82 1.33 5.52 0 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <span class="card-badge">
+              🚀 24/7 SUPPORT & FREE TOOLS
+              <span class="live-member-count">● Active Channel</span>
+            </span>
+            <span class="card-title">WhatsApp Channel Support</span>
+            <span class="card-subtitle">whatsapp.com/channel/0029VbCiyrvDTkJz9KESt21D — Free tools & updates</span>
+          </div>
+        </div>
+        <div class="card-right">
+          <div class="arrow-circle">
+            <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <a href="https://trackmastertool.vercel.app/trackmaster" target="_blank" rel="noopener noreferrer" class="footer-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 10h2v4h-2zm0 6h2v2h-2z"/></svg>
+        <span>TrackMaster Tool Official Portal</span>
+      </a>
+      <p class="copyright-text">
+        © 2026 TrackMaster Tool • Managed by <strong>@trackmastertool</strong>
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- Floating WhatsApp Action Button -->
+  <a href="https://wa.me/919111814338?text=I+need+this+tool" target="_blank" rel="noopener noreferrer" class="floating-wa" title="Need Help? Chat on WhatsApp">
+    <span class="floating-wa-label">💬 Need Help? Chat Now</span>
+    <div class="floating-wa-icon">
+      <svg viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.57 4.185 1.564 5.938l-1.564 5.714 5.864-1.538c1.691.921 3.63 1.458 5.698 1.458 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/>
+      </svg>
+    </div>
+  </a>
+
+  <!-- Share & QR Modal -->
+  <div class="modal-overlay" id="shareModal">
+    <div class="modal-box">
+      <button class="modal-close-btn" id="closeModalBtn" aria-label="Close modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        </svg>
+      </button>
+
+      <h3 style="font-size: 19px; font-weight: 800; color: var(--primary-dark); margin-bottom: 6px;">Share TrackMaster Hub</h3>
+      <p style="font-size: 13px; color: var(--text-secondary);">Scan the QR code or copy the link below</p>
+
+      <!-- Client-side Clean QR Code SVG -->
+      <div class="modal-qr-container" id="qrContainer">
+        <svg width="160" height="160" viewBox="0 0 33 33" shape-rendering="crispEdges">
+          <!-- Frame and Finder Patterns for trackmastertool URL -->
+          <path fill="#240a3e" d="M0 0h9v9H0zm2 2v5h5V2zm1 1h3v3H3zm21-3h9v9h-9zm2 2v5h5V2zm1 1h3v3h-3zm-24 21h9v9H0zm2 2v5h5v-5zm1 1h3v3H3zm9-22h2v3h-2zm4 0h3v2h-3zm-2 4h4v2h-4zm7 0h2v4h-2zm-6 3h2v2h-2zm4 1h3v2h-3zm-5 3h2v3h-2zm4 0h2v2h-2zm3 1h3v2h-3zm-9 3h3v2h-3zm5 0h2v2h-2zm-4 3h2v3h-2zm5 0h3v2h-3zm-8 4h3v2h-3zm5 0h2v2h-2zm4 0h2v3h-2zm-9 4h2v2h-2zm4 0h3v2h-3zm5 0h2v2h-2z"/>
+        </svg>
+      </div>
+
+      <div class="copy-input-group">
+        <input type="text" class="copy-input-text" id="shareUrlInput" readonly value="https://trackmastertool.vercel.app/linkk.html" />
+        <button class="copy-btn" id="copyUrlBtn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+          </svg>
+          <span>Copy</span>
+        </button>
+      </div>
+
+      <div class="modal-share-grid">
+        <a href="https://api.whatsapp.com/send?text=Check%20out%20TrackMaster%20Tool%20Official%20Hub:%20https://trackmastertool.vercel.app/linkk.html" target="_blank" rel="noopener noreferrer" class="share-channel-btn">
+          <svg viewBox="0 0 24 24" fill="#25D366">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.57 4.185 1.564 5.938l-1.564 5.714 5.864-1.538c1.691.921 3.63 1.458 5.698 1.458 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+        <a href="https://t.me/share/url?url=https://trackmastertool.vercel.app/linkk.html&text=TrackMaster%20Tool%20Official%20Links" target="_blank" rel="noopener noreferrer" class="share-channel-btn">
+          <svg viewBox="0 0 24 24" fill="#0088cc">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+          </svg>
+          <span>Telegram</span>
+        </a>
+        <a href="https://twitter.com/intent/tweet?url=https://trackmastertool.vercel.app/linkk.html&text=TrackMaster%20Tool%20Official%20Links%20by%20@trackmastertool" target="_blank" rel="noopener noreferrer" class="share-channel-btn">
+          <svg viewBox="0 0 24 24" fill="#000000">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          <span>X / Twitter</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff">
+      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+    </svg>
+    <span id="toastMessage">Copied to clipboard!</span>
+  </div>
+
+  <script>
+    // Elements
+    const shareProfileBtn = document.getElementById('shareProfileBtn');
+    const shareModal = document.getElementById('shareModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const copyUrlBtn = document.getElementById('copyUrlBtn');
+    const shareUrlInput = document.getElementById('shareUrlInput');
+    const copyHandleBtn = document.getElementById('copyHandleBtn');
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toastMessage');
+
+    // Dynamic current URL setter
+    if (window.location.href && !window.location.href.startsWith('file:')) {
+      shareUrlInput.value = window.location.href;
+    }
+
+    // Show Toast Helper
+    function showToast(msg) {
+      toastMessage.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2600);
+    }
+
+    // Native Web Share API with Modal Fallback
+    shareProfileBtn.addEventListener('click', async () => {
+      const shareData = {
+        title: 'TrackMaster Tool Official Hub',
+        text: 'Access TrackMaster Tool, Hacking Lord portal, demo videos, and WhatsApp support by @trackmastertool!',
+        url: shareUrlInput.value
+      };
+
+      if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+        try {
+          await navigator.share(shareData);
+          return;
+        } catch (err) {
+          if (err.name !== 'AbortError') {
+            openShareModal();
+          }
+        }
+      } else {
+        openShareModal();
+      }
+    });
+
+    function openShareModal() {
+      shareModal.classList.add('active');
+    }
+
+    function closeShareModal() {
+      shareModal.classList.remove('active');
+    }
+
+    closeModalBtn.addEventListener('click', closeShareModal);
+    shareModal.addEventListener('click', (e) => {
+      if (e.target === shareModal) closeShareModal();
+    });
+
+    // Copy URL
+    copyUrlBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(shareUrlInput.value).then(() => {
+        showToast('Link copied to clipboard!');
+        closeShareModal();
+      }).catch(() => {
+        shareUrlInput.select();
+        document.execCommand('copy');
+        showToast('Link copied!');
+        closeShareModal();
+      });
+    });
+
+    // Copy handle @trackmastertool
+    copyHandleBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText('@trackmastertool').then(() => {
+        showToast('Copied handle: @trackmastertool');
+      });
+    });
+
+    // Escape key closes modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeShareModal();
+    });
+  </script>
+</body>
+</html>

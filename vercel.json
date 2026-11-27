@@ -18,6 +18,30 @@
       "destination": "/links.html"
     },
     {
+      "source": "/linkk",
+      "destination": "/linkk.html"
+    },
+    {
+      "source": "/Linkk",
+      "destination": "/linkk.html"
+    },
+    {
+      "source": "/linkk.html",
+      "destination": "/linkk.html"
+    },
+    {
+      "source": "/link",
+      "destination": "/linkk.html"
+    },
+    {
+      "source": "/Link",
+      "destination": "/linkk.html"
+    },
+    {
+      "source": "/link.html",
+      "destination": "/linkk.html"
+    },
+    {
       "source": "/trackmaster",
       "destination": "/trackmaster.html"
     },
