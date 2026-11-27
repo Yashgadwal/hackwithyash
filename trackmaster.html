@@ -1,0 +1,2146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackmaster Pro</title>
+    <!-- Razorpay SDK -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <style>
+        /* Modern Creative Light Theme */
+        :root {
+            --bg-light: #f8fafc;
+            --card-bg: rgba(255, 255, 255, 0.94);
+            --border-color: rgba(226, 232, 240, 0.9);
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --primary-indigo: #4f46e5;
+            --primary-violet: #7c3aed;
+            --accent-cyan: #06b6d4;
+            --success-emerald: #10b981;
+            --warning-amber: #f59e0b;
+            --danger-rose: #f43f5e;
+            --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-light);
+            background-image: 
+                radial-gradient(circle at 10% 15%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 85%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.04) 0%, transparent 50%);
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 440px;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
+            box-shadow: 
+                0 25px 60px -15px rgba(15, 23, 42, 0.08),
+                0 0 1px 1px rgba(15, 23, 42, 0.04);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Top Bar */
+        .top-glow-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #4f46e5, #06b6d4, #10b981);
+            width: 100%;
+        }
+
+        /* Header */
+        .header {
+            padding: 22px 26px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary-indigo), var(--primary-violet));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 14px rgba(79, 70, 229, 0.25);
+        }
+
+        h1 {
+            font-size: 19px;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+            color: var(--text-primary);
+        }
+
+        .brand-gradient {
+            background: linear-gradient(135deg, var(--primary-indigo), var(--primary-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .theme-toggle-link {
+            font-size: 12px;
+            font-weight: 600;
+            color: #475569;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
+        }
+
+        .theme-toggle-link:hover {
+            background: #0f172a;
+            color: #ffffff;
+            border-color: #0f172a;
+            transform: translateY(-1px);
+        }
+
+        /* Content Area */
+        .content {
+            padding: 26px;
+        }
+
+        .step {
+            display: none;
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .badge-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11.5px;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid #a7f3d0;
+            margin-bottom: 12px;
+        }
+
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            animation: pulseDot 1.8s infinite;
+        }
+
+        @keyframes pulseDot {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        /* Inputs */
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .country-prefix {
+            position: absolute;
+            left: 14px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            pointer-events: none;
+            padding-right: 12px;
+            border-right: 1.5px solid #e2e8f0;
+        }
+
+        input[type="tel"] {
+            width: 100%;
+            padding: 14px 16px 14px 85px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 14px;
+            background: #ffffff;
+            color: #0f172a;
+            outline: none;
+            transition: all 0.25s ease;
+        }
+
+        input:focus {
+            border-color: var(--primary-indigo);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+        }
+
+        input.input-error {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+            animation: shake 0.35s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+
+        .error-message {
+            display: none;
+            margin-top: 10px;
+            padding: 10px 14px;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 12px;
+            color: #dc2626;
+            font-size: 12.5px;
+            line-height: 1.45;
+            align-items: flex-start;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .scan-progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0 12px;
+        }
+
+        .scan-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #4f46e5, #06b6d4);
+            border-radius: 10px;
+            transition: width 0.35s ease;
+        }
+
+        .target-badge {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12.5px;
+            color: #475569;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .target-badge strong {
+            color: #0f172a;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Buttons */
+        button.primary-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 15px;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, var(--primary-indigo) 0%, var(--primary-violet) 100%);
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s ease;
+            box-shadow: 0 8px 22px rgba(79, 70, 229, 0.32);
+        }
+
+        button.primary-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 26px rgba(79, 70, 229, 0.42);
+        }
+
+        button.primary-btn:active {
+            transform: scale(0.98);
+        }
+
+        button.primary-btn:disabled {
+            opacity: 0.75;
+            cursor: wait;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2.5px solid rgba(255,255,255,0.4);
+            border-radius: 50%;
+            border-top-color: #ffffff;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .loading .btn-text { display: none; }
+        .loading .spinner { display: block; }
+
+        /* Dashboard Cards */
+        .data-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+            transition: all 0.2s ease;
+        }
+
+        .data-card:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+            transform: translateY(-1px);
+        }
+
+        .icon-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Icon Colors Light */
+        .icon-wa { background: #ecfdf5; color: #16a34a; }
+        .icon-insta { background: #fdf2f8; color: #db2777; }
+        .icon-photos { background: #fffbeb; color: #d97706; }
+        .icon-call { background: #eff6ff; color: #2563eb; }
+        .icon-loc { background: #f0fdfa; color: #0d9488; }
+
+        .card-info h3 {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+
+        .card-info p {
+            font-size: 12.5px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Locked Section */
+        .locked-section {
+            margin-top: 16px;
+            padding: 16px;
+            border: 1.5px dashed #cbd5e1;
+            border-radius: 14px;
+            background: #f8fafc;
+            position: relative;
+        }
+
+        .lock-badge {
+            position: absolute;
+            top: -10px;
+            right: 14px;
+            background: #0f172a;
+            color: #f59e0b;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .info-card {
+            margin-top: 18px;
+            padding: 12px 14px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 11.5px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        /* Dashboard Container & Elements */
+        .container.dash-expanded {
+            max-width: 480px;
+            transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .dash-header-card {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #ffffff;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.2);
+        }
+
+        .dash-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .dash-target-num {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #38bdf8;
+        }
+
+        .dash-live-badge {
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dash-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .dash-spec-item {
+            font-size: 10.5px;
+            color: #94a3b8;
+        }
+
+        .dash-spec-item strong {
+            display: block;
+            font-size: 12px;
+            color: #ffffff;
+            margin-top: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Dashboard Tab Bar */
+        .dash-tabs {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            padding-bottom: 6px;
+            margin-bottom: 14px;
+            scrollbar-width: none;
+        }
+        .dash-tabs::-webkit-scrollbar { display: none; }
+
+        .dash-tab-btn {
+            white-space: nowrap;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid #e2e8f0;
+            background: #ffffff;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .dash-tab-btn.active {
+            background: #0f172a;
+            color: #ffffff;
+            border-color: #0f172a;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+        }
+
+        .dash-tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-out;
+        }
+        .dash-tab-content.active {
+            display: block;
+        }
+
+        /* Chat List */
+        .chat-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .chat-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 11px 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .chat-item:hover {
+            border-color: #cbd5e1;
+            background: #f8fafc;
+            transform: translateY(-1px);
+        }
+
+        .chat-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+
+        .chat-details {
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        .chat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2px;
+        }
+
+        .chat-name {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .chat-time {
+            font-size: 11px;
+            color: #94a3b8;
+        }
+
+        .chat-msg {
+            font-size: 12px;
+            color: #64748b;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Photo Grid */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .photo-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .photo-thumb {
+            height: 90px;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .photo-info {
+            padding: 8px 10px;
+        }
+
+        .photo-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: #0f172a;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .photo-meta {
+            font-size: 10px;
+            color: #94a3b8;
+            margin-top: 2px;
+        }
+
+        /* Call Item */
+        .call-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 8px;
+        }
+
+        .call-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .call-play-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11.5px;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 16px;
+            border: 1px solid #4f46e5;
+            background: #eef2ff;
+            color: #4f46e5;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .call-play-btn:hover {
+            background: #4f46e5;
+            color: #ffffff;
+        }
+
+        /* Map Box */
+        .map-card {
+            background: #0f172a;
+            border-radius: 14px;
+            height: 130px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            background-image: radial-gradient(#334155 1.5px, transparent 1.5px);
+            background-size: 18px 18px;
+        }
+
+        @keyframes waveAnim {
+            0%, 100% { height: 8px; }
+            50% { height: 32px; }
+        }
+
+        .wave-bar {
+            width: 4px;
+            background: #38bdf8;
+            border-radius: 2px;
+            animation: waveAnim 1s ease-in-out infinite alternate;
+        }
+        .wave-bar:nth-child(2) { animation-delay: 0.2s; }
+        .wave-bar:nth-child(3) { animation-delay: 0.4s; }
+        .wave-bar:nth-child(4) { animation-delay: 0.1s; }
+        .wave-bar:nth-child(5) { animation-delay: 0.5s; }
+        .wave-bar:nth-child(6) { animation-delay: 0.3s; }
+        .wave-bar:nth-child(7) { animation-delay: 0.6s; }
+        .wave-bar:nth-child(8) { animation-delay: 0.25s; }
+        .wave-bar:nth-child(9) { animation-delay: 0.45s; }
+
+        /* Modal Preview */
+        .chat-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .chat-modal-overlay.active {
+            display: flex;
+        }
+        .chat-modal-box {
+            background: #ffffff;
+            border-radius: 18px;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            animation: fadeIn 0.25s ease-out;
+        }
+
+        /* Blurred Data State & 2-Step Lock Overlay */
+        .dash-data-container {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            min-height: 280px;
+        }
+
+        .dash-data-container.is-blurred .dash-tab-content {
+            filter: blur(5.5px);
+            -webkit-filter: blur(5.5px);
+            user-select: none;
+            pointer-events: none;
+            transition: filter 0.4s ease;
+        }
+
+        .blur-overlay-scrim {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(1.5px);
+            -webkit-backdrop-filter: blur(1.5px);
+            z-index: 20;
+            cursor: pointer;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dash-data-container.is-blurred .blur-overlay-scrim {
+            display: flex;
+        }
+
+        .blur-overlay-pill {
+            background: rgba(15, 23, 42, 0.88);
+            color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: floatPill 2.5s ease-in-out infinite;
+        }
+
+        @keyframes floatPill {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-4px); }
+        }
+
+        /* Encryption Lock Alert Banner */
+        .encryption-banner {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 1px solid #fde68a;
+            border-radius: 14px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .encryption-banner:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(245, 158, 11, 0.18);
+        }
+
+        .encryption-banner-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .encryption-icon-pulse {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: #f59e0b;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+        }
+
+        .encryption-banner-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #92400e;
+            line-height: 1.3;
+        }
+
+        .encryption-banner-sub {
+            font-size: 10.5px;
+            color: #b45309;
+            margin-top: 2px;
+        }
+
+        .unblur-btn-action {
+            background: #f59e0b;
+            color: white;
+            border: none;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 11.5px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            box-shadow: 0 3px 8px rgba(245, 158, 11, 0.35);
+            transition: background 0.2s;
+        }
+
+        .unblur-btn-action:hover {
+            background: #d97706;
+        }
+
+        /* 2-Step Verification Modal */
+        .two-step-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        .two-step-overlay.active {
+            display: flex;
+        }
+
+        .two-step-card {
+            background: #ffffff;
+            border-radius: 22px;
+            width: 100%;
+            max-width: 410px;
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.35);
+            overflow: hidden;
+            animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid #fed7aa;
+        }
+
+        .two-step-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            position: relative;
+        }
+
+        .two-step-shield {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .two-step-badge {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            color: #fbbf24;
+            text-transform: uppercase;
+        }
+
+        .two-step-headline {
+            font-size: 15px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-top: 2px;
+        }
+
+        .two-step-close {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            background: rgba(255, 255, 255, 0.12);
+            border: none;
+            color: #cbd5e1;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .two-step-close:hover {
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+        }
+
+        .two-step-body {
+            padding: 20px;
+        }
+
+        .two-step-alert-box {
+            background: #fff7ed;
+            border: 1px solid #ffedd5;
+            border-left: 4px solid #f97316;
+            border-radius: 10px;
+            padding: 11px 13px;
+            margin-bottom: 14px;
+        }
+
+        .two-step-price-box {
+            background: #f8fafc;
+            border: 1.5px dashed #cbd5e1;
+            border-radius: 14px;
+            padding: 14px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 14px 0;
+        }
+
+        .two-step-checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 18px;
+            font-size: 12.5px;
+            color: #334155;
+        }
+
+        .two-step-checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .two-step-pay-btn {
+            width: 100%;
+            padding: 15px;
+            border-radius: 14px;
+            font-size: 14.5px;
+            font-weight: 800;
+            color: white;
+            background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(234, 88, 12, 0.35);
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .two-step-pay-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(234, 88, 12, 0.45);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 18px;
+            text-align: center;
+            font-size: 11.5px;
+            color: #64748b;
+            border-top: 1px solid var(--border-color);
+            background: #ffffff;
+        }
+
+        .brand { color: #0f172a; font-weight: 700; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Top Multi-Color Glow Bar -->
+        <div class="top-glow-bar"></div>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="header-brand">
+                <div class="logo-icon">
+                    <!-- SVG Logo Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                        <path d="M2 12h20"/>
+                    </svg>
+                </div>
+                <h1>Trackmaster <span class="brand-gradient">Pro</span></h1>
+            </div>
+        </div>
+
+        <div class="content">
+            
+            <!-- STEP 1: Input -->
+            <div id="stepInput" class="step active">
+                <div class="badge-live">
+                    <span class="pulse-dot"></span>
+                    Telecom Gateway Online
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <h2 style="font-size: 20px; font-weight:700; color:#0f172a; margin-bottom: 6px;">Device Intelligence Scan</h2>
+                    <p style="color: var(--text-secondary); font-size: 13.5px; line-height: 1.5;">Enter target 10-digit Indian mobile number to access real-time device intelligence.</p>
+                </div>
+
+                <form id="scanForm" novalidate>
+                    <label for="victimNumber">Target Mobile Number (India)</label>
+                    <div class="input-wrapper">
+                        <span class="country-prefix">🇮🇳 +91</span>
+                        <input type="tel" id="victimNumber" placeholder="98XXXXXXXX" maxlength="10" autocomplete="off">
+                    </div>
+
+                    <!-- In-UI Error Display -->
+                    <div id="errorBox" class="error-message">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:2px;">
+                            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                        </svg>
+                        <span id="errorMsg">Please enter a valid 10-digit Indian mobile number.</span>
+                    </div>
+                    
+                    <button type="submit" class="primary-btn" id="scanBtn">
+                        <span class="btn-text">Initiate Scan</span>
+                        <div class="spinner"></div>
+                    </button>
+                </form>
+            </div>
+
+            <!-- STEP 2: Scanning Animation -->
+            <div id="stepScan" class="step">
+                <div style="text-align: center; padding: 16px 0;">
+                    <div style="width: 50px; height: 50px; border: 3px solid var(--accent-blue); border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 16px;"></div>
+                    <h2 style="font-size: 18px; margin-bottom: 5px;">Connecting to Database...</h2>
+                    <p style="color: var(--accent-blue); font-size: 13px;" id="scanStatus">Resolving IP Address</p>
+                    
+                    <div class="scan-progress-bar">
+                        <div class="scan-progress-fill" id="scanProgress"></div>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 12px;" id="scanTargetDisplay">Scanning +91 ...</p>
+                </div>
+            </div>
+
+            <!-- STEP 3: Results & Payment -->
+            <div id="stepResults" class="step">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                    <h2 style="font-size: 18px;">Scan Complete</h2>
+                    <span style="background:rgba(16, 185, 129, 0.2); color:#10b981; font-size:11px; padding:4px 8px; border-radius:20px; font-weight:600;">● Online</span>
+                </div>
+
+                <div class="target-badge">
+                    Target: <strong id="resultsTargetNumber">+91 0000000000</strong>
+                </div>
+
+                <!-- Result Card 1: WhatsApp -->
+                <div class="data-card">
+                    <div class="icon-box icon-wa">
+                        <!-- WhatsApp Icon -->
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.445-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.617-.916-2.212-.242-.579-.487-.5-.669-.51-.173-.01-.371-.012-.57-.012-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.511-.077 1.596-.651 1.823-1.279.227-.628.227-1.166.158-1.279-.07-.113-.247-.173-.52-.296zM12.05 21.5c-2.03 0-4.01-.55-5.73-1.59l-.41.2-2.17.64.58-2.11c-1.1-1.81-1.68-3.89-1.68-6.04 0-5.52 4.48-10 10-10s10 4.48 10 10c0 5.52-4.48 10-10 10zm0-18.5c-4.69 0-8.5 3.81-8.5 8.5 0 1.57.43 3.04 1.18 4.33l-1.24 4.52 4.67-1.38c1.22.73 2.63 1.15 4.14 1.15 4.69 0 8.5-3.81 8.5-8.5s-3.81-8.5-8.5-8.5z"/></svg>
+                    </div>
+                    <div class="card-info">
+                        <h3>WhatsApp</h3>
+                        <p id="waCountText">2,450 Chats Found • Media Accessible</p>
+                    </div>
+                </div>
+
+                <!-- Result Card 2: Instagram -->
+                <div class="data-card">
+                    <div class="icon-box icon-insta">
+                        <!-- Instagram Icon -->
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </div>
+                    <div class="card-info">
+                        <h3>Instagram</h3>
+                        <p id="instaCountText">1,120 DMs Found • Story History</p>
+                    </div>
+                </div>
+
+                <!-- Result Card 3: Photos & Gallery Files (Replaced Twitter) -->
+                <div class="data-card">
+                    <div class="icon-box icon-photos">
+                        <!-- Photos / Gallery Icon -->
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                    </div>
+                    <div class="card-info">
+                        <h3>Photos & Files</h3>
+                        <p id="photosCountText">1,842 Photos & Files Found • Gallery Indexed</p>
+                    </div>
+                </div>
+
+                 <!-- Result Card 4: Call Recordings -->
+                 <div class="data-card">
+                    <div class="icon-box icon-call">
+                        <!-- Phone Icon -->
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.62-.2-4.01-.63-.44-.12-.91-.02-1.29.26l-1.57 1.97c-2.83-1.35-5.48-3.9-6.81-6.71l1.95-1.66c.31-.27.41-.7.26-1.11-.43-1.39-.63-2.78-.63-4.01 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.21 3 3.99c0 8.97 7.28 16.25 16.25 16.25.78 0 .99-.65.99-1.19v-2.67c0-.54-.45-.99-.99-.99z"/></svg>
+                    </div>
+                    <div class="card-info">
+                        <h3>Call Recordings</h3>
+                        <p id="callCountText">45 Calls Recorded • Last 30 Days</p>
+                    </div>
+                </div>
+
+                <!-- Locked Data -->
+                <div class="locked-section">
+                    <div class="lock-badge">🔒 Encrypted</div>
+                    <div style="font-size:14px; font-weight:700; color:#0f172a; margin-bottom:4px;">Live GPS Triangulation & Audio Feed</div>
+                    <div style="font-size:12px; color:#64748b; margin-bottom:10px;">Real-time GPS geofence telemetry and room audio buffer compiled into encrypted packet.</div>
+                    <div style="height: 6px; background: #e2e8f0; border-radius: 4px; overflow:hidden;">
+                        <div style="width: 80%; height: 100%; background: linear-gradient(90deg, #10b981, #4f46e5); border-radius: 4px;"></div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 22px; text-align: center; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 18px; padding: 18px;">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap;">
+                        <span style="font-size: 28px; font-weight: 800; color: #0f172a;">₹500</span>
+                        <span style="font-size: 16px; color: #94a3b8; text-decoration: line-through; font-weight: 500;">₹1,999</span>
+                        <span style="font-size: 11px; font-weight: 700; background: #ecfdf5; color: #059669; padding: 3px 8px; border-radius: 20px; border: 1px solid #a7f3d0;">75% OFF</span>
+                    </div>
+                    <div style="font-size: 12.5px; color: #64748b; margin-bottom: 14px;">One-Time Lifetime Access • All Features Unlocked</div>
+                    
+                    <button type="button" class="primary-btn" id="payBtn">
+                        <span class="btn-text">Unlock Full Access Now</span>
+                        <div class="spinner"></div>
+                    </button>
+
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 12px; font-size: 11.5px; color: #64748b; font-weight: 500;">
+                        <span>🔒 256-Bit SSL Encrypted</span>
+                        <span>⚡ Instant Delivery</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 4: Unlocked Full Intelligence Dashboard -->
+            <div id="stepDashboard" class="step">
+                <!-- Dashboard Top Device Info Card -->
+                <div class="dash-header-card">
+                    <div class="dash-top-row">
+                        <div>
+                            <div style="font-size:10.5px; text-transform:uppercase; letter-spacing:0.5px; color:#94a3b8; font-weight:700;">Target Device Live Telemetry</div>
+                            <div class="dash-target-num" id="dashTargetPhone">+91 85751 31552</div>
+                        </div>
+                        <span class="dash-live-badge">
+                            <span class="pulse-dot"></span> Live Sync
+                        </span>
+                    </div>
+
+                    <div class="dash-specs-grid">
+                        <div class="dash-spec-item">
+                            Device
+                            <strong id="dashDeviceName">Samsung S24 Ultra</strong>
+                        </div>
+                        <div class="dash-spec-item">
+                            Battery
+                            <strong id="dashBattery">84% ⚡ (Charging)</strong>
+                        </div>
+                        <div class="dash-spec-item">
+                            Network
+                            <strong id="dashNetwork">Jio 5G (Wi-Fi)</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2-Step Encryption Alert Banner -->
+                <div class="encryption-banner" onclick="promptTwoStepVerification()">
+                    <div class="encryption-banner-left">
+                        <div class="encryption-icon-pulse">🔐</div>
+                        <div>
+                            <div class="encryption-banner-title">2-Step Verification & End-to-End Encryption Detected</div>
+                            <div class="encryption-banner-sub">Target chats, photos & audio streams are scrambled. Tap here to unblur & decrypt.</div>
+                        </div>
+                    </div>
+                    <button type="button" class="unblur-btn-action" onclick="event.stopPropagation(); promptTwoStepVerification()">
+                        🔓 Unblur Data
+                    </button>
+                </div>
+
+                <!-- Navigation Tabs -->
+                <div class="dash-tabs">
+                    <button type="button" class="dash-tab-btn active" onclick="switchDashTab(this, 'tab-wa')">💬 WhatsApp (<span id="dashWaBadge">3,075</span>)</button>
+                    <button type="button" class="dash-tab-btn" onclick="switchDashTab(this, 'tab-photos')">📸 Photos (<span id="dashPhotoBadge">2,888</span>)</button>
+                    <button type="button" class="dash-tab-btn" onclick="switchDashTab(this, 'tab-calls')">📞 Calls (<span id="dashCallBadge">34</span>)</button>
+                    <button type="button" class="dash-tab-btn" onclick="switchDashTab(this, 'tab-gps')">📍 Live GPS</button>
+                    <button type="button" class="dash-tab-btn" onclick="switchDashTab(this, 'tab-mic')">🎙️ Room Audio</button>
+                </div>
+
+                <!-- Blurred Data Area with 2-Step Lock Overlay -->
+                <div id="dashDataContainer" class="dash-data-container is-blurred">
+                    <div class="blur-overlay-scrim" onclick="promptTwoStepVerification()">
+                        <div class="blur-overlay-pill">
+                            <span>🔐</span>
+                            <span>2-Step Verification Active • Tap Any Data to Decrypt</span>
+                        </div>
+                    </div>
+
+                    <!-- TAB 1: WhatsApp Chats -->
+                    <div id="tab-wa" class="dash-tab-content active">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                        <span style="font-size:13px; font-weight:700; color:#0f172a;">Decrypted Conversations</span>
+                        <span style="font-size:11px; color:#059669; font-weight:600; background:#ecfdf5; padding:2px 8px; border-radius:12px;">● End-to-End Decrypted</span>
+                    </div>
+                    <div class="chat-list" id="chatListContainer">
+                        <!-- Chat 1 -->
+                        <div class="chat-item" onclick="openChatModal('Pooja Sharma', 'Online', 'pooja')">
+                            <div class="chat-avatar" style="background: linear-gradient(135deg, #ec4899, #f43f5e);">PS</div>
+                            <div class="chat-details">
+                                <div class="chat-header">
+                                    <span class="chat-name">Pooja Sharma <span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:#10b981; margin-left:3px;"></span></span>
+                                    <span class="chat-time">2m ago</span>
+                                </div>
+                                <div class="chat-msg">Photos dekh li na tumne? Delete kr dena baad me...</div>
+                            </div>
+                            <span style="background:#22c55e; color:white; font-size:10px; font-weight:700; border-radius:50%; width:18px; height:18px; display:flex; align-items:center; justify-content:center;">2</span>
+                        </div>
+                        <!-- Chat 2 -->
+                        <div class="chat-item" onclick="openChatModal('Rahul (Office Tech)', 'Last seen today at 08:30 PM', 'rahul')">
+                            <div class="chat-avatar" style="background: linear-gradient(135deg, #3b82f6, #6366f1);">RO</div>
+                            <div class="chat-details">
+                                <div class="chat-header">
+                                    <span class="chat-name">Rahul (Office Tech)</span>
+                                    <span class="chat-time">14m ago</span>
+                                </div>
+                                <div class="chat-msg">Maine client files aur passwords drive par upload kr diye hain.</div>
+                            </div>
+                        </div>
+                        <!-- Chat 3 -->
+                        <div class="chat-item" onclick="openChatModal('Mummy ❤️', 'Last seen 48m ago', 'mummy')">
+                            <div class="chat-avatar" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">M</div>
+                            <div class="chat-details">
+                                <div class="chat-header">
+                                    <span class="chat-name">Mummy ❤️</span>
+                                    <span class="chat-time">48m ago</span>
+                                </div>
+                                <div class="chat-msg">Ghar kab aa rahe ho beta? Khana bana diya hai.</div>
+                            </div>
+                        </div>
+                        <!-- Chat 4 -->
+                        <div class="chat-item" onclick="openChatModal('Kunal (College)', 'Last seen 2h ago', 'kunal')">
+                            <div class="chat-avatar" style="background: linear-gradient(135deg, #8b5cf6, #d946ef);">KC</div>
+                            <div class="chat-details">
+                                <div class="chat-header">
+                                    <span class="chat-name">Kunal (College)</span>
+                                    <span class="chat-time">2h ago</span>
+                                </div>
+                                <div class="chat-msg">Bhai weekend trip fix hai! Location share kar raha hu.</div>
+                            </div>
+                        </div>
+                        <!-- Chat 5 -->
+                        <div class="chat-item" onclick="openChatModal('Archived Contact', 'Yesterday', 'secret')">
+                            <div class="chat-avatar" style="background: linear-gradient(135deg, #0f172a, #475569);">🔒</div>
+                            <div class="chat-details">
+                                <div class="chat-header">
+                                    <span class="chat-name">Archived Contact</span>
+                                    <span class="chat-time">Yesterday</span>
+                                </div>
+                                <div class="chat-msg">Payment mil gaya hai. Document safe rakhna.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: Photos Gallery -->
+                <div id="tab-photos" class="dash-tab-content">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                        <span style="font-size:13px; font-weight:700; color:#0f172a;">Gallery & Media Files</span>
+                        <button type="button" onclick="downloadBackup()" style="font-size:11px; font-weight:600; color:#4f46e5; background:#eff6ff; border:1px solid #c7d2fe; padding:4px 10px; border-radius:12px; cursor:pointer;">
+                            ⬇️ Download All (.ZIP)
+                        </button>
+                    </div>
+                    <div class="photo-grid">
+                        <div class="photo-card">
+                            <div class="photo-thumb" style="background: linear-gradient(135deg, #fbcfe8, #f472b6);">
+                                <span style="font-size:28px;">📷</span>
+                                <span style="position:absolute; bottom:5px; right:5px; font-size:9.5px; background:rgba(0,0,0,0.6); color:white; padding:1px 5px; border-radius:4px;">Camera</span>
+                            </div>
+                            <div class="photo-info">
+                                <div class="photo-title">IMG_20261127_0042.jpg</div>
+                                <div class="photo-meta">3.4 MB • Today 07:15 PM</div>
+                            </div>
+                        </div>
+                        <div class="photo-card">
+                            <div class="photo-thumb" style="background: linear-gradient(135deg, #fed7aa, #fb923c);">
+                                <span style="font-size:28px;">🖼️</span>
+                                <span style="position:absolute; bottom:5px; right:5px; font-size:9.5px; background:rgba(0,0,0,0.6); color:white; padding:1px 5px; border-radius:4px;">WhatsApp</span>
+                            </div>
+                            <div class="photo-info">
+                                <div class="photo-title">WA_Media_Doc_Ticket.png</div>
+                                <div class="photo-meta">1.8 MB • Today 04:30 PM</div>
+                            </div>
+                        </div>
+                        <div class="photo-card">
+                            <div class="photo-thumb" style="background: linear-gradient(135deg, #cbd5e1, #94a3b8);">
+                                <span style="font-size:28px;">📱</span>
+                                <span style="position:absolute; bottom:5px; right:5px; font-size:9.5px; background:rgba(0,0,0,0.6); color:white; padding:1px 5px; border-radius:4px;">Screenshot</span>
+                            </div>
+                            <div class="photo-info">
+                                <div class="photo-title">Screenshot_UPI_Txn.jpg</div>
+                                <div class="photo-meta">780 KB • Yesterday</div>
+                            </div>
+                        </div>
+                        <div class="photo-card">
+                            <div class="photo-thumb" style="background: linear-gradient(135deg, #ddd6fe, #a78bfa);">
+                                <span style="font-size:28px;">🔒</span>
+                                <span style="position:absolute; bottom:5px; right:5px; font-size:9.5px; background:rgba(0,0,0,0.6); color:white; padding:1px 5px; border-radius:4px;">Private Safe</span>
+                            </div>
+                            <div class="photo-info">
+                                <div class="photo-title">Vault_Hidden_Doc_09.jpg</div>
+                                <div class="photo-meta">4.2 MB • 2 days ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 3: Calls & Recordings -->
+                <div id="tab-calls" class="dash-tab-content">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                        <span style="font-size:13px; font-weight:700; color:#0f172a;">Call Recordings (High Definition)</span>
+                        <span style="font-size:11px; color:#2563eb; background:#eff6ff; padding:2px 8px; border-radius:12px; font-weight:600;">Audio Indexed</span>
+                    </div>
+
+                    <div class="call-item">
+                        <div class="call-header">
+                            <div>
+                                <strong style="font-size:13px; color:#0f172a;">Pooja Sharma</strong>
+                                <span style="font-size:11px; color:#64748b; margin-left:6px;">+91 98765 43210</span>
+                            </div>
+                            <span style="font-size:11px; color:#16a34a; font-weight:600;">↗ Outgoing (04:28)</span>
+                        </div>
+                        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:8px;">
+                            <div style="font-size:11px; color:#94a3b8;">Today, 08:45 PM • 3.2 MB</div>
+                            <button type="button" class="call-play-btn" onclick="togglePlayAudio(this)">
+                                <span>▶</span> Play Audio
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="call-item">
+                        <div class="call-header">
+                            <div>
+                                <strong style="font-size:13px; color:#0f172a;">Rahul (Office Tech)</strong>
+                                <span style="font-size:11px; color:#64748b; margin-left:6px;">+91 91234 56789</span>
+                            </div>
+                            <span style="font-size:11px; color:#2563eb; font-weight:600;">↙ Incoming (02:15)</span>
+                        </div>
+                        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:8px;">
+                            <div style="font-size:11px; color:#94a3b8;">Today, 06:12 PM • 1.8 MB</div>
+                            <button type="button" class="call-play-btn" onclick="togglePlayAudio(this)">
+                                <span>▶</span> Play Audio
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="call-item">
+                        <div class="call-header">
+                            <div>
+                                <strong style="font-size:13px; color:#0f172a;">Private / Unknown</strong>
+                                <span style="font-size:11px; color:#64748b; margin-left:6px;">+91 80001 23456</span>
+                            </div>
+                            <span style="font-size:11px; color:#dc2626; font-weight:600;">↙ Incoming (01:10)</span>
+                        </div>
+                        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:8px;">
+                            <div style="font-size:11px; color:#94a3b8;">Yesterday, 11:20 PM • 920 KB</div>
+                            <button type="button" class="call-play-btn" onclick="togglePlayAudio(this)">
+                                <span>▶</span> Play Audio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 4: Live GPS -->
+                <div id="tab-gps" class="dash-tab-content">
+                    <div class="map-card">
+                        <div style="position:absolute; width:120px; height:120px; border-radius:50%; border:1px solid rgba(56, 189, 248, 0.3); animation:pulseRing 2s infinite;"></div>
+                        <div style="position:absolute; width:60px; height:60px; border-radius:50%; border:1px solid rgba(56, 189, 248, 0.5);"></div>
+                        <div style="width:14px; height:14px; background:#ef4444; border:3px solid white; border-radius:50%; box-shadow:0 0 15px #ef4444; z-index:2;"></div>
+                        <div style="position:absolute; bottom:8px; left:12px; background:rgba(0,0,0,0.7); color:white; font-size:10.5px; padding:3px 8px; border-radius:6px; z-index:2;">
+                            📍 GPS Accuracy: ±2.4m
+                        </div>
+                    </div>
+
+                    <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:12px; margin-bottom:10px;">
+                        <div style="font-size:11px; color:#64748b; text-transform:uppercase; font-weight:600;">Current Fixed Location</div>
+                        <div style="font-size:14px; font-weight:700; color:#0f172a; margin:3px 0;">Connaught Place, Inner Circle, New Delhi</div>
+                        <div style="font-size:11.5px; color:#475569;">Coordinates: 28.6315° N, 77.2167° E • Speed: 0 km/h (Stationary)</div>
+                    </div>
+
+                    <div style="font-size:12px; font-weight:700; color:#0f172a; margin-bottom:6px;">Recent Location Timeline</div>
+                    <div style="display:flex; flex-direction:column; gap:6px; font-size:11.5px; color:#64748b;">
+                        <div style="padding:6px 10px; background:#f8fafc; border-radius:8px; border:1px solid #e2e8f0;">● 09:15 PM - Connaught Place Block C, New Delhi</div>
+                        <div style="padding:6px 10px; background:#f8fafc; border-radius:8px; border:1px solid #e2e8f0;">● 06:40 PM - Cyber Hub, Gurugram (Connected to Wi-Fi)</div>
+                        <div style="padding:6px 10px; background:#f8fafc; border-radius:8px; border:1px solid #e2e8f0;">● 02:20 PM - DLF Cyber City, Tower B</div>
+                    </div>
+                </div>
+
+                <!-- TAB 5: Room Mic Feed -->
+                <div id="tab-mic" class="dash-tab-content">
+                    <div style="background:#0f172a; color:white; border-radius:14px; padding:16px; text-align:center; margin-bottom:12px;">
+                        <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(239,68,68,0.2); color:#fca5a5; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:12px;">
+                            <span class="pulse-dot" style="background:#ef4444;"></span> Live Microphone Feed
+                        </div>
+                        <div style="font-size:13px; color:#cbd5e1; margin-bottom:12px;">Ambient room listening audio buffer (32 kbps Opus Audio)</div>
+                        
+                        <div style="display:flex; justify-content:center; align-items:flex-end; gap:4px; height:40px; margin-bottom:14px;">
+                            <div class="wave-bar" style="height:15px;"></div>
+                            <div class="wave-bar" style="height:28px;"></div>
+                            <div class="wave-bar" style="height:38px;"></div>
+                            <div class="wave-bar" style="height:22px;"></div>
+                            <div class="wave-bar" style="height:32px;"></div>
+                            <div class="wave-bar" style="height:18px;"></div>
+                            <div class="wave-bar" style="height:35px;"></div>
+                            <div class="wave-bar" style="height:25px;"></div>
+                            <div class="wave-bar" style="height:12px;"></div>
+                        </div>
+                        <button type="button" id="micBtn" onclick="toggleMicStream(this)" style="background:#ef4444; color:white; border:none; padding:8px 18px; border-radius:20px; font-size:12px; font-weight:700; cursor:pointer;">
+                            🔴 Stop Listening Stream
+                        </button>
+                    </div>
+
+                    <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:12px;">
+                        <div style="font-size:12px; font-weight:700; color:#0f172a; margin-bottom:6px;">Live Keystroke & Search Logs</div>
+                        <div style="display:flex; flex-direction:column; gap:5px; font-size:11px; color:#64748b; font-family:monospace;">
+                            <div>[22:15] WhatsApp: "Theek hai main bhejta hu"</div>
+                            <div>[21:40] Chrome: "best resort in goa with private pool"</div>
+                            <div>[19:10] Notes: "meeting agenda & confidential checklist"</div>
+                        </div>
+                    </div>
+                </div>
+                </div><!-- end #dashDataContainer -->
+
+                <!-- Bottom Forensics & Unblur Actions (Telegram Link removed from normal view) -->
+                <div style="margin-top:18px; padding-top:16px; border-top:1px solid #e2e8f0; display:flex; flex-direction:column; gap:8px;">
+                    <button type="button" class="primary-btn" onclick="promptTwoStepVerification()" style="text-align:center; margin-top:0; background:linear-gradient(135deg, #f59e0b, #ea580c); box-shadow:0 8px 20px rgba(234, 88, 12, 0.35);">
+                        🔓 Decrypt & Bypass 2-Step Verification (₹300)
+                    </button>
+                    <button type="button" onclick="promptTwoStepVerification()" style="padding:12px; border-radius:12px; border:1px solid #cbd5e1; background:#ffffff; color:#0f172a; font-size:13px; font-weight:700; cursor:pointer;">
+                        📥 Download Full Forensics Dossier (.PDF)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Chat Modal Popup -->
+            <div id="chatModal" class="chat-modal-overlay" onclick="closeChatModal(event)">
+                <div class="chat-modal-box" onclick="event.stopPropagation()">
+                    <div style="padding:14px 16px; background:#0f172a; color:white; display:flex; justify-content:space-between; align-items:center;">
+                        <div>
+                            <div id="modalChatName" style="font-weight:700; font-size:14px;">Contact</div>
+                            <div id="modalChatStatus" style="font-size:11px; color:#94a3b8;">Online</div>
+                        </div>
+                        <button type="button" onclick="closeChatModal(null)" style="background:none; border:none; color:white; font-size:18px; cursor:pointer;">✕</button>
+                    </div>
+                    <div id="modalChatMessages" style="padding:16px; max-height:260px; overflow-y:auto; display:flex; flex-direction:column; gap:10px; background:#f8fafc; font-size:12.5px;">
+                        <!-- messages inserted here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2-Step Verification & Encryption Modal -->
+            <div id="twoStepModal" class="two-step-overlay" onclick="closeTwoStepModal(event)">
+                <div class="two-step-card" onclick="event.stopPropagation()">
+                    <div class="two-step-header">
+                        <div class="two-step-shield">
+                            <span style="font-size:22px;">🛡️</span>
+                        </div>
+                        <div style="flex-grow:1; min-width:0;">
+                            <div class="two-step-badge">CRITICAL PROTOCOL DETECTED</div>
+                            <div class="two-step-headline">2-Step Verification & Key Lock</div>
+                        </div>
+                        <button type="button" class="two-step-close" onclick="closeTwoStepModal(null)">✕</button>
+                    </div>
+
+                    <div class="two-step-body">
+                        <div class="two-step-alert-box">
+                            <div style="font-size:11px; font-weight:800; color:#b45309; text-transform:uppercase; margin-bottom:3px; display:flex; align-items:center; gap:5px;">
+                                <span>⚠️</span> End-to-End Cryptographic Encryption Active
+                            </div>
+                            <div style="font-size:12px; color:#92400e; line-height:1.45;">
+                                Target number (<strong id="twoStepTargetNum">+91 85751 31552</strong>) par <strong>WhatsApp 2-Step Verification (PIN)</strong> aur <strong>Device Security Key</strong> active hai, jisse data encrypted & blurred hai.
+                            </div>
+                        </div>
+
+                        <div style="font-size:12.5px; color:#334155; line-height:1.45; margin-bottom:12px;">
+                            Private decryption pass generate karke saari <strong>WhatsApp Chats, Photos, Call Recordings aur GPS data</strong> ko instantly unblur karne ke liye ₹300 verification bypass server charge lagega:
+                        </div>
+
+                        <div class="two-step-price-box">
+                            <div>
+                                <div style="font-size:10.5px; text-transform:uppercase; font-weight:800; color:#64748b;">Instant Bypass Pass</div>
+                                <div style="font-size:13px; font-weight:700; color:#0f172a;">2FA Key Unlock + Lifetime VIP Access</div>
+                            </div>
+                            <div style="text-align:right;">
+                                <div style="font-size:11px; text-decoration:line-through; color:#94a3b8;">₹999</div>
+                                <div style="font-size:22px; font-weight:800; color:#059669;">₹300</div>
+                            </div>
+                        </div>
+
+                        <div class="two-step-checklist">
+                            <div class="two-step-checklist-item">
+                                <span style="color:#10b981; font-weight:800;">✓</span>
+                                <span>Instant Unblur of all WhatsApp & Instagram Chats</span>
+                            </div>
+                            <div class="two-step-checklist-item">
+                                <span style="color:#10b981; font-weight:800;">✓</span>
+                                <span>Decrypt Gallery Photos & Media in Ultra HD</span>
+                            </div>
+                            <div class="two-step-checklist-item">
+                                <span style="color:#10b981; font-weight:800;">✓</span>
+                                <span>Clear Audio Stream & Unlocked Call Recordings</span>
+                            </div>
+                            <div class="two-step-checklist-item">
+                                <span style="color:#10b981; font-weight:800;">✓</span>
+                                <span>Direct Redirect to VIP Telegram Support & Bot</span>
+                            </div>
+                        </div>
+
+                        <button type="button" id="pay300Btn" class="two-step-pay-btn" onclick="startDecryptionPayment()">
+                            ⚡ Pay ₹300 & Unblur All Data Instantly
+                        </button>
+
+                        <div style="text-align:center; margin-top:10px; font-size:11px; color:#94a3b8; display:flex; align-items:center; justify-content:center; gap:8px;">
+                            <span>🔒 256-Bit SSL Encrypted</span>
+                            <span>•</span>
+                            <span>⚡ Instant Automatic Delivery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            Secured by <span class="brand">Razorpay</span> • Trackmaster Pro
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const RAZORPAY_KEY_ID = 'rzp_live_TsvSlXWPy5UYwo';
+        const GROUP_URL = 'https://t.me/+Q0LPyiKlJ78zMzRl';
+        const TEST_MODE = false; // Live Mode: Real payments via Razorpay for ₹500 unlock & ₹300 2FA bypass
+        
+        // DOM Elements
+        const stepInput = document.getElementById('stepInput');
+        const stepScan = document.getElementById('stepScan');
+        const stepResults = document.getElementById('stepResults');
+        const scanForm = document.getElementById('scanForm');
+        const scanBtn = document.getElementById('scanBtn');
+        const payBtn = document.getElementById('payBtn');
+        const victimInput = document.getElementById('victimNumber');
+        const scanStatus = document.getElementById('scanStatus');
+        const scanProgress = document.getElementById('scanProgress');
+        const scanTargetDisplay = document.getElementById('scanTargetDisplay');
+        const errorBox = document.getElementById('errorBox');
+        const errorMsg = document.getElementById('errorMsg');
+        const resultsTargetNumber = document.getElementById('resultsTargetNumber');
+
+        // Formatted display helper
+        function formatPhone(num) {
+            if (num.length === 10) {
+                return '+91 ' + num.slice(0, 5) + ' ' + num.slice(5);
+            }
+            return '+91 ' + num;
+        }
+
+        // Real Indian Phone Number Validation
+        function validateIndianNumber(number) {
+            const clean = String(number).replace(/\D/g, '');
+            
+            if (clean.length !== 10) {
+                return { valid: false, message: 'Please enter a complete 10-digit Indian mobile number.' };
+            }
+            
+            // Indian mobile numbers must start with 6, 7, 8, or 9
+            if (!/^[6-9]/.test(clean)) {
+                return { valid: false, message: 'Invalid number: Indian mobile numbers must start with 6, 7, 8, or 9.' };
+            }
+
+            // Block all identical repeating digits (e.g. 9999999999, 8888888888)
+            if (/^(\d)\1{9}$/.test(clean)) {
+                return { valid: false, message: 'Invalid number: Repeated dummy digits are not allowed.' };
+            }
+
+            // Known dummy or test numbers list
+            const dummyNumbers = [
+                '1234567890', '0123456789', '9876543210', '0987654321',
+                '9123456789', '9898989898', '9090909090', '8989898989',
+                '9876598765', '1234512345', '6789012345', '9000000000',
+                '8000000000', '7000000000', '6000000000', '9876501234',
+                '9111111111', '8111111111', '7111111111', '6111111111'
+            ];
+            if (dummyNumbers.includes(clean)) {
+                return { valid: false, message: 'Dummy or test numbers are blocked. Please enter a genuine active mobile number.' };
+            }
+
+            // Sequential checks
+            const sequences = ['0123456789', '9876543210', '1234567890', '9012345678'];
+            for (const seq of sequences) {
+                if (seq.includes(clean)) {
+                    return { valid: false, message: 'Sequential dummy numbers are not permitted.' };
+                }
+            }
+
+            // Repetition check: reject if 7 or more digits are identical
+            const counts = {};
+            for (const d of clean) {
+                counts[d] = (counts[d] || 0) + 1;
+                if (counts[d] >= 7) {
+                    return { valid: false, message: 'Invalid pattern detected: Excessive duplicate digits.' };
+                }
+            }
+
+            return { valid: true, number: clean };
+        }
+
+        // Show / Clear in-UI error
+        function showError(msg) {
+            errorMsg.textContent = msg;
+            errorBox.style.display = 'flex';
+            victimInput.classList.add('input-error');
+            setTimeout(() => {
+                victimInput.classList.remove('input-error');
+            }, 500);
+        }
+
+        function clearError() {
+            errorBox.style.display = 'none';
+            victimInput.classList.remove('input-error');
+        }
+
+        victimInput.addEventListener('input', () => {
+            // Only allow digits
+            victimInput.value = victimInput.value.replace(/\D/g, '').slice(0, 10);
+            if (errorBox.style.display === 'flex') {
+                clearError();
+            }
+        });
+
+        // Step 1: Initiate Scan
+        scanForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            clearError();
+
+            const rawVal = victimInput.value.trim();
+            const validation = validateIndianNumber(rawVal);
+
+            if (!validation.valid) {
+                showError(validation.message);
+                return;
+            }
+
+            // Start Scanning Sequence for validated Indian number
+            startScanningSequence(validation.number);
+        });
+
+        function startScanningSequence(number) {
+            // Switch to Scanning View
+            stepInput.classList.remove('active');
+            stepScan.classList.add('active');
+            
+            scanBtn.classList.add('loading');
+            scanBtn.disabled = true;
+
+            scanTargetDisplay.textContent = 'Scanning Target: ' + formatPhone(number);
+
+            // Simulate realistic scanning steps with progress bar
+            const stages = [
+                { text: "Querying Indian Telecom Gateway (HLR / VLR)...", pct: 25 },
+                { text: "Decrypting WhatsApp & Social Media Tokens...", pct: 55 },
+                { text: "Indexing Photos, Media & File System...", pct: 85 },
+                { text: "Compiling Intelligence Security Report...", pct: 100 }
+            ];
+
+            let stageIdx = 0;
+            const interval = setInterval(() => {
+                if (stageIdx < stages.length) {
+                    scanStatus.textContent = stages[stageIdx].text;
+                    scanProgress.style.width = stages[stageIdx].pct + '%';
+                    stageIdx++;
+                } else {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        finishScanning(number);
+                    }, 400);
+                }
+            }, 900);
+        }
+
+        // FNV-1a Hash to generate 32-bit integer seed from phone number
+        function hashString(str) {
+            let hash = 2166136261;
+            for (let i = 0; i < str.length; i++) {
+                hash ^= str.charCodeAt(i);
+                hash = Math.imul(hash, 16777619);
+            }
+            return hash >>> 0;
+        }
+
+        // Seeded PRNG (Mulberry32) - gives 100% deterministic results for the same number
+        function createPrng(seed) {
+            let s = seed;
+            return function() {
+                s |= 0;
+                s = (s + 0x6D2B79F5) | 0;
+                let t = Math.imul(s ^ (s >>> 15), 1 | s);
+                t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+                return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+            };
+        }
+
+        function finishScanning(number) {
+            // Deterministic generation: Same number = exact same results every single time!
+            const seed = hashString(number);
+            const rng = createPrng(seed);
+
+            const waCount = Math.floor(rng() * 2200) + 1400;      // 1400 - 3600 chats
+            const instaCount = Math.floor(rng() * 1200) + 600;    // 600 - 1800 DMs
+            const photosCount = Math.floor(rng() * 3000) + 1250;  // 1250 - 4250 Photos & Files
+            const callCount = Math.floor(rng() * 45) + 15;        // 15 - 60 Calls
+
+            // Update DOM with deterministic counts
+            document.getElementById('waCountText').textContent = waCount.toLocaleString() + ' Chats Found • Media Accessible';
+            document.getElementById('instaCountText').textContent = instaCount.toLocaleString() + ' DMs Found • Story History';
+            document.getElementById('photosCountText').textContent = photosCount.toLocaleString() + ' Photos & Files Found • Gallery Indexed';
+            // Save unlocked data for dashboard
+            window.unlockedData = {
+                number: number,
+                waCount: waCount,
+                instaCount: instaCount,
+                photosCount: photosCount,
+                callCount: callCount
+            };
+
+            // Display target number in results badge
+            resultsTargetNumber.textContent = formatPhone(number);
+
+            // Switch to Results View
+            stepScan.classList.remove('active');
+            stepResults.classList.add('active');
+        }
+
+        // Demo / Instant Preview button handler
+        const demoDashboardBtn = document.getElementById('demoDashboardBtn');
+        if (demoDashboardBtn) {
+            demoDashboardBtn.addEventListener('click', () => {
+                showUnlockedDashboard();
+            });
+        }
+
+        // Dashboard Transition Logic
+        function showUnlockedDashboard() {
+            const data = window.unlockedData || {
+                number: victimInput.value.trim() || '8575131552',
+                waCount: 3075,
+                instaCount: 1761,
+                photosCount: 2888,
+                callCount: 34
+            };
+
+            // Update Header & Stats in Dashboard
+            document.getElementById('dashTargetPhone').textContent = formatPhone(data.number);
+            document.getElementById('dashWaBadge').textContent = (data.waCount || 3075).toLocaleString();
+            document.getElementById('dashPhotoBadge').textContent = (data.photosCount || 2888).toLocaleString();
+            document.getElementById('dashCallBadge').textContent = (data.callCount || 34).toString();
+
+            // Hide other steps, activate dashboard
+            stepInput.classList.remove('active');
+            stepScan.classList.remove('active');
+            stepResults.classList.remove('active');
+            
+            const stepDashboard = document.getElementById('stepDashboard');
+            stepDashboard.classList.add('active');
+
+            // Ensure data container is blurred on entry
+            const dashDataContainer = document.getElementById('dashDataContainer');
+            if (dashDataContainer) {
+                dashDataContainer.classList.add('is-blurred');
+            }
+
+            // Expand container for comfortable dashboard view
+            document.querySelector('.container').classList.add('dash-expanded');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Switch Dashboard Tabs
+        function switchDashTab(btn, tabId) {
+            document.querySelectorAll('.dash-tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.dash-tab-content').forEach(c => c.classList.remove('active'));
+
+            btn.classList.add('active');
+            const target = document.getElementById(tabId);
+            if (target) {
+                target.classList.add('active');
+            }
+        }
+
+        // Chat Modal Preview with dummy conversation threads
+        const chatConversations = {
+            pooja: [
+                { sender: 'them', text: 'Hey, free ho baat krne ke liye?', time: '07:12 PM' },
+                { sender: 'me', text: 'Haan bolo kya hua?', time: '07:15 PM' },
+                { sender: 'them', text: 'Photos dekh li na tumne? Delete kr dena baad me phone se...', time: '07:18 PM' },
+                { sender: 'me', text: 'Haan dekh li, dont worry safe hain.', time: '07:20 PM' }
+            ],
+            rahul: [
+                { sender: 'them', text: 'Bhai office ka server log check karo.', time: '06:05 PM' },
+                { sender: 'me', text: 'Checking now. All credentials working.', time: '06:10 PM' },
+                { sender: 'them', text: 'Maine client files aur passwords drive par upload kr diye hain.', time: '06:14 PM' }
+            ],
+            mummy: [
+                { sender: 'them', text: 'Beta dawai le li thi subah?', time: '02:30 PM' },
+                { sender: 'me', text: 'Haan mummy le li thi.', time: '02:45 PM' },
+                { sender: 'them', text: 'Ghar kab aa rahe ho beta? Khana bana diya hai.', time: '08:10 PM' }
+            ],
+            kunal: [
+                { sender: 'them', text: 'Bhai weekend trip fix hai! Location share kar raha hu.', time: '04:12 PM' },
+                { sender: 'me', text: 'Car se chalenge ya train se?', time: '04:20 PM' },
+                { sender: 'them', text: 'Car se bhai, sab ready hain.', time: '04:22 PM' }
+            ],
+            secret: [
+                { sender: 'them', text: 'Account statement verify ho gaya.', time: 'Yesterday' },
+                { sender: 'them', text: 'Payment mil gaya hai. Document safe rakhna.', time: 'Yesterday' },
+                { sender: 'me', text: 'Understood. Archive cleared.', time: 'Yesterday' }
+            ]
+        };
+
+        function openChatModal(name, status, contactId) {
+            const container = document.getElementById('dashDataContainer');
+            if (container && container.classList.contains('is-blurred')) {
+                promptTwoStepVerification();
+                return;
+            }
+
+            const modal = document.getElementById('chatModal');
+            document.getElementById('modalChatName').textContent = name;
+            document.getElementById('modalChatStatus').textContent = status;
+            
+            const messagesContainer = document.getElementById('modalChatMessages');
+            const messages = chatConversations[contactId] || [
+                { sender: 'them', text: 'Hey, are you there?', time: '10:00 AM' },
+                { sender: 'me', text: 'Yes, tell me.', time: '10:05 AM' }
+            ];
+
+            messagesContainer.innerHTML = messages.map(m => `
+                <div style="align-self: ${m.sender === 'me' ? 'flex-end' : 'flex-start'}; max-width: 80%;">
+                    <div style="padding: 8px 12px; border-radius: 12px; background: ${m.sender === 'me' ? '#4f46e5' : '#ffffff'}; color: ${m.sender === 'me' ? 'white' : '#0f172a'}; box-shadow: 0 1px 3px rgba(0,0,0,0.08); font-size: 12px; border: ${m.sender === 'me' ? 'none' : '1px solid #e2e8f0'};">
+                        ${m.text}
+                    </div>
+                    <div style="font-size: 9.5px; color: #94a3b8; text-align: ${m.sender === 'me' ? 'right' : 'left'}; margin-top: 2px;">
+                        ${m.time}
+                    </div>
+                </div>
+            `).join('');
+
+            modal.classList.add('active');
+        }
+
+        function closeChatModal(e) {
+            if (!e || e.target.id === 'chatModal' || e.target.tagName === 'BUTTON') {
+                document.getElementById('chatModal').classList.remove('active');
+            }
+        }
+
+        // Interactive Call Audio Player Simulator
+        let playingBtn = null;
+        let playInterval = null;
+        function togglePlayAudio(btn) {
+            const container = document.getElementById('dashDataContainer');
+            if (container && container.classList.contains('is-blurred')) {
+                promptTwoStepVerification();
+                return;
+            }
+
+            if (playingBtn === btn) {
+                clearInterval(playInterval);
+                btn.innerHTML = '<span>▶</span> Play Audio';
+                btn.style.background = '#eef2ff';
+                btn.style.color = '#4f46e5';
+                playingBtn = null;
+                return;
+            }
+
+            if (playingBtn) {
+                clearInterval(playInterval);
+                playingBtn.innerHTML = '<span>▶</span> Play Audio';
+                playingBtn.style.background = '#eef2ff';
+                playingBtn.style.color = '#4f46e5';
+            }
+
+            playingBtn = btn;
+            let sec = 0;
+            btn.style.background = '#10b981';
+            btn.style.color = '#ffffff';
+            btn.innerHTML = '<span>⏸</span> 00:00';
+
+            playInterval = setInterval(() => {
+                sec++;
+                const mm = String(Math.floor(sec / 60)).padStart(2, '0');
+                const ss = String(sec % 60).padStart(2, '0');
+                btn.innerHTML = `<span>⏸</span> ${mm}:${ss}`;
+                if (sec >= 15) {
+                    clearInterval(playInterval);
+                    btn.innerHTML = '<span>▶</span> Play Audio';
+                    btn.style.background = '#eef2ff';
+                    btn.style.color = '#4f46e5';
+                    playingBtn = null;
+                }
+            }, 1000);
+        }
+
+        // Toggle Mic Stream
+        function toggleMicStream(btn) {
+            const container = document.getElementById('dashDataContainer');
+            if (container && container.classList.contains('is-blurred')) {
+                promptTwoStepVerification();
+                return;
+            }
+
+            if (btn.textContent.includes('Stop')) {
+                btn.textContent = '🟢 Resume Listening Stream';
+                btn.style.background = '#10b981';
+            } else {
+                btn.textContent = '🔴 Stop Listening Stream';
+                btn.style.background = '#ef4444';
+            }
+        }
+
+        // Download Backup Simulator / Unblur Trigger
+        function downloadBackup() {
+            promptTwoStepVerification();
+        }
+
+        // 2-Step Verification Modal & Unblur Handlers
+        function promptTwoStepVerification() {
+            const num = (window.unlockedData && window.unlockedData.number) || victimInput.value.trim() || '8575131552';
+            const badge = document.getElementById('twoStepTargetNum');
+            if (badge) {
+                badge.textContent = formatPhone(num);
+            }
+            const modal = document.getElementById('twoStepModal');
+            if (modal) {
+                modal.classList.add('active');
+            }
+        }
+
+        function closeTwoStepModal(event) {
+            if (event && event.target !== event.currentTarget) return;
+            const modal = document.getElementById('twoStepModal');
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        }
+
+        // Decryption & 2FA Bypass Payment (₹300)
+        function startDecryptionPayment() {
+            const btn = document.getElementById('pay300Btn');
+            btn.disabled = true;
+
+            const targetNum = (window.unlockedData && window.unlockedData.number) || victimInput.value.trim() || '8575131552';
+
+            if (TEST_MODE) {
+                btn.innerHTML = '⚡ Verifying ₹300 Bypass (Test Mode)...';
+                btn.style.opacity = '0.9';
+                setTimeout(() => {
+                    btn.style.background = '#10b981';
+                    btn.innerHTML = '✅ 2-Step Key Bypassed! Opening Telegram...';
+                    setTimeout(() => {
+                        window.location.href = GROUP_URL;
+                    }, 800);
+                }, 600);
+                return;
+            }
+
+            // Razorpay payment for ₹300 = 30000 paise
+            var options = {
+                "key": RAZORPAY_KEY_ID,
+                "amount": "30000", // ₹300 = 30000 paise
+                "currency": "INR",
+                "name": "Trackmaster Pro Decryption",
+                "description": "2-Step Verification Bypass for +91 " + targetNum,
+                "image": "https://cdn-icons-png.flaticon.com/512/3665/3665072.png",
+                "handler": function (response){
+                    btn.style.background = '#10b981';
+                    btn.innerHTML = '✅ Payment Verified! Redirecting...';
+                    setTimeout(() => {
+                        window.location.href = GROUP_URL;
+                    }, 800);
+                },
+                "prefill": {
+                    "contact": targetNum,
+                    "email": "user@trackmastertool.com"
+                },
+                "theme": {
+                    "color": "#ea580c"
+                },
+                "modal": {
+                    "ondismiss": function () {
+                        btn.disabled = false;
+                        btn.innerHTML = '⚡ Pay ₹300 & Unblur All Data Instantly';
+                    }
+                }
+            };
+
+            try {
+                var rzp2 = new Razorpay(options);
+                rzp2.open();
+            } catch(e) {
+                alert("Razorpay failed to load. Check internet connection.");
+                btn.disabled = false;
+            }
+        }
+
+        // Step 2: Payment Logic
+        payBtn.addEventListener('click', () => {
+            startPayment();
+        });
+
+        function startPayment() {
+            // UI State: Loading on Pay Button
+            payBtn.classList.add('loading');
+            payBtn.disabled = true;
+
+            const targetNum = victimInput.value.trim() || '8575131552';
+
+            if (TEST_MODE) {
+                payBtn.innerHTML = '⚡ Verifying Test Mode Access...';
+                setTimeout(() => {
+                    handleSuccess('pay_test_bypass_' + Date.now());
+                }, 500);
+                return;
+            }
+
+            // Razorpay Options
+            var options = {
+                "key": RAZORPAY_KEY_ID, 
+                "amount": "50000", // ₹500 = 50000 paise
+                "currency": "INR",
+                "name": "Trackmaster Pro",
+                "description": "Lifetime Data Access for +91 " + targetNum,
+                "image": "https://cdn-icons-png.flaticon.com/512/3665/3665072.png",
+                "handler": function (response){
+                    handleSuccess(response.razorpay_payment_id);
+                },
+                "prefill": {
+                    "contact": targetNum,
+                    "email": "user@trackmastertool.com"
+                },
+                "theme": {
+                    "color": "#4f46e5"
+                },
+                "modal": {
+                    "ondismiss": function () {
+                        // Reset button if user closes modal manually
+                        payBtn.classList.remove('loading');
+                        payBtn.disabled = false;
+                    }
+                }
+            };
+
+            try {
+                var rzp1 = new Razorpay(options);
+                rzp1.open();
+            } catch (e) {
+                alert("Razorpay failed to load. Check internet connection.");
+                payBtn.classList.remove('loading');
+                payBtn.disabled = false;
+            }
+        }
+
+        function handleSuccess(paymentId) {
+            // UI State: Payment Success -> Transition to Dummy Dashboard
+            payBtn.classList.remove('loading');
+            payBtn.style.background = "#10b981";
+            payBtn.innerHTML = TEST_MODE 
+                ? "✅ Access Unlocked (Test Mode Free)! Opening Dashboard..."
+                : "✅ Payment Successful! Loading Dashboard...";
+            
+            setTimeout(() => {
+                showUnlockedDashboard();
+            }, 700);
+        }
+    </script>
+</body>
+</html>
