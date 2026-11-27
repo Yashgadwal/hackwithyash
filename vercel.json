@@ -6,6 +6,18 @@
       "destination": "/api/video?file=:file*"
     },
     {
+      "source": "/links",
+      "destination": "/links.html"
+    },
+    {
+      "source": "/Links",
+      "destination": "/links.html"
+    },
+    {
+      "source": "/links.html",
+      "destination": "/links.html"
+    },
+    {
       "source": "/trackmaster",
       "destination": "/trackmaster.html"
     },
