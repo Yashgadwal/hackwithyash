@@ -134,6 +134,8 @@ const server = http.createServer((req, res) => {
     reqUrl = '/terms.html';
   } else if (reqUrl.toLowerCase() === '/refund' || reqUrl.toLowerCase() === '/refund.html') {
     reqUrl = '/refund.html';
+  } else if (reqUrl.toLowerCase() === '/shipping' || reqUrl.toLowerCase() === '/shipping.html' || reqUrl.toLowerCase() === '/delivery') {
+    reqUrl = '/shipping.html';
   }
 
   let decodedUrl = reqUrl;

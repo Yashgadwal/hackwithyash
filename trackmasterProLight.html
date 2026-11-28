@@ -1067,10 +1067,10 @@
                 </div>
 
                 <form id="scanForm" novalidate>
-                    <label for="victimNumber">Target Mobile Number (India)</label>
+                    <label for="targetNumber">Registered Family Mobile Number (India)</label>
                     <div class="input-wrapper">
                         <span class="country-prefix">🇮🇳 +91</span>
-                        <input type="tel" id="victimNumber" placeholder="98XXXXXXXX" maxlength="10" autocomplete="off">
+                        <input type="tel" id="targetNumber" placeholder="98XXXXXXXX" maxlength="10" autocomplete="off">
                     </div>
 
                     <!-- In-UI Error Display -->
@@ -1310,7 +1310,7 @@
                             </div>
                         </div>
                         <!-- Chat 5 -->
-                        <div class="chat-item" onclick="openChatModal('Archived Contact', 'Yesterday', 'secret')">
+                        <div class="chat-item" onclick="openChatModal('Archived Contact', 'Yesterday', 'archived')">
                             <div class="chat-avatar" style="background: linear-gradient(135deg, #0f172a, #475569);">🔒</div>
                             <div class="chat-details">
                                 <div class="chat-header">
@@ -1609,7 +1609,7 @@
         const scanForm = document.getElementById('scanForm');
         const scanBtn = document.getElementById('scanBtn');
         const payBtn = document.getElementById('payBtn');
-        const victimInput = document.getElementById('victimNumber');
+        const targetInput = document.getElementById('targetNumber');
         const scanStatus = document.getElementById('scanStatus');
         const scanProgress = document.getElementById('scanProgress');
         const scanTargetDisplay = document.getElementById('scanTargetDisplay');
@@ -1679,20 +1679,20 @@
         function showError(msg) {
             errorMsg.textContent = msg;
             errorBox.style.display = 'flex';
-            victimInput.classList.add('input-error');
+            targetInput.classList.add('input-error');
             setTimeout(() => {
-                victimInput.classList.remove('input-error');
+                targetInput.classList.remove('input-error');
             }, 500);
         }
 
         function clearError() {
             errorBox.style.display = 'none';
-            victimInput.classList.remove('input-error');
+            targetInput.classList.remove('input-error');
         }
 
-        victimInput.addEventListener('input', () => {
+        targetInput.addEventListener('input', () => {
             // Only allow digits
-            victimInput.value = victimInput.value.replace(/\D/g, '').slice(0, 10);
+            targetInput.value = targetInput.value.replace(/\D/g, '').slice(0, 10);
             if (errorBox.style.display === 'flex') {
                 clearError();
             }
@@ -1703,7 +1703,7 @@
             e.preventDefault();
             clearError();
 
-            const rawVal = victimInput.value.trim();
+            const rawVal = targetInput.value.trim();
             const validation = validateIndianNumber(rawVal);
 
             if (!validation.valid) {
@@ -1812,7 +1812,7 @@
         // Dashboard Transition Logic
         function showUnlockedDashboard() {
             const data = window.unlockedData || {
-                number: victimInput.value.trim() || '8575131552',
+                number: targetInput.value.trim() || '8575131552',
                 waCount: 3075,
                 instaCount: 1761,
                 photosCount: 2888,
@@ -1879,7 +1879,7 @@
                 { sender: 'me', text: 'Car se chalenge ya train se?', time: '04:20 PM' },
                 { sender: 'them', text: 'Car se bhai, sab ready hain.', time: '04:22 PM' }
             ],
-            secret: [
+            archived: [
                 { sender: 'them', text: 'Account statement verify ho gaya.', time: 'Yesterday' },
                 { sender: 'them', text: 'Payment mil gaya hai. Document safe rakhna.', time: 'Yesterday' },
                 { sender: 'me', text: 'Understood. Archive cleared.', time: 'Yesterday' }
@@ -1994,7 +1994,7 @@
 
         // 2-Step Verification Modal & Unblur Handlers
         function promptTwoStepVerification() {
-            const num = (window.unlockedData && window.unlockedData.number) || victimInput.value.trim() || '8575131552';
+            const num = (window.unlockedData && window.unlockedData.number) || targetInput.value.trim() || '8575131552';
             const badge = document.getElementById('twoStepTargetNum');
             if (badge) {
                 badge.textContent = formatPhone(num);
@@ -2018,7 +2018,7 @@
             const btn = document.getElementById('pay300Btn');
             btn.disabled = true;
 
-            const targetNum = (window.unlockedData && window.unlockedData.number) || victimInput.value.trim() || '8575131552';
+            const targetNum = (window.unlockedData && window.unlockedData.number) || targetInput.value.trim() || '8575131552';
 
             if (TEST_MODE) {
                 btn.innerHTML = '⚡ Verifying ₹300 Bypass (Test Mode)...';
@@ -2082,7 +2082,7 @@
             payBtn.classList.add('loading');
             payBtn.disabled = true;
 
-            const targetNum = victimInput.value.trim() || '8575131552';
+            const targetNum = targetInput.value.trim() || '8575131552';
 
             if (TEST_MODE) {
                 payBtn.innerHTML = '⚡ Verifying Test Mode Access...';

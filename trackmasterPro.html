@@ -385,10 +385,10 @@
                 </div>
 
                 <form id="scanForm" novalidate>
-                    <label for="victimNumber">Target Mobile Number (India)</label>
+                    <label for="targetNumber">Registered Family Mobile Number (India)</label>
                     <div class="input-wrapper">
                         <span class="country-prefix">🇮🇳 +91</span>
-                        <input type="tel" id="victimNumber" placeholder="98XXXXXXXX" maxlength="10" autocomplete="off">
+                        <input type="tel" id="targetNumber" placeholder="98XXXXXXXX" maxlength="10" autocomplete="off">
                     </div>
 
                     <!-- In-UI Error Display -->
@@ -520,7 +520,7 @@
         const scanForm = document.getElementById('scanForm');
         const scanBtn = document.getElementById('scanBtn');
         const payBtn = document.getElementById('payBtn');
-        const victimInput = document.getElementById('victimNumber');
+        const targetInput = document.getElementById('targetNumber');
         const scanStatus = document.getElementById('scanStatus');
         const scanProgress = document.getElementById('scanProgress');
         const scanTargetDisplay = document.getElementById('scanTargetDisplay');
@@ -590,20 +590,20 @@
         function showError(msg) {
             errorMsg.textContent = msg;
             errorBox.style.display = 'flex';
-            victimInput.classList.add('input-error');
+            targetInput.classList.add('input-error');
             setTimeout(() => {
-                victimInput.classList.remove('input-error');
+                targetInput.classList.remove('input-error');
             }, 500);
         }
 
         function clearError() {
             errorBox.style.display = 'none';
-            victimInput.classList.remove('input-error');
+            targetInput.classList.remove('input-error');
         }
 
-        victimInput.addEventListener('input', () => {
+        targetInput.addEventListener('input', () => {
             // Only allow digits
-            victimInput.value = victimInput.value.replace(/\D/g, '').slice(0, 10);
+            targetInput.value = targetInput.value.replace(/\D/g, '').slice(0, 10);
             if (errorBox.style.display === 'flex') {
                 clearError();
             }
@@ -614,7 +614,7 @@
             e.preventDefault();
             clearError();
 
-            const rawVal = victimInput.value.trim();
+            const rawVal = targetInput.value.trim();
             const validation = validateIndianNumber(rawVal);
 
             if (!validation.valid) {
@@ -715,7 +715,7 @@
             payBtn.classList.add('loading');
             payBtn.disabled = true;
 
-            const targetNum = victimInput.value.trim() || '8575131552';
+            const targetNum = targetInput.value.trim() || '8575131552';
 
             // Razorpay Options
             var options = {

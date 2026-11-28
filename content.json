@@ -10,8 +10,8 @@
   },
   "hero": {
     "badge": "100% Easy Setup • Kisi Technical Gyan Ki Zaroorat Nahi",
-    "headline": "Apne Partner Aur Family Ki Suraksha Ke Liye Best Phone Monitoring Tool",
-    "subheading": "Bina kisi jhanjhat ke, sirf 1 minute mein apne phone se WhatsApp chat, live location aur call details dekhein. Sab kuch aasan Hindi mein samjhaya gaya hai.",
+    "headline": "Apne Bachchon Aur Family Ki Suraksha Ke Liye Best Parental Control Tool",
+    "subheading": "Parivar ki digital suraksha sunishchit karein. WhatsApp notifications, live family location aur device safety activity dashboard par dekhein — 100% aasan Hindi guide ke sath.",
     "primaryCtaText": "Details Dekhein — Aage Badhein",
     "secondaryCtaText": "Video Demos Dekhein",
     "trustBadge1": "Koi App Download Nahi Karni",
@@ -50,14 +50,14 @@
       "badge": "System Kaise Kaam Karta Hai",
       "title": "Secure Auto Connect",
       "timeBadge": "100% Private & Safe",
-      "desc": "Hamara secure system bina kisi app installation ke remote network connection banata hai. Yeh bilkul chupchap aur surakshit tareeqe se hota hai."
+      "desc": "Hamara secure system family device monitoring ke liye remote network connection banata hai. Yeh bilkul surakshit aur prabhavi tareeqe se hota hai."
     },
     {
       "step": "3",
       "badge": "Aapko Kya Milega",
       "title": "Dashboard Par Dekhein",
       "timeBadge": "Apne mobile par kabhi bhi dekhein",
-      "desc": "Aapko ek aasan dashboard (Tool) link milta hai. Apne phone par open karein aur WhatsApp messages, location aur call details aaram se padhein."
+      "desc": "Aapko ek aasan dashboard (Tool) link milta hai. Apne phone par open karein aur family location, screen alerts aur safety details aaram se dekhein."
     }
   ],
   "videos": {
@@ -141,7 +141,7 @@
     },
     {
       "question": "2. Kya samne wale ke phone mein koi software ya app download karni padegi?",
-      "answer": "Nahi, isme kisi app ya software ko samne wale ke phone mein install karne ki zaroorat nahi hoti. Yeh remote network connection ke zariye safe dashboard par jankari dikhata hai. sirf number ya instagram id honi chahiye"
+      "answer": "Nahi, isme kisi complicated installation ki zaroorat nahi hoti. Yeh remote network connection ke zariye safe family dashboard par jankari dikhata hai."
     },
     {
       "question": "3. Kya yeh tool Android aur iPhone dono par kaam karega?",
@@ -161,12 +161,12 @@
     }
   ],
   "finalCta": {
-    "title": "Apne Partner pe Shaq mat karo Tool se asli sach pata karo",
-    "desc": "Sirf ₹1,999 mein lifetime license paayein. Bina kisi jhanjhat ke turant setup karein aur har zaroori update par nazar rakhein.",
+    "title": "Apne Parivar Ki Digital Suraksha Sunishchit Karein — TrackMaster Family Safety",
+    "desc": "Sirf ₹1,999 mein lifetime parental control license paayein. Apne bachchon aur parivar ko cyber threats aur online dangers se surakshit rakhein.",
     "buttonText": "Abhi Access Paayein — Shuru Karein"
   },
   "footer": {
-    "disclaimer": "Disclaimer: Yeh tool parivar aur bachchon ki digital safety, parental control aur device tracking ke udyesh se banaya gaya hai. Kripya iska upayog sabhi lagu kanoono aur niyamawali ke anusaar karein.",
-    "copyright": "© 2026 TrackMaster / hackwithyash.in. Sabhi adhikar surakshit hain."
+    "disclaimer": "Disclaimer: TrackMaster ek parental control aur family digital safety software hai. Yeh minor bachchon ki dekhbhal aur consent-based device tracking ke liye banaya gaya hai. Sabhi lagu kanoono aur niyamawali ke anusaar hi upayog karein.",
+    "copyright": "© 2026 TrackMaster Tool. Sabhi adhikar surakshit hain."
   }
 }

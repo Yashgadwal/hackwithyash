@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping & Delivery Policy — TrackMaster Tool</title>
+  <meta name="description" content="Digital product shipping and delivery policy for TrackMaster. Instant 5-10 minute electronic delivery via WhatsApp & Email with zero delivery charges.">
+  <link rel="canonical" href="https://trackmastertool.vercel.app/shipping.html">
+  <link rel="icon" type="image/png" href="images/trackmaster_tool_logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trackmastertool.vercel.app/shipping.html">
+  <meta property="og:title" content="Shipping & Delivery Policy — TrackMaster Tool">
+  <meta property="og:description" content="Digital product delivery policy for TrackMaster software. Instant electronic delivery within 5-10 minutes.">
+  <meta property="og:image" content="https://trackmastertool.vercel.app/images/cover_setup_guide.jpg">
+
+  <!-- Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              deep: '#1F1037',
+              royal: '#5B21B6',
+              violet: '#7C3AED',
+              bgMain: '#FFFFFF',
+              bgAlt: '#F8F7FC',
+              textMain: '#211B2B',
+              textSec: '#625B6B',
+              border: '#E8E3EF',
+              softPurple: '#EDE9FE',
+              highlight: '#F3E8FF'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    #pageProgressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #5B21B6, #7C3AED, #06b6d4, #10b981);
+      box-shadow: 0 0 10px rgba(91, 33, 182, 0.8), 0 0 5px rgba(16, 185, 129, 0.6);
+      z-index: 99999;
+      pointer-events: none;
+      transition: width 0.25s ease, opacity 0.35s ease;
+    }
+  </style>
+</head>
+<body class="bg-brand-bgAlt text-brand-textMain font-sans flex flex-col min-h-screen">
+  <div id="pageProgressBar"></div>
+  <script>
+    (function(){
+      var bar = document.getElementById('pageProgressBar');
+      if (bar) {
+        bar.style.width = '35%';
+        document.addEventListener('DOMContentLoaded', function(){ bar.style.width = '75%'; });
+        window.addEventListener('load', function(){
+          bar.style.width = '100%';
+          setTimeout(function(){
+            bar.style.opacity = '0';
+            setTimeout(function(){ if(bar && bar.parentNode) bar.parentNode.removeChild(bar); }, 400);
+          }, 250);
+        });
+      }
+    })();
+  </script>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-brand-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl p-0.5 bg-gradient-to-tr from-brand-deep to-brand-royal shadow-sm">
+          <img src="images/trackmaster_tool_logo.png" alt="TrackMaster Logo" class="w-full h-full rounded-xl object-contain bg-black">
+        </div>
+        <span class="text-xl font-extrabold tracking-tight text-brand-textMain">TrackMaster</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-brand-textSec">
+        <a href="/" class="hover:text-brand-royal transition-colors">Home</a>
+        <a href="/#benefits" class="hover:text-brand-royal transition-colors">Features</a>
+        <a href="/#video-demo" class="hover:text-brand-royal transition-colors">Demos</a>
+        <a href="/#pricing" class="hover:text-brand-royal transition-colors">Pricing</a>
+        <a href="/about.html" class="hover:text-brand-royal transition-colors">About Us</a>
+        <a href="/contact.html" class="hover:text-brand-royal transition-colors">Contact</a>
+        <a href="/faq.html" class="hover:text-brand-royal transition-colors">FAQ</a>
+      </nav>
+      <a href="https://pages.razorpay.com/pl_S9MzxZBz4DDAg6/view" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-brand-deep via-brand-royal to-brand-violet hover:opacity-95 shadow-md">
+        Instant Access
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow py-12 sm:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Title Badge -->
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+          Digital Fulfillment
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-brand-textMain mt-3 mb-3">
+          Shipping &amp; Delivery Policy
+        </h1>
+        <p class="text-brand-textSec text-base leading-relaxed">
+          TrackMaster digital software products ke fulfillment aur delivery ki poori jankari.
+        </p>
+      </div>
+
+      <!-- Policy Card -->
+      <div class="bg-white p-8 sm:p-12 rounded-3xl border border-brand-border shadow-sm space-y-6 leading-relaxed text-brand-textSec text-sm sm:text-base mb-12">
+        
+        <div>
+          <h2 class="text-lg font-bold text-brand-textMain mb-2">1. Nature of Product (Digital Goods)</h2>
+          <p>
+            TrackMaster ek 100% cloud-based software service (SaaS) aur digital product hai. Is service ke antargat koi physical courier, CD, DVD ya hardware parcel deliver nahi kiya jata hai. Sabhi delivery electronic/digital format me hoti hai.
+          </p>
+        </div>
+
+        <hr class="border-brand-border">
+
+        <div>
+          <h2 class="text-lg font-bold text-brand-textMain mb-2">2. Delivery Method &amp; Channels</h2>
+          <p class="mb-2">
+            Jaise hi aapka payment Razorpay ke madhyam se successfully complete hota hai, hamara automated system delivery initiate karta hai:
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm">
+            <li><strong>Registered WhatsApp:</strong> Aapke dwara payment ke dauran enter kiye gaye WhatsApp number par direct software dashboard link aur login credentials bhej diye jaate hain.</li>
+            <li><strong>Registered Email:</strong> Aapki registered email ID par official invoice, license key aur detailed setup instruction guide deliver ki jaati hai.</li>
+          </ul>
+        </div>
+
+        <hr class="border-brand-border">
+
+        <div>
+          <h2 class="text-lg font-bold text-brand-textMain mb-2">3. Delivery Timeline (Delivery Timeframe)</h2>
+          <p class="mb-2">
+            Hum instant fulfillment provide karte hain:
+          </p>
+          <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs sm:text-sm">
+            <strong>Standard Delivery Time:</strong> Payment verification ke <strong>5 se 10 minute ke bheetar</strong> aapko digital license aur setup access mil jata hai.
+          </div>
+        </div>
+
+        <hr class="border-brand-border">
+
+        <div>
+          <h2 class="text-lg font-bold text-brand-textMain mb-2">4. Shipping &amp; Delivery Charges</h2>
+          <p>
+            Digital product hone ke karan TrackMaster par kisi bhi prakar ka shipping charge, packaging charge, ya handling fee <strong>nahi</strong> lagti hai. <strong>Delivery Charge: ₹0 (Bilkul Nishulk)</strong>.
+          </p>
+        </div>
+
+        <hr class="border-brand-border">
+
+        <div>
+          <h2 class="text-lg font-bold text-brand-textMain mb-2">5. Delivery Issues &amp; Re-dispatch Assistance</h2>
+          <p class="mb-3">
+            Yadi payment ke baad 15 minute ke bheetar aapko WhatsApp ya Email par digital access prapt nahi hota hai (jaise spam filter ya galat mobile number enter hone ke karan):
+          </p>
+          <ol class="list-decimal pl-5 space-y-2 text-xs sm:text-sm">
+            <li>Hamare 24/7 dedicated support number: <strong>+91 9111814338</strong> par WhatsApp karein.</li>
+            <li>Apna payment screenshot aur Razorpay Payment ID share karein.</li>
+            <li>Hamari support team 10 minute me verify karke manual link re-dispatch kar degi.</li>
+          </ol>
+        </div>
+
+        <hr class="border-brand-border">
+
+        <div>
+          <h2 class="text-lg font-bold text-brand-textMain mb-2">6. Contact for Delivery Queries</h2>
+          <div class="text-xs sm:text-sm space-y-1">
+            <p><strong>Business Name:</strong> TrackMaster Tool</p>
+            <p><strong>Operating Address:</strong> Freeganj, Ujjain, Madhya Pradesh - 456001, India</p>
+            <p><strong>Email:</strong> <a href="mailto:technicalyg@gmail.com" class="text-brand-royal hover:underline font-semibold">technicalyg@gmail.com</a></p>
+            <p><strong>WhatsApp Support:</strong> <a href="https://wa.me/919111814338" class="text-brand-royal hover:underline font-semibold">+91 9111814338</a></p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-brand-border py-12 text-sm text-brand-textSec">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-brand-border">
+        <div class="flex items-center gap-3">
+          <img src="images/trackmaster_tool_logo.png" alt="TrackMaster" class="w-8 h-8 rounded-lg object-contain bg-black">
+          <span class="font-bold text-base text-brand-textMain">TrackMaster Tool</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 text-xs sm:text-sm font-semibold">
+          <a href="/" class="hover:text-brand-royal transition-colors">Home</a>
+          <a href="/about.html" class="hover:text-brand-royal transition-colors">About Us</a>
+          <a href="/contact.html" class="hover:text-brand-royal transition-colors">Contact</a>
+          <a href="/faq.html" class="hover:text-brand-royal transition-colors">FAQ</a>
+          <a href="/privacy.html" class="hover:text-brand-royal transition-colors">Privacy Policy</a>
+          <a href="/terms.html" class="hover:text-brand-royal transition-colors">Terms of Service</a>
+          <a href="/refund.html" class="hover:text-brand-royal transition-colors">Refund Policy</a>
+          <a href="/shipping.html" class="hover:text-brand-royal transition-colors">Delivery Policy</a>
+        </div>
+      </div>
+      <div class="pt-8 text-center text-xs text-brand-textSec/80 space-y-2">
+        <p><strong>Legal Disclaimer:</strong> TrackMaster parivar ki suraksha, parental control aur authorized device tracking ke udyesh se banaya gaya software hai. Kisi vyakti ki anumati ke bina unauthorized surveillance kanoonan dandniya hai.</p>
+        <p>&copy; 2026 TrackMaster Tool. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
